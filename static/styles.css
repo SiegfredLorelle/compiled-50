@@ -47,19 +47,41 @@
     
 }
 
-#title-footer {
+#title-footer a{
     font-family: 'Bebas Neue', cursive;
     color: white;
+    position: relative;
+    text-decoration: none;
 }
 
 footer ul .nav-item a {
     color: white;
+    position: relative;
+    text-decoration: none;
 }
 
 #title-footer a:hover, .nav-item a:hover {
-    color: gray;
+    color: white;
 }
 
+#title-footer a::before, .nav-item a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  
+  #title-footer a:hover::before, .nav-item a:hover::before {
+  transform: scaleX(1);
+}
 footer p {
     color: white;
 }
+
