@@ -1,0 +1,41 @@
+#title-container {
+    height:90vh;
+    width: 100%; 
+}
+
+#title-container .side {
+    height:90vh;
+    width: 100%;    
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+    position: absolute;
+}
+
+#title-container #left-side {
+    background-color: black;
+    color: white;
+    z-index: 2;
+}
+
+#title-container #right-side {
+    background-color: white;
+    color: black;
+}
+
+.side .title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 8vw;
+    margin: 0px 15vw;
+    width: 70vw;
+}
+
+ .side .description {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2vw;
+    line-height: 0.8em;
+    margin: 0px 15vw;
+    width: 70vw;
+}

@@ -45,7 +45,7 @@ def promotional():
         return render_template("promotional.html")
 
 
+# Add nav bar and carousel to promotional
 
 
-
-# Special thanks to cs50
+# Special thanks to cs50, Hyperplexed for the inspiration
