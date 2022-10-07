@@ -44,11 +44,11 @@ def promotional():
     else:
         return render_template("promotional.html")
 
+# WORK ON BRANCH - git checkout -b "test"
 
 # Promotional page
 # Add nav bar with login and signup
 # Add modal when clicking carousel that enter as guest
-# Change footer to underline instead of change color
 # Put links to footer
 # img with handlebar for mobile in the title
 
