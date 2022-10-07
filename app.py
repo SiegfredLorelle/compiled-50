@@ -45,7 +45,11 @@ def promotional():
         return render_template("promotional.html")
 
 
-# Add nav bar and carousel to promotional
+# Promotional page
+# Add nav bar with login and signup
+# Add modal when clicking carousel that enter as guest
+# Change footer to underline instead of change color
+# Put links to footer
+# img with handlebar for mobile in the title
 
-
-# Special thanks to cs50, Hyperplexed for the inspiration
+# Special thanks to cs50, Hyperplexed and Superlist for the inspiration

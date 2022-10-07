@@ -1,10 +1,10 @@
 #title-container {
-    height:90vh;
+    height:95vh;
     width: 100%; 
 }
 
 #title-container .side {
-    height:90vh;
+    height:95vh;
     width: 100%;    
 
     display: grid;
@@ -38,4 +38,28 @@
     line-height: 0.8em;
     margin: 0px 15vw;
     width: 70vw;
+}
+
+
+#sample-projects {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    
+}
+
+#title-footer {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+}
+
+footer ul .nav-item a {
+    color: white;
+}
+
+#title-footer a:hover, .nav-item a:hover {
+    color: gray;
+}
+
+footer p {
+    color: white;
 }

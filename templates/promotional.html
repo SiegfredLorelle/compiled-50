@@ -26,6 +26,7 @@
     </head>
 
     <body>
+
         <div id="title-container">
             <div id="left-side" class="side"> 
                 <h2 class="title">
@@ -41,9 +42,65 @@
             </div>
         </div>
         
-
-        <h1>Ti</h1>
         
+        <div class="container-fluid p-5 text-center">
+            <div class="pb-4">
+                <h1 id="sample-projects">Sample Projects</h1>
+            </div>
+            
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="static/images/1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="static/images/2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="static/images/3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        
+        <div class="container-fluid p-5 bg-dark">
+            <footer>
+                <h4  id="title-footer"><a>CS50 Compiled</h4>
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a class="nav-link px-2" href="">Github</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="">Facebook</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="">LinkedIn</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="">Contact Us</a></li>
+                </ul>
+                <p class="text-center">© 2021 Siegfred Lorelle Mina</p>
+            </footer>
+        </div>       
 
         <script src="/static/script.js"></script>
+
     </body>
