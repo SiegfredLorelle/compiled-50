@@ -1,6 +1,11 @@
-/* nav {
-    background-color: rgba(100%, 0, 0, 0)!important;
-} */
+.nav-header {
+    place-items: start;
+    list-style: none;
+}
+
+#navbarDropdown {
+    color: white;
+}
 
 #title-container {
     height:95vh;
@@ -12,7 +17,7 @@
     width: 100%;    
 
     display: grid;
-    place-items: center;
+    /* place-items: center; */
 
     overflow: hidden;
     position: absolute;
@@ -64,11 +69,11 @@ footer ul .nav-item a {
     text-decoration: none;
 }
 
-#title-footer a:hover, .nav-item a:hover {
+ #title-footer a:hover, footer ul .nav-item a:hover {
     color: white;
 }
 
-#title-footer a::before, .nav-item a::before {
+ #title-footer a::before, footer ul .nav-item a::before {
     content: "";
     position: absolute;
     display: block;
@@ -82,9 +87,10 @@ footer ul .nav-item a {
   }
 
   
-  #title-footer a:hover::before, .nav-item a:hover::before {
-  transform: scaleX(1);
+#title-footer a:hover::before, footer ul .nav-item a:hover::before {
+    transform: scaleX(1);
 }
+
 footer p {
     color: white;
 }
