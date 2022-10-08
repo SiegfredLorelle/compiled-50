@@ -155,3 +155,8 @@ footer p {
 .navbar-light .navbar-nav .nav-link:hover::before, .container-fluid #title:hover::before {
     transform: scaleX(1);
 }
+
+/* Specific htmls */
+#mario-header {
+    font-family: 'Silkscreen', cursive;
+}
