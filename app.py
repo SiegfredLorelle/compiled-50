@@ -30,31 +30,42 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-@app.route("/")
-@login_required
-def index():
-    """Show portfolio of stocks"""
 
-@app.route("/promotional", methods=["GET", "POST"])
-def promotional():
-    """Load promotional page that allows log in and sign-in"""
+@app.route("/", methods=["GET", "POST"])
+def index():
+    """Load homepage that allows user to go to other pages"""
     if request.method == "POST":
         pass
 
     else:
-        return render_template("promotional.html")
+        return render_template("index.html")
+
+
+@app.route("/mario", methods=["GET", "POST"])
+def mario():
+    """sda"""
+    if request.method == "POST":
+        pass
+
+    else:
+        return render_template("mario.html")
+
 
 
 
 # WORK ON BRANCH - git checkout -b "test"
 
-# Promotional page
+# homepage page
+# Add limit to how much it can drag kasi lumalagpas kapag mobile tapos sobra sa drag
 # Add modal when clicking carousel that enter as guest
+# turn off ung on click sa buttons ng nav
+# itry ung if and else ng mobile and pc para maayos ung nav bar
 # Put links to footer
-# Change promotional to homepage
 
-# Start working on layout.html
+# Start working on mario.html
+# Start working on login and sign up maybe via modals nlng
 # Plan out what projects are needed to be done
+# mario, credit, ...
 
 
 # Special thanks to cs50, Hyperplexed and Superlist for the inspiration
