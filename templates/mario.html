@@ -5,5 +5,15 @@
 {% endblock %}
 
 {% block main %}
-  <h2>TEST MARIO</h2>
+  <h1 class="py-3" id="mario-header">MARIO</h1>
+  <p>Creates a pyramid similar to the popular game, SUPER MARIO BROS.</p><br>
+
+  <form action="/mario" method="post">
+    <label class="form-label">Height of Pyramid</label>
+    <input autocomplete="off"  class="form-control mx-auto w-auto" id=height name=height placeholder="1-8" required type="number">
+    <button class="btn btn-dark m-3" type="submit">Create Pyramid</button>
+  </form>
+
+
+
 {% endblock %}
