@@ -55,7 +55,7 @@ def mario():
 
 
         flash("Worked", "information")
-        return render_template("mario.html")
+        return render_template("marioed.html")
         
 
     else:
