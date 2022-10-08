@@ -12,6 +12,20 @@
     width: 100%; 
 }
 
+/* li #navbarDropdown, #nav-button {
+    background-color: gray;
+} */
+
+#left-side .nav-header nav .container-fluid li a, #nav-button-left {
+    background-color: rgb(55, 55, 55);
+    color: white;
+}
+
+#right-side .nav-header nav .container-fluid li a, #nav-button-right {
+    background-color: rgb(200, 200, 200);
+    color: black;
+}
+
 #title-container .side {
     height:95vh;
     width: 100%;    
