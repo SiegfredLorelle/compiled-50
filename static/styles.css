@@ -160,3 +160,23 @@ footer p {
 #mario-header {
     font-family: 'Silkscreen', cursive;
 }
+
+#mario-block {
+    width: 100% ;
+    /* max-width:50px; use this if 1height */
+    height: auto;
+}
+
+/* #mario-cell {
+    white-space:nowrap;
+} */
+/* #mario-table {
+    height: 500px;
+    
+} */
+
+/* #mario-table {
+    width: px;
+
+
+} */

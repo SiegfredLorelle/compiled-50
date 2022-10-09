@@ -8,15 +8,21 @@
   <h1 class="py-3" id="mario-header">MARIO</h1>
   <p>Creates a pyramid similar to the popular game, SUPER MARIO BROS.</p><br>
 
-  <table class="table table-borderless">
-    <tr>
-        <th class="p-0"><img alt="" src="static/images/mario-block.png"></th>
-    </tr>
-    
+    <table class="table table-borderless" id="mario-table">
+      <tbody>
+        {% for i in range(height) %}
+            <tr >
+            {% for j in range(height) %}
+              <td class="p-0" id="mario-cell"><img alt="" id="mario-block" src="static/images/mario-block.png"></td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
     <!-- <tr>
         <th class="p-0"><img alt="" src="static/images/mario-block.png"></th>
     </tr>    -->
-  </table>
+  
 
   <form action="/mario" method="post">
     <label class="form-label">Height of Pyramid</label>
