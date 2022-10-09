@@ -163,20 +163,12 @@ footer p {
 
 #mario-block {
     width: 100% ;
-    /* max-width:50px; use this if 1height */
     height: auto;
 }
 
-/* #mario-cell {
-    white-space:nowrap;
-} */
-/* #mario-table {
-    height: 500px;
-    
-} */
 
-/* #mario-table {
-    width: px;
-
-
-} */
+#mario-empty-block {
+    filter: brightness(1000);
+    width: 100% ;
+    height: auto;
+}
