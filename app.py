@@ -43,21 +43,20 @@ def index():
 
 @app.route("/mario", methods=["GET", "POST"])
 def mario():
-    """sda"""
+    """Load pyramid with the given height similar to one in Super Mario Bros."""
     if request.method == "POST":
-        print(request.form.get("height"))
-
+        height = int(request.form.get("height"))
 
         # Ensure input is valid
-        if int(request.form.get("height")) < 1 or int(request.form.get("height")) > 8:
-            flash("Number must be within 1-8 inclusive.", "error")
+        if height < 1 or height > 20:
+            flash("Height must be within 1-20 inclusive.", "error")
             return render_template("mario.html")
 
+        # Load the pyramid 
+        flash(f"Pyramid with a height of {height} is made!", "success")
+        return render_template("mario.html", height=height)
 
-        flash("Worked", "information")
-        return render_template("marioed.html", height=int(request.form.get("height")) )
-        
-
+    # GET via redirect and clicking links   
     else:
         return render_template("mario.html")
 
@@ -67,19 +66,24 @@ def mario():
 # WORK ON BRANCH - git checkout -b "test"
 
 # homepage page
+# Change color of dropdown onclick
 # Add limit to how much it can drag kasi lumalagpas kapag mobile tapos sobra sa drag
 # Add modal when clicking carousel that enter as guest
 # turn off ung on click sa buttons ng nav
 # itry ung if and else ng mobile and pc para maayos ung nav bar
 # Put links to footer
+# Change homepage to only get 
 
-#  mario.html
-# Create marioed html then display cubes in tables or grid
-# ibababa ung footer sagad sa baba ng screen
 
 # Start working on login and sign up maybe via modals nlng
 # Plan out what projects are needed to be done
 # mario, credit, ...
+
+# Change color of highlight on click
+# add white bg to icon
+# login required
+
+
 
 
 # Special thanks to cs50, Hyperplexed and Superlist for the inspiration

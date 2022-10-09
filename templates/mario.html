@@ -6,14 +6,48 @@
 
 {% block main %}
   <h1 class="py-3" id="mario-header">MARIO</h1>
-  <p>Creates a pyramid similar to the popular game, SUPER MARIO BROS.</p><br>
+  <h6>Creates a pyramid similar to the popular game, <a class="text-muted" href="https://mario.nintendo.com/history/" target="_blank">SUPER MARIO BROS.</a></h6><br>
 
-  <form action="/mario" method="post">
-    <label class="form-label">Height of Pyramid</label>
-    <input autocomplete="off"  class="form-control mx-auto w-auto" id=height name=height placeholder="1-8" required type="number">
-    <button class="btn btn-dark m-3" type="submit">Create Pyramid</button>
-  </form>
+  <div class="pb-5">
+    <form action="/mario" method="post">
+      <label class="form-label">Height of Pyramid</label>
+      <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id=height name=height placeholder="1-20" required type="number">
+      <button class="btn btn-dark m-3" type="submit">Create Pyramid</button>
+    </form>
+  </div>
 
+  {% if get_flashed_messages(category_filter="success") %}
+    <table class="table table-borderless">
+      <tbody>
+        {% for i in range(height) %}
+            <tr>
+            
+            <!-- mario-blocks: http://pixelartmaker.com/art/d53cda86152db67 -->
 
+            {% for j in range(height - i - 1) %}
+              <td class="p-0" id="mario-cell"><img alt="" id="mario-empty-block" src="static/images/mario-block.png"></td>
+            {% endfor %}
+
+            {% for k in range(i + 1) %}
+              <td class="p-0" id="mario-cell"><img alt="" id="mario-block" src="static/images/mario-block.png"></td>
+            {% endfor %}
+
+            {% for l in range(2) %}
+              <td class="p-0" id="mario-cell"><img alt="" id="mario-empty-block" src="static/images/mario-block.png"></td>
+            {% endfor %}
+
+            {% for m in range(i + 1) %}
+              <td class="p-0" id="mario-cell"><img alt="" id="mario-block" src="static/images/mario-block.png"></td>
+            {% endfor %}
+
+            {% for m in range(height - i -1) %}
+              <td class="p-0" id="mario-cell"><img alt="" id="mario-empty-block" src="static/images/mario-block.png"></td>
+            {% endfor %}
+
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
 
 {% endblock %}
