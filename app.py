@@ -74,7 +74,7 @@ def mario():
 # Put links to footer
 # Change homepage to only get 
 
-
+# Start working on credit
 # Start working on login and sign up maybe via modals nlng
 # Plan out what projects are needed to be done
 # mario, credit, ...
