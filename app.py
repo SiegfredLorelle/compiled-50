@@ -48,14 +48,14 @@ def mario():
         print(request.form.get("height"))
 
 
-
+        # Ensure input is valid
         if int(request.form.get("height")) < 1 or int(request.form.get("height")) > 8:
             flash("Number must be within 1-8 inclusive.", "error")
             return render_template("mario.html")
 
 
         flash("Worked", "information")
-        return render_template("mario.html")
+        return render_template("marioed.html", height=int(request.form.get("height")) )
         
 
     else:
