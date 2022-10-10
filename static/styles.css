@@ -172,3 +172,7 @@ footer p {
     width: 100% ;
     height: auto;
 }
+
+#credit-header {
+    font-family: 'Kanit', sans-serif;
+}
