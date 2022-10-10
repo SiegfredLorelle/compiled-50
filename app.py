@@ -104,9 +104,7 @@ def credit():
 
 
 # credit page
-# add warning to not enter your actual credit card number
-# suggestion to what credit cards are possible to enter
-# find credit card of visa amex and mastercard
+# add js for copy on clipboard of numbers to test
 # display the card with maybe the number
 
 
@@ -121,30 +119,6 @@ def credit():
 # add white bg to icon
 # login required
 
-
-
-# AMERICAN EXPRESS CARDS
-# 378282246310005
-# 371449635398431
-# 378734493671000
-
-# MASTERCARD CARDS
-# 5555555555554444
-# 5105105105105100
-# 5199999999999991
-# 5299999999999990
-
-# VISA CARDS
-# 4111111111111111
-# 4003600000000014
-# 4012888888881881
-# 4222222222222
-# 4999991111111113
-# 4999992222222229
-
-# INVALID CARDS
-# 6176292929
-# 1234567890
 
 
 # Special thanks to cs50, Hyperplexed and Superlist for the inspiration

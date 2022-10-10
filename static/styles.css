@@ -156,7 +156,7 @@ footer p {
     transform: scaleX(1);
 }
 
-/* Specific htmls */
+/* Mario page */
 #mario-header {
     font-family: 'Silkscreen', cursive;
 }
@@ -173,6 +173,13 @@ footer p {
     height: auto;
 }
 
+/* Credit page  */
 #credit-header {
     font-family: 'Kanit', sans-serif;
 }
+
+.credit-bullet li:before { 
+    content: '\1f4b3'; 
+    margin-left: -20px; 
+    margin-right: 10px; 
+} 
