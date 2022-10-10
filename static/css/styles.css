@@ -183,3 +183,9 @@ footer p {
     margin-left: -20px; 
     margin-right: 10px; 
 } 
+
+.credit-bullet li #copy-button {
+    font-size: 17px;
+    padding-left: 10px;
+
+}
