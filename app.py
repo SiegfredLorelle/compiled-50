@@ -104,7 +104,7 @@ def credit():
 
 
 # credit page
-# add js for copy on clipboard of numbers to test
+# add js for copy on clipboard of numbers to test and msg on hover that it copies
 # display the card with maybe the number
 
 
