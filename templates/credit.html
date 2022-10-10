@@ -11,10 +11,76 @@
 <div class="pb-5">
     <form action="/credit" method="post">
       <label class="form-label">Credit Card Number</label>
-      <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id=cc_number name=cc_number placeholder="5105105105105100" required type="number">
+      <input aria-describedby="cc_number_help" autocomplete="off" autofocus class="form-control mx-auto w-auto" id="cc_number" min="0" name="cc_number" placeholder="5105105105105100" required type="number">
+      <div id="cc_number_help" class="form-text">Never enter your true credit card number.</div>
       <button class="btn btn-dark m-3" type="submit">Enter</button>
     </form>
 </div>
+
+<div class="text-start p-3">
+    <details>
+        <summary class="fw-bold pb-3">Not sure what to enter?</summary>
+        <ul>
+            <li class="mx-3">
+                <p class="fw-bold">American Express</p>
+                <ul class="credit-bullet">
+                    <li>378282246310005</li>
+                    <li>371449635398431</li>
+                    <li class="pb-3">378734493671000</li>
+                </ul>
+            </li>
+            <li class="mx-3">
+                <p class="fw-bold">Mastercard</p> 
+                <ul class="credit-bullet">
+                    <li>5555555555554444</li>
+                    <li>5105105105105100</li>
+                    <li>5199999999999991</li>
+                    <li class="pb-3">5299999999999990</li>
+                </ul>
+            </li>
+            <li class="mx-3">
+                <p class="fw-bold">Visa</p>
+                <ul class="credit-bullet">
+                    <li>4111111111111111</li>
+                    <li>4003600000000014</li>
+                    <li>4012888888881881</li>
+                    <li>4222222222222</li>
+                    <li>4999991111111113</li>
+                    <li class="pb-3">4999992222222229</li>
+                </ul>
+            </li>
+            <li class="mx-3">
+                <p class="fw-bold">Invalid</p>
+                <ul class="credit-bullet">
+                    <li>6176292929</li>
+                    <li>1234567890</li>
+                </ul>
+            </li>
+        </ul>
+    </details>
+</div>
+
+<div class="text-start p-3">
+    <details>
+        <summary class="fw-bold">More details</summary>
+        <ul>
+            <li class="mx-3">
+                Credit can only determine three (3) types of cards: 
+                <a class="link-dark" href="https://www.americanexpress.com/" target="_blank">American Express</a>, 
+                <a class="link-dark" href="https://www.mastercard.com/global/en.html" target="_blank">Mastercard</a>, and 
+                <a class="link-dark" href="https://www.visa.com/" target="_blank">Visa</a>.
+            </li>
+            <li class="mx-3">
+                Luhn's Algorithm is used to determine the validity of a card.
+            </li>
+            <li class="mx-3">
+                <a class="link-dark" href="https://cs50.harvard.edu/x/2022/psets/1/credit/" target="_blank">Know more</a>
+                 on the its implementation.
+            </li>
+        </ul>
+    </details>
+</div>
+
 
 {% if get_flashed_messages(category_filter="success") %}
 
@@ -23,4 +89,8 @@
 
 
 {% endif %}
+
+
+<!-- <script src="/static/script.js"></script> -->
+
 {% endblock %}
