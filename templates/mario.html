@@ -6,12 +6,12 @@
 
 {% block main %}
   <h1 class="py-3" id="mario-header">MARIO</h1>
-  <h6>Creates a pyramid similar to the popular game, <a class="text-muted" href="https://mario.nintendo.com/history/" target="_blank">SUPER MARIO BROS.</a></h6><br>
+  <h6>Creates a pyramid similar to the popular game, <a class="link-dark" href="https://mario.nintendo.com/history/" target="_blank">SUPER MARIO BROS.</a></h6><br>
 
   <div class="pb-5">
     <form action="/mario" method="post">
       <label class="form-label">Height of Pyramid</label>
-      <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id=height name=height placeholder="1-20" required type="number">
+      <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id=height name=height placeholder="1-8" required type="number">
       <button class="btn btn-dark m-3" type="submit">Create Pyramid</button>
     </form>
   </div>
