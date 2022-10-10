@@ -6,7 +6,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import login_required
+from helpers import login_required, check_card
 
 # Configure application
 app = Flask(__name__)
@@ -64,9 +64,29 @@ def mario():
 def credit():
     """Tell what credit card is entered"""
     if request.method == "POST":
-        pass
-        return redirect("/")
-    
+        cc_number = request.form.get("cc_number")
+        num_of_digits = len(cc_number)
+
+        # Ensure credit card number is valid based on its number of digits
+        if num_of_digits == 13 or num_of_digits == 15 or num_of_digits == 16:
+            
+            # Use Luhn’s Algorithm to determine the validity of the card then check what card it is
+            card = check_card(int(cc_number))
+
+            # Ensure card is valid
+            if card.upper() == "INVALID":
+                flash(f"The credit card is Invalid.", "error")
+                return render_template("credit.html")
+
+            # Load the what card it is
+            flash(f"The credit card is {card}!", "success")
+            return render_template("credit.html")
+
+        else:
+            flash("13-, 15-, and 16-digits are the only valid credit card numbers.", "error")
+            return render_template("credit.html")
+
+    # GET via redirect and clicking links
     else:
         return render_template("credit.html")
 
@@ -88,7 +108,7 @@ def credit():
 # suggestion to what credit cards are possible to enter
 # find credit card of visa amex and mastercard
 # display the card with maybe the number
-# ensure input is valid
+
 
 
 
@@ -102,6 +122,29 @@ def credit():
 # login required
 
 
+
+# AMERICAN EXPRESS CARDS
+# 378282246310005
+# 371449635398431
+# 378734493671000
+
+# MASTERCARD CARDS
+# 5555555555554444
+# 5105105105105100
+# 5199999999999991
+# 5299999999999990
+
+# VISA CARDS
+# 4111111111111111
+# 4003600000000014
+# 4012888888881881
+# 4222222222222
+# 4999991111111113
+# 4999992222222229
+
+# INVALID CARDS
+# 6176292929
+# 1234567890
 
 
 # Special thanks to cs50, Hyperplexed and Superlist for the inspiration
