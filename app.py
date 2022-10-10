@@ -48,8 +48,8 @@ def mario():
         height = int(request.form.get("height"))
 
         # Ensure input is valid
-        if height < 1 or height > 20:
-            flash("Height must be within 1-20 inclusive.", "error")
+        if height < 1 or height > 8:
+            flash("Height must be within 1-8 inclusive.", "error")
             return render_template("mario.html")
 
         # Load the pyramid 
@@ -60,7 +60,15 @@ def mario():
     else:
         return render_template("mario.html")
 
-
+@app.route("/credit", methods=["GET", "POST"])
+def credit():
+    """Tell what credit card is entered"""
+    if request.method == "POST":
+        pass
+        return redirect("/")
+    
+    else:
+        return render_template("credit.html")
 
 
 # WORK ON BRANCH - git checkout -b "test"
@@ -74,12 +82,22 @@ def mario():
 # Put links to footer
 # Change homepage to only get 
 
-# Start working on credit
+
+# credit page
+# add warning to not enter your actual credit card number
+# suggestion to what credit cards are possible to enter
+# find credit card of visa amex and mastercard
+# display the card with maybe the number
+# ensure input is valid
+
+
+
+# add project drop down in nav bar in layout
 # Start working on login and sign up maybe via modals nlng
 # Plan out what projects are needed to be done
 # mario, credit, ...
 
-# Change color of highlight on click
+
 # add white bg to icon
 # login required
 
