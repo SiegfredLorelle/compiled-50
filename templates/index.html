@@ -47,8 +47,12 @@
                       </ul>
                     </li>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <button class="btn me-md-2 rounded-pill" id="nav-button-left" type="button">Sign in</button>
-                      <button class="btn rounded-pill" id="nav-button-left" type="button">Log in</button>
+                      {% if session["user_id"] %}
+                        <button class="btn me-md-2 rounded-pill" id="nav-button-left" type="button">Log out</button>
+                      {% else %}
+                        <button class="btn me-md-2 rounded-pill" id="nav-button-left" type="button">Sign in</button>
+                        <button class="btn rounded-pill" id="nav-button-left" type="button">Log in</button>   
+                      {% endif %}
                     </div>
                   </div>
                 </nav>
@@ -71,13 +75,21 @@
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/mario">Mario</a></li>
                         <li><a class="dropdown-item" href="/credit">Credit</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="/scrabble">Scrabble</a></li>
+                        <li><a class="dropdown-item" href="/scrabble">Placeholder</a></li>
+                        <li><a class="dropdown-item" href="/scrabble">Placeholder</a></li>
+                        <li><a class="dropdown-item" href="/scrabble">Placeholder</a></li>
+                        <li><a class="dropdown-item" href="/scrabble">Placeholder</a></li>
                       </ul>
                     </li>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <button class="btn me-md-2 rounded-pill" id="nav-button-right" type="button">Sign in</button>
-                      <button class="btn rounded-pill" id="nav-button-right" type="button">Log in</button>
-                    </div>
+                      {% if session["user_id"] %}
+                        <button class="btn me-md-2 rounded-pill" id="nav-button-right" type="button">Log out</button>
+                      {% else %}
+                        <button class="btn me-md-2 rounded-pill" id="nav-button-right" type="button">Sign in</button>
+                        <button class="btn rounded-pill" id="nav-button-right" type="button">Log in</button>   
+                      {% endif %}
+                      </div>
                   </div>
                 </nav>
               </div>

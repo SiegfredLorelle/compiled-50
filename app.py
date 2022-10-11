@@ -108,8 +108,12 @@ def credit():
 # msg below instead of alert that it is copied to clipboard 
 
 # scrabble page
+# start scrabble page
+# add a dictionary, check dictionary first before outputting score
+# ui will be input with subscript of score and bg color for each letter
 
-# add project drop down in nav bar in layout
+
+# lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
 # Plan out what projects are needed to be done
 # mario, credit, scrabble, ...
@@ -122,4 +126,7 @@ def credit():
 
 # Special thanks to cs50, Hyperplexed and Superlist for the inspiration
 
-# http://pixelartmaker.com/art/d53cda86152db67 MARIO BLOCK
+# mario block: http://pixelartmaker.com/art/d53cda86152db67 
+# cards template: https://www.figma.com/community/file/934454786523964614
+# AMEX logo: https://www.pngegg.com/en/png-pswlb
+
