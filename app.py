@@ -75,12 +75,12 @@ def credit():
 
             # Ensure card is valid
             if card.upper() == "INVALID":
-                flash(f"The credit card is Invalid.", "error")
+                flash(f"Invalid credit card.", "error")
                 return render_template("credit.html")
 
             # Load the what card it is
             flash(f"The credit card is {card}!", "success")
-            return render_template("credit.html")
+            return render_template("credit.html", card=card)
 
         else:
             flash("13-, 15-, and 16-digits are the only valid credit card numbers.", "error")
@@ -104,16 +104,15 @@ def credit():
 
 
 # credit page
-# add js for copy on clipboard of numbers to test and msg on hover that it copies
-# display the card with maybe the number
+# msg on hover for copy clipboard
+# msg below instead of alert that it is copied to clipboard 
 
-
-
+# scrabble page
 
 # add project drop down in nav bar in layout
 # Start working on login and sign up maybe via modals nlng
 # Plan out what projects are needed to be done
-# mario, credit, ...
+# mario, credit, scrabble, ...
 
 
 # add white bg to icon
