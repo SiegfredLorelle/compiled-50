@@ -5,6 +5,7 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
+from string import digits, punctuation
 
 from helpers import login_required, check_card
 
@@ -78,7 +79,7 @@ def credit():
                 flash(f"Invalid credit card.", "error")
                 return render_template("credit.html")
 
-            # Load the what card it is
+            # Load what card it is
             flash(f"The credit card is {card}!", "success")
             return render_template("credit.html", card=card)
 
@@ -89,6 +90,44 @@ def credit():
     # GET via redirect and clicking links
     else:
         return render_template("credit.html")
+
+
+@app.route("/scrabble", methods=["GET", "POST"])
+def scrabble():
+    """Checks if a word is real and give its score in scrabble"""
+    if request.method == "POST":
+        word = request.form.get("word").strip()
+        # Ensure word does not contain numbers and special characters
+        for character in word:
+            if character in list(digits) or character in list(punctuation) or character == " ":
+                flash("Scrabble does not accept words with numbers, symbols, and whitespaces.", "error")
+                return render_template("scrabble.html")        
+
+
+        # TEMPORARY SAVE DICTIONARY TXT TO DB
+        # with open("dictionary.txt", "r") as file:
+        #     lines = file.readlines()
+        #     for line in lines:
+        #         line = line.rstrip()
+        #         db.execute("INSERT INTO scrabbleDictionary VALUES (?)", line)
+        #         print(line)
+
+        # Ensure word is in the dictionary 
+        check_dictioanary = db.execute("SELECT word FROM scrabbleDictionary WHERE word == ? ", word.lower())
+        if not check_dictioanary:
+            flash(f"Sorry, '{word}' was not found in the dictionary.", "error")
+            return render_template("scrabble.html")  
+        
+
+
+        # Show the score
+        flash(f"'{word}' was found in the dictionary.", "success")
+        return render_template("scrabble.html")
+    
+    else:
+        return render_template("scrabble.html")
+
+
 
 
 # WORK ON BRANCH - git checkout -b "test"
@@ -109,7 +148,7 @@ def credit():
 
 # scrabble page
 # start scrabble page
-# add a dictionary, check dictionary first before outputting score
+# create a table in sql with two columns, a letter and a scrabble score
 # ui will be input with subscript of score and bg color for each letter
 
 
