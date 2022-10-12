@@ -5,7 +5,7 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
-from string import digits, punctuation
+from string import ascii_letters
 
 from helpers import login_required, check_card
 
@@ -97,29 +97,35 @@ def scrabble():
     """Checks if a word is real and give its score in scrabble"""
     if request.method == "POST":
         word = request.form.get("word").strip()
+
         # Ensure word does not contain numbers and special characters
         for character in word:
-            if character in list(digits) or character in list(punctuation) or character == " ":
+            if character not in ascii_letters:
                 flash("Scrabble does not accept words with numbers, symbols, and whitespaces.", "error")
                 return render_template("scrabble.html")        
 
-
-        # TEMPORARY SAVE DICTIONARY TXT TO DB
-        # with open("dictionary.txt", "r") as file:
-        #     lines = file.readlines()
-        #     for line in lines:
-        #         line = line.rstrip()
-        #         db.execute("INSERT INTO scrabbleDictionary VALUES (?)", line)
-        #         print(line)
-
         # Ensure word is in the dictionary 
+        # The dictionary used was the large dictionary from Week 5 Problem Set 5 Speller uploaded to final-project.db
         check_dictioanary = db.execute("SELECT word FROM scrabbleDictionary WHERE word == ? ", word.lower())
         if not check_dictioanary:
             flash(f"Sorry, '{word}' was not found in the dictionary.", "error")
             return render_template("scrabble.html")  
         
+        # Get the score of the word by adding the score equivalent of each letters
+        total_score = 0
+        scores = []
+        for letter in word:
+            # Get the score of the letter 
+            letter_score = db.execute("SELECT * FROM scrabbleScores WHERE letter == ? ", letter)[0]
+            scores.append(letter_score)
+            
+            # Get score of word 
+            total_score += letter_score["score"]
+            
+        print(total_score)
+        print(scores)
 
-
+    
         # Show the score
         flash(f"'{word}' was found in the dictionary.", "success")
         return render_template("scrabble.html")
