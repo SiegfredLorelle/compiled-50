@@ -47,10 +47,10 @@ def check_card(number):
     if sum % 10 == 0:
         # Determine what card it is
         if counter == 15 and (first_2digits in [34, 37]):
-            return "AMERICAN EXPRESS"
+            return "American Express"
 
         elif counter == 16 and (first_2digits in [51, 52, 53, 54, 55]):
-            return "MASTERCARD"
+            return "MasterCard"
 
         elif counter in [13, 16] and first_digit == 4:
             return "VISA"
