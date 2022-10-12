@@ -135,9 +135,18 @@ def scrabble():
         return render_template("scrabble.html")
 
 
+@app.route("/readability", methods=["GET", "POST"])
+def readability():
+    """checks the readability level of the paragraph prompted"""
+    if request.method == "POST":
+        return render_template("readability.html")
+    else:
+        return render_template("readability.html")
 
 
 
+
+# TODOs
 
 # homepage page
 # Change color of dropdown onclick
@@ -153,8 +162,13 @@ def scrabble():
 # msg on hover for copy clipboard
 # msg below instead of alert that it is copied to clipboard 
 
+# scrabble page
+# clicking dictionary will lead to modal of list of the words in the dictionary or redirect to download of the text file
+
 # readability
-# start working on readablity
+# check readability of the paragraph then show the grade level
+# create not sure what to enter
+# more details that says the process of checking readability, the program accepts everything including other languages? regardless of proper spelling and grammar.
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
@@ -162,6 +176,7 @@ def scrabble():
 # mario, credit, scrabble, readability, substitution...
 
 
+# upload to heroku
 # add white bg to icon
 # login required
 
