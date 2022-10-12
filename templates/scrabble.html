@@ -6,14 +6,47 @@
 
 {% block main %}
     <h1 class="py-3" id="scrabble-header">SCRABBLE</h1>
-    <h6>Determine if the word is in the dictionary and show its score in the board game, Scrabble.</h6><br>
+    <h6>Determine if the word is in the dictionary and show its score in the board game, <a class="link-dark" href="https://scrabble.hasbro.com/" target="_blank">Scrabble</a>.</h6><br>
 
     <div class="pb-5">
         <form action="/scrabble" method="post">
-          <label class="form-label">Word</label>
-          <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="word" name="word" placeholder="compiled" required type="text">
+          <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="word" name="word" placeholder="Word" required type="text">
           <button class="btn btn-dark m-3" type="submit">Check Word</button>
         </form>
       </div>
 
-    {% endblock %}
+    <!-- scrabble tile: https://thekatespanos.com/scrabble-score-calculator/ -->
+    {% if get_flashed_messages(category_filter="success") %}
+      <div class="pb-5">
+        {% for score in scores %}
+          <span class="text-uppercase p-2" id="scrabble-tile">
+            {{ score["letter"] }}
+            <sub>{{ score["score"] }}</sub>
+          </span>  
+      {% endfor %}
+      </div>
+    
+      <h2>Score: {{ total_score }}</h2>
+    {% endif %}
+   
+    <div class="text-start p-3">
+      <details>
+          <summary class="fw-bold">More Details</summary>
+          <ul>
+              <li class="mx-3">
+                  The dictionary used was the large dictionary on <a class="link-dark" href="https://cs50.harvard.edu/x/2022/psets/5/speller/" target="_blank">Week 5 Problem Set 5: Speller</a>.
+              </li>
+              <li class="mx-3">
+                  This Scrabble is slightly different from
+                  <a class="link-dark" href="https://cs50.harvard.edu/x/2022/psets/1/credit/" target="_blank">Week 2 Lab 2: Scrabble</a>.
+                  <ul>
+                      <li>This Scrabble verifies the word by checking the dictionary.</li>
+                      <li>This Scrabble only asks one (1) user.</li>
+                      <li>This Scrabble directly shows the score of the word instead of comparing it to another user's score.</li>
+                  </ul>
+              </li>
+          </ul>
+      </details>
+  </div>
+
+{% endblock %}

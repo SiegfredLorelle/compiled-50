@@ -32,6 +32,7 @@ def after_request(response):
     return response
 
 
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     """Load homepage that allows user to go to other pages"""
@@ -40,6 +41,7 @@ def index():
 
     else:
         return render_template("index.html")
+
 
 
 @app.route("/mario", methods=["GET", "POST"])
@@ -60,6 +62,8 @@ def mario():
     # GET via redirect and clicking links   
     else:
         return render_template("mario.html")
+
+
 
 @app.route("/credit", methods=["GET", "POST"])
 def credit():
@@ -92,11 +96,12 @@ def credit():
         return render_template("credit.html")
 
 
+
 @app.route("/scrabble", methods=["GET", "POST"])
 def scrabble():
     """Checks if a word is real and give its score in scrabble"""
     if request.method == "POST":
-        word = request.form.get("word").strip()
+        word = request.form.get("word").strip().lower()
 
         # Ensure word does not contain numbers and special characters
         for character in word:
@@ -106,7 +111,7 @@ def scrabble():
 
         # Ensure word is in the dictionary 
         # The dictionary used was the large dictionary from Week 5 Problem Set 5 Speller uploaded to final-project.db
-        check_dictioanary = db.execute("SELECT word FROM scrabbleDictionary WHERE word == ? ", word.lower())
+        check_dictioanary = db.execute("SELECT word FROM scrabbleDictionary WHERE word == ? ", word)
         if not check_dictioanary:
             flash(f"Sorry, '{word}' was not found in the dictionary.", "error")
             return render_template("scrabble.html")  
@@ -121,14 +126,10 @@ def scrabble():
             
             # Get score of word 
             total_score += letter_score["score"]
-            
-        print(total_score)
-        print(scores)
 
-    
         # Show the score
         flash(f"'{word}' was found in the dictionary.", "success")
-        return render_template("scrabble.html")
+        return render_template("scrabble.html", scores=scores, total_score=total_score)
     
     else:
         return render_template("scrabble.html")
@@ -136,7 +137,7 @@ def scrabble():
 
 
 
-# WORK ON BRANCH - git checkout -b "test"
+
 
 # homepage page
 # Change color of dropdown onclick
@@ -152,16 +153,13 @@ def scrabble():
 # msg on hover for copy clipboard
 # msg below instead of alert that it is copied to clipboard 
 
-# scrabble page
-# start scrabble page
-# create a table in sql with two columns, a letter and a scrabble score
-# ui will be input with subscript of score and bg color for each letter
-
+# readability
+# start working on readablity
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
 # Plan out what projects are needed to be done
-# mario, credit, scrabble, ...
+# mario, credit, scrabble, readability, substitution...
 
 
 # add white bg to icon
@@ -174,4 +172,5 @@ def scrabble():
 # mario block: http://pixelartmaker.com/art/d53cda86152db67 
 # cards template: https://www.figma.com/community/file/934454786523964614
 # AMEX logo: https://www.pngegg.com/en/png-pswlb
+# scrabble tile: https://thekatespanos.com/scrabble-score-calculator/
 
