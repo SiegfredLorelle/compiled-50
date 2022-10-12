@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Scrabble
+{% endblock %}
+
+{% block main %}
+    <h1 class="py-3" id="scrabble-header">SCRABBLE</h1>
+    <h6>Determine if the word is in the dictionary and show its score in the board game, Scrabble.</h6><br>
+
+    <div class="pb-5">
+        <form action="/scrabble" method="post">
+          <label class="form-label">Word</label>
+          <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="word" name="word" placeholder="compiled" required type="text">
+          <button class="btn btn-dark m-3" type="submit">Check Word</button>
+        </form>
+      </div>
+
+    {% endblock %}
