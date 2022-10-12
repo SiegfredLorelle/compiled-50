@@ -168,7 +168,6 @@ def readability():
 # readability
 # check readability of the paragraph then show the grade level
 # create not sure what to enter
-# more details that says the process of checking readability, the program accepts everything including other languages? regardless of proper spelling and grammar.
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
@@ -177,8 +176,10 @@ def readability():
 
 
 # upload to heroku
+# remove cs50 from title
 # add white bg to icon
 # login required
+# add search and history that shows everything the user does by looking at db
 
 
 

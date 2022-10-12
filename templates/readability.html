@@ -6,7 +6,7 @@
 
 {% block main %}
     <h1 class="py-3" id="readability-header">READABILITY</h1>
-    <h6>Determine what grade level the paragraph is intended for.</h6><br>
+    <h6>Determine the approximate grade level needed to comprehend the paragraph.</h6><br>
 
     <div class="pb-5">
         <form action="/scrabble" method="post">
@@ -18,6 +18,28 @@
         </form>
     </div>
 
+
+
+
+
+
+
+    <div class="text-start p-3">
+        <details>
+            <summary class="fw-bold">More Details</summary>
+            <ul>
+                <li class="mx-3">
+                    The readability test used was <a class="link-dark" href="https://readable.com/readability/coleman-liau-readability-index/">Coleman-Liau index</a>. It considers the number of letters, words, and sentences of the paragraph.
+                </li>
+                <li class="mx-3">
+                    It is <span class="fw-bold">highly encouraged to use proper spelling, grammar, and punctuation</span> as it can affect the accuracy of the Readability.
+                </li>
+                <li class="mx-3">
+                    Readability will accepts everything including other languages (but better to use English) regardless of spelling, grammar and punctuation.
+                </li>
+            </ul>
+        </details>
+    </div>
 
 {% endblock %}
 

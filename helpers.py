@@ -62,7 +62,7 @@ def check_card(number):
         return "INVALID"
 
 
-# Referenced in check card() above
+# Referenced in check_card() above
 def Luhns_step1(digit, sum):
     """Step 1 of Luhn's Algorithms"""
     # Multiply the digit by 2
@@ -74,7 +74,7 @@ def Luhns_step1(digit, sum):
         sum += digit
     return sum
 
-# Referenced in check card() above
+# Referenced in check_card() above
 def Luhns_step2(digit, sum):
     """Step 2 of Luhn's Algorithms """
     # Add the digit to the sum
