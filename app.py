@@ -180,6 +180,7 @@ def readability():
 # add white bg to icon
 # login required
 # add search and history that shows everything the user does by looking at db
+# add focus on textbox for copy clipboards in js
 
 
 

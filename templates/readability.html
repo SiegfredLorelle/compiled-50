@@ -9,7 +9,7 @@
     <h6>Determine the approximate grade level needed to comprehend the paragraph.</h6><br>
 
     <div class="pb-5">
-        <form action="/scrabble" method="post">
+        <form action="/readability" method="post">
             <div class="input-group mx-auto" id="readability-paragraph">
                 <span class="input-group-text">Paragraph</span>
                 <textarea aria-label="With textarea" autocomplete="off" autofocus class="form-control" id="paragraph" name="paragraph" placeholder='Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, "and what is the use of a book," thought Alice "without pictures or conversation?"' required type="text"></textarea>
@@ -19,7 +19,85 @@
     </div>
 
 
+    <div class="text-start p-3">
+        <details>
+            <summary class="fw-bold pb-3">Not sure what to enter?</summary>
+            <ul>
 
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Before Grade 1<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">One fish. Two fish. Red fish. Blue fish.</p>                    
+
+                    </details>
+                </li>
+
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Grade 2<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">Would you like them here or there? I would not like them here or there. I would not like them anywhere.</p>                    
+                    </details>
+                </li>
+
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Grade 3<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">Congratulations! Today is your day. You're off to Great Places! You're off and away!</p>                 
+                    </details>
+                </li>
+
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Grade 5<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">Harry Potter was a highly unusual boy in many ways. For one thing, he hated the summer holidays more than any other time of year. For another, he really wanted to do his homework, but was forced to do it in secret, in the dead of the night. And he also happened to be a wizard.</p>                       
+                    </details>
+                </li>
+                
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Grade 7<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.</p>   
+                    </details>
+                </li>
+
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Grade 8<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, "and what is the use of a book," thought Alice "without pictures or conversation?"</p>   
+                    </details>
+                </li>
+
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Grade 8<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">When he was nearly thirteen, my brother Jem got his arm badly broken at the elbow. When it healed, and Jem's fears of never being able to play football were assuaged, he was seldom self-conscious about his injury. His left arm was somewhat shorter than his right; when he stood or walked, the back of his hand was at right angles to his body, his thumb parallel to his thigh.</p>   
+                    </details>
+                </li>
+
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Grade 9<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">There are more things in Heaven and Earth, Horatio, than are dreamt of in your philosophy.</p>   
+                    </details>
+                </li>
+
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Grade 10<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">It was a bright cold day in April, and the clocks were striking thirteen. Winston Smith, his chin nuzzled into his breast in an effort to escape the vile wind, slipped quickly through the glass doors of Victory Mansions, though not quickly enough to prevent a swirl of gritty dust from entering along with him.</p>   
+                    </details>
+                </li>
+
+                <li class="mx-3" id="no-bullet">
+                    <details>
+                        <summary class="pb-3">Grade 16+<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <p class="pb-2 ps-5" id="#para">A large class of computational problems involve the determination of properties of graphs, digraphs, integers, arrays of integers, finite families of finite sets, boolean formulas and elements of other countable domains.</p>   
+                    </details>
+                </li>
+
+            </ul>
+        </details>
+    </div>
 
 
 
@@ -29,7 +107,7 @@
             <summary class="fw-bold">More Details</summary>
             <ul>
                 <li class="mx-3">
-                    The readability test used was <a class="link-dark" href="https://readable.com/readability/coleman-liau-readability-index/">Coleman-Liau index</a>. It considers the number of letters, words, and sentences of the paragraph.
+                    The readability test used was <a class="link-dark" href="https://readable.com/readability/coleman-liau-readability-index/" target="_blank">Coleman-Liau Index</a>. It considers the number of letters, words, and sentences of the paragraph.
                 </li>
                 <li class="mx-3">
                     It is <span class="fw-bold">highly encouraged to use proper spelling, grammar, and punctuation</span> as it can affect the accuracy of the Readability.
@@ -40,6 +118,18 @@
             </ul>
         </details>
     </div>
+
+
+
+
+
+
+
+    <script src="static/js/copy-clipboard-below-text.js"></script>
+
+
+
+
 
 {% endblock %}
 
