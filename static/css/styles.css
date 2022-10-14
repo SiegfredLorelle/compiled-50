@@ -192,7 +192,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
     margin-right: 10px; 
 } 
 
-li #copy-button {
+#copy-button {
     font-size: 17px;
     padding-left: 10px;
 }
@@ -227,4 +227,5 @@ li #copy-button {
 #no-bullet {
     list-style-type: none;
 }
+
 

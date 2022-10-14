@@ -1,5 +1,7 @@
 from flask import redirect, render_template, session
 from functools import wraps
+from string import ascii_lowercase
+from re import sub
 
 def login_required(f):
     """
@@ -15,6 +17,7 @@ def login_required(f):
     return decorated_function
 
 
+# Referenced in Credit
 def check_card(number):
     """ 
     Use Luhn’s Algorithm to determine the validity of the card then check what card it is
@@ -81,3 +84,38 @@ def Luhns_step2(digit, sum):
     sum += digit
     return sum
 
+
+# Referenced in Readability
+def get_grade_lvl(text):
+    """
+    Counts the number of letters, words, and sentences then Use Coleman Liau Index to get grade level
+    """
+    # Strip all of extra white spaces in the start and end of the string and 
+    # Sub removes all trailing whitespaces within the string, then lowercase the entire text
+    text = sub(' +', ' ', text.strip()).lower()
+
+    # Counter for word is set to 1 since a whitespace signifies two words
+    no_letters = no_sentences = 0
+    no_words = 1
+
+    for character in text:
+
+        if character in ascii_lowercase:
+            no_letters += 1
+        
+        if character == " ":
+            no_words += 1
+
+        if character in ["!", "?", "."]:
+            no_sentences += 1
+
+    # Use Coleman Liau Index to get the grade level
+    grade_level = round(0.0588 * (no_letters / no_words * 100) - 0.296 * (no_sentences / no_words * 100) - 15.8)
+    
+    # Ensure the grade level is within 1-16
+    if grade_level < 1:
+        return "Pre-Grade 1"
+    elif grade_level > 16:
+        return "Grade 16+"
+    else:
+        return f"Grade {grade_level}"
