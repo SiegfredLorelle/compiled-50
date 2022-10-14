@@ -131,13 +131,14 @@ def scrabble():
         flash(f"'{word}' was found in the dictionary.", "success")
         return render_template("scrabble.html", scores=scores, total_score=total_score)
     
+    # GET via clicking links or redirects
     else:
         return render_template("scrabble.html")
 
 
 @app.route("/readability", methods=["GET", "POST"])
 def readability():
-    """checks the readability level of the paragraph prompted"""
+    """Determines the readability level of the paragraph prompted"""
     if request.method == "POST":
         paragraph = request.form.get("paragraph")
 
@@ -146,15 +147,29 @@ def readability():
             flash("Please enter a valid paragraph.", "error")
             return render_template("readability.html")
 
-
-        
+        # Get grade level intented for text based on Coleman Liau Index
         grade_level = get_grade_lvl(paragraph)
 
+        # Show results
         flash("Successfully determined!", "success")
         return render_template("readability.html", grade_level=grade_level, paragraph=paragraph)
 
+    # GET via clicking links or redirects
     else:
         return render_template("readability.html")
+
+
+
+@app.route("/substitution", methods=["GET", "POST"])
+def substitution():
+    """Cypher the given plaintext based on the given key"""
+    if request.method == "POST":
+        return render_template("substitution.html")
+
+    else:
+        return render_template("substitution.html")
+
+
 
 
 
@@ -180,8 +195,15 @@ def readability():
 # clicking dictionary will lead to modal of list of the words in the dictionary or redirect to download of the text file
 
 # readability
-# check readability of the paragraph then show the grade level
 # add use proper grammar and punctuation below the text box itself
+# find a way to count words and sentences better (especially sentences)
+
+# substitution
+# make it that it does not require a 26 letter key, just loop to the given key until 26 letters
+# add not sure what to enter
+# Show plaintext, cyphertext, and key in output
+# error if plaintext is only space
+# accept symbols and numbers, show them both in plain and cypher
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
@@ -196,6 +218,9 @@ def readability():
 # add search and history that shows everything the user does by looking at db
 # add focus on textbox for copy clipboards in js
 # add divider per week in dropdown projects 
+# maybe add a way to keep entered value in form text box
+# gawing table or grid ung may copy button para pantay pantay ung pwesto ng copy ?
+# make all google fonts oneline by adding in the family in google fonts.com
 
 
 
