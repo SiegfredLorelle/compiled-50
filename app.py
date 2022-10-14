@@ -7,7 +7,7 @@ from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from string import ascii_letters
 
-from helpers import login_required, check_card
+from helpers import login_required, check_card, get_grade_lvl
 
 # Configure application
 app = Flask(__name__)
@@ -84,7 +84,7 @@ def credit():
                 return render_template("credit.html")
 
             # Load what card it is
-            flash(f"The credit card is {card}!", "success")
+            flash(f"Succesfully determined!", "success")
             return render_template("credit.html", card=card)
 
         else:
@@ -139,7 +139,20 @@ def scrabble():
 def readability():
     """checks the readability level of the paragraph prompted"""
     if request.method == "POST":
-        return render_template("readability.html")
+        paragraph = request.form.get("paragraph")
+
+        # Ensure the paragraph is not full of whitespaces
+        if paragraph.isspace():
+            flash("Please enter a valid paragraph.", "error")
+            return render_template("readability.html")
+
+
+        
+        grade_level = get_grade_lvl(paragraph)
+
+        flash("Successfully determined!", "success")
+        return render_template("readability.html", grade_level=grade_level, paragraph=paragraph)
+
     else:
         return render_template("readability.html")
 
@@ -156,6 +169,7 @@ def readability():
 # itry ung if and else ng mobile and pc para maayos ung nav bar
 # Put links to footer
 # Change homepage to only get 
+# add icons for on log in sign in log out
 
 
 # credit page
@@ -167,7 +181,7 @@ def readability():
 
 # readability
 # check readability of the paragraph then show the grade level
-# create not sure what to enter
+# add use proper grammar and punctuation below the text box itself
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
@@ -181,6 +195,8 @@ def readability():
 # login required
 # add search and history that shows everything the user does by looking at db
 # add focus on textbox for copy clipboards in js
+# add divider per week in dropdown projects 
+
 
 
 

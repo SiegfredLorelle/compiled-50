@@ -18,6 +18,23 @@
         </form>
     </div>
 
+    {% if get_flashed_messages(category_filter="success") %}
+
+
+        <p class="fs-3 fw-normal">Paragraph intended for:</p>
+        <h2>{{ grade_level }}</h2>
+
+        <details class="py-5">
+            <summary class="fw-bold">See most recent paragraph<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+            <p class="pt-3">{{ paragraph }}</p>
+
+        </details>
+
+
+
+
+    {% endif %}
+
 
     <div class="text-start p-3">
         <details>
@@ -26,7 +43,7 @@
 
                 <li class="mx-3" id="no-bullet">
                     <details>
-                        <summary class="pb-3">Before Grade 1<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
+                        <summary class="pb-3">Pre-Grade 1<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
                         <p class="pb-2 ps-5" id="#para">One fish. Two fish. Red fish. Blue fish.</p>                    
 
                     </details>
@@ -111,6 +128,9 @@
                 </li>
                 <li class="mx-3">
                     It is <span class="fw-bold">highly encouraged to use proper spelling, grammar, and punctuation</span> as it can affect the accuracy of the Readability.
+                </li>
+                <li class="mx-3">
+                    Readability is prone to miscount the number of sentences when periods (.) were not used to terminate a sentence. 
                 </li>
                 <li class="mx-3">
                     Readability will accepts everything including other languages (but better to use English) regardless of spelling, grammar and punctuation.
