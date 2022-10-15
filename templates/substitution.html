@@ -37,8 +37,22 @@
 
     </div>
 
-    {% if get_flashed_messages(category_filter="sucess") %}
-        Successful
+
+    {% if get_flashed_messages(category_filter="success") %}
+        <div class="pb-5">
+            <div class="pb-3">
+                <span class="fs-5 fw-normal">Key: </span><span class="fs-5 fw-normal">{{ key }}</span><span class="material-symbols-rounded" id="copy-button">content_copy</span>
+            </div>
+            {% if process == "Encrypt" %}
+                <p class="fs-4 fw-normal">Plaintext: <span class="fw-bold text-primary">{{ text }}</span><span class="material-symbols-rounded" id="copy-button">content_copy</span></p>
+                <p class="fs-4 fw-normal">Ciphertext: <span class="fw-bold text-primary">{{ result_text }}</span><span class="material-symbols-rounded" id="copy-button">content_copy</span></p>
+
+            {% elif process == "Decrypt" %}
+                <p class="fs-4 fw-normal">Ciphertext: <span class="fw-bold text-primary">{{ text }}</span><span class="material-symbols-rounded" id="copy-button">content_copy</span></p>
+                <p class="fs-4 fw-normal">Plaintext: <span class="fw-bold text-primary">{{ result_text }}</span><span class="material-symbols-rounded" id="copy-button">content_copy</span></p>
+
+            {% endif %}
+        </div>
     {% endif %}
 
     <div class="text-start p-3">
@@ -53,6 +67,15 @@
         </details>
     </div>
 
+    <div class="text-start p-3">
+        <details>
+            <summary class="fw-bold pb-3">More Details</summary>
+            <ul>
+                <li>Substitution's encryption works by mapping keys to the English alphabet. <a class="link-dark"  href="https://cs50.harvard.edu/x/2022/psets/2/substitution/#background" target="_blank">Know more</a>.</li>
+                <li>This substitution has a encryption and decryption function unlike <a class="link-dark"  href="https://cs50.harvard.edu/x/2022/psets/2/substitution/#background" target="_blank">Week 2 Problem Set 2: Substitution</a> which only has encryption.<a class="link-dark"  href="https://cs50.harvard.edu/x/2022/psets/2/substitution/#background" target="_blank"></a></li>
+            </ul>
+        </details>
+    </div>
     
     <script src="/static/js/copy-clipboard-beside-text.js"></script>
 

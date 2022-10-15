@@ -22,18 +22,14 @@
 
     {% if get_flashed_messages(category_filter="success") %}
 
-
         <p class="fs-3 fw-normal">Paragraph intended for:</p>
-        <h2>{{ grade_level }}</h2>
+        <h2 class="text-primary">{{ grade_level }}</h2>
 
         <details class="py-5">
             <summary class="fw-bold">See most recent paragraph<span class="material-symbols-rounded" id="copy-button">content_copy</span></summary>
             <p class="pt-3">{{ paragraph }}</p>
 
         </details>
-
-
-
 
     {% endif %}
 
