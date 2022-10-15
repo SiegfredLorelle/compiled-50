@@ -5,7 +5,8 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
-from string import ascii_letters
+from string import ascii_letters, ascii_uppercase
+from re import sub
 
 from helpers import login_required, check_card, get_grade_lvl
 
@@ -84,7 +85,7 @@ def credit():
                 return render_template("credit.html")
 
             # Load what card it is
-            flash(f"Succesfully determined!", "success")
+            flash(f"Card succesfully determined!", "success")
             return render_template("credit.html", card=card)
 
         else:
@@ -136,6 +137,7 @@ def scrabble():
         return render_template("scrabble.html")
 
 
+
 @app.route("/readability", methods=["GET", "POST"])
 def readability():
     """Determines the readability level of the paragraph prompted"""
@@ -151,7 +153,7 @@ def readability():
         grade_level = get_grade_lvl(paragraph)
 
         # Show results
-        flash("Successfully determined!", "success")
+        flash("grade level successfully determined!", "success")
         return render_template("readability.html", grade_level=grade_level, paragraph=paragraph)
 
     # GET via clicking links or redirects
@@ -162,8 +164,45 @@ def readability():
 
 @app.route("/substitution", methods=["GET", "POST"])
 def substitution():
-    """Cypher the given plaintext based on the given key"""
+    """Encrypt or decrypt the given text based on the given key"""
     if request.method == "POST":
+        process = request.form.get("process")
+        key = request.form.get("key").upper()
+        text = request.form.get("text")
+        print(f"{process}\n {key}\n {text}\n")
+
+        # Ensures user selected encrypt or decrypt
+        if process == "Choose...":
+            flash("Please choose to whether 'encrypt' to 'decrypt'.", "error")
+            return render_template("substitution.html")
+
+        # HTML already ensures the key is 26 characters in length but included another check here
+        if len(key) > 26 or len(key) < 26:
+            flash("Key must contain 26 characters", "error")
+            return render_template("substitution.html")
+
+        # Ensure key is contains unique alphabet letters without symbols and numbers
+        used_letters = []
+        for character in key:
+            if character not in ascii_uppercase:
+                flash("Key must only contain alphabetical letters.", "error")
+                return render_template("substitution.html")
+
+            # Check if the letter is a repeat 
+            if character in used_letters:
+                flash("Key must not repeat letters.", "error")
+                return render_template("substitution.html")
+
+            # Append the letter to used letters list    
+            used_letters.append(character)
+        
+        # Ensure text is not full of white space
+        if text.isspace():
+            flash("Please enter a valid text.", "error")
+            return render_template("substitution.html")
+
+        # Show enrcypted/decrypted
+        flash("Success", "success")
         return render_template("substitution.html")
 
     else:
@@ -197,13 +236,13 @@ def substitution():
 # readability
 # add use proper grammar and punctuation below the text box itself
 # find a way to count words and sentences better (especially sentences)
+# restrict the use of other languages
 
 # substitution
-# make it that it does not require a 26 letter key, just loop to the given key until 26 letters
-# add not sure what to enter
-# Show plaintext, cyphertext, and key in output
-# error if plaintext is only space
+# work on showing the output of substitution (plaintext, cyphertext, and key in output)
 # accept symbols and numbers, show them both in plain and cypher
+# add not sure what encrypt and decrypt does?
+
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
