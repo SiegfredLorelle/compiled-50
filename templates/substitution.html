@@ -5,8 +5,53 @@
 {% endblock %}
 
 {% block main %}
-<h1 class="py-3" id="substitution-title">ꗏUBSTIꔵUTIꗞN</h1>
-<h6>Encrypt or Decrypt the text based on the given key.</h6><br>
+    <h1 class="py-3" id="substitution-title">ꗏUBSTIꔵUTIꗞN</h1>
+    <h6>Encrypt or Decrypt the text based on the given key.</h6><br>
 
+
+    <div class="pb-5">
+
+        <form action="/substitution" method="post">
+
+            <select class="form-select mx-auto w-auto mb-4" aria-label="Default select example">
+                <option hidden selected>Choose...</option>
+                <option value="1">Encrypt</option>
+                <option value="2">Decrypt</option>
+            </select>
+
+            <div class="input-group mx-auto mb-4" id="substitution-key">
+                <span class="input-group-text">Key</span>
+                <input autocomplete="off" autofocus class="form-control" id="key" maxlength="26" name="key" placeholder="JTREKYAVOGDXPSNCUIZLFBMWHQ" required type="text"></input>
+                <div class="form-text">Must contain 26 unique alphabetical letters.</div>
+            </div>      
+
+            <div class="input-group mx-auto" id="substitution-text">
+                <span class="input-group-text">Text</span>
+                <input autocomplete="off" autofocus class="form-control" id="text" name="text" placeholder="plaintext or ciphertext" required type="text"></input>
+                <div class="form-text">Plaintext to encrypt / ciphertext to decrypt.</div>
+            </div>    
+            
+            <button class="btn btn-dark m-3" type="submit">Enter</button>
+
+        </form>
+
+    </div>
+
+    {% if get_flashed_messages(category_filter="sucess") %}
+        Successful
+    {% endif %}
+
+    <div class="text-start p-3">
+        <details>
+            <summary class="fw-bold pb-3">Not sure what keys to enter?</summary>
+            <ul class="key-bullet">
+                <li><span>JTREKYAVOGDXPSNCUIZLFBMWHQ</span><span class="material-symbols-rounded" id="copy-button">content_copy</span></li>
+                <li><span>YTNSHKVEFXRBAUQZCLWDMIPGJO</span><span class="material-symbols-rounded" id="copy-button">content_copy</span></li>
+                <li><span>VCHPRZGJNTLSKFBDQWAXEUYMOI</span><span class="material-symbols-rounded" id="copy-button">content_copy</span></li>
+                <li><span>NQXPOMAFTRHLZGECYJIUWSKDVB</span><span class="material-symbols-rounded" id="copy-button">content_copy</span></li>
+            </ul>
+
+    
+    <script src="/static/js/copy-clipboard-beside-text.js"></script>
 
 {% endblock %}
