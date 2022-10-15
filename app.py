@@ -173,7 +173,7 @@ def substitution():
 
         # Ensures user selected encrypt or decrypt
         if process == "Choose...":
-            flash("Please choose to whether 'encrypt' to 'decrypt'.", "error")
+            flash("Please choose whether 'encrypt' to 'decrypt'.", "error")
             return render_template("substitution.html")
 
         # HTML already ensures the key is 26 characters in length but included another check here
@@ -207,46 +207,45 @@ def substitution():
 
 
         if process == "Encrypt":
-            encrypted_text = ""
+            result_text = ""
             for character in text:
                 if character in ascii_letters:
                     if character.isupper():
-                        encrypted_text += db.execute("SELECT key FROM substitute WHERE letter = ?", character.upper())[0]["key"]
+                        result_text += db.execute("SELECT key FROM substitute WHERE letter = ?", character.upper())[0]["key"]
                     
                     # If letter is lowercase, use the the lowercase equivalent
                     else:
-                        encrypted_text += db.execute("SELECT key FROM substitute WHERE letter = ?", character.upper())[0]["key"].lower()
+                        result_text += db.execute("SELECT key FROM substitute WHERE letter = ?", character.upper())[0]["key"].lower()
                 
                 # Character is not a alphabetical letter, keep it as is 
                 else:
-                    encrypted_text += character
+                    result_text += character
 
-            print(encrypted_text)
+
         
         elif process == "Decrypt":
-            decrypted_text = ""
+            result_text = ""
             for character in text:
                 if character in ascii_letters:
                     if character.isupper():
-                        decrypted_text += db.execute("SELECT letter FROM substitute WHERE key = ?", character.upper())[0]["letter"]
+                        result_text += db.execute("SELECT letter FROM substitute WHERE key = ?", character.upper())[0]["letter"]
                     
                     # If letter is lowercase, use the the lowercase equivalent
                     else:
-                        decrypted_text += db.execute("SELECT letter FROM substitute WHERE key = ?", character.upper())[0]["letter"].lower()
+                        result_text += db.execute("SELECT letter FROM substitute WHERE key = ?", character.upper())[0]["letter"].lower()
                 
                 # Character is not a alphabetical letter, keep it as is 
                 else:
-                    decrypted_text += character
-
-            print(decrypted_text)
+                    result_text += character
 
 
 
+        print(result_text)
 
 
         # Show enrcypted/decrypted
-        flash("Success", "success")
-        return render_template("substitution.html")
+        flash(f"Success {result_text}", "success")
+        return render_template("substitution.html", process=process, key=key, text=text, result_text=result_text)
 
     else:
         return render_template("substitution.html")
