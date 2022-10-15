@@ -1,6 +1,6 @@
 from flask import redirect, render_template, session
 from functools import wraps
-from string import ascii_lowercase
+from string import ascii_lowercase, ascii_uppercase, ascii_letters
 from re import sub
 
 def login_required(f):
@@ -119,3 +119,8 @@ def get_grade_lvl(text):
         return "Grade 16+"
     else:
         return f"Grade {grade_level}"
+
+
+
+def substitute(process, key, text):
+    pass
