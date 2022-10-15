@@ -8,7 +8,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from string import ascii_letters, ascii_uppercase
 from re import sub
 
-from helpers import login_required, check_card, get_grade_lvl
+from helpers import login_required, check_card, get_grade_lvl, substitute
 
 # Configure application
 app = Flask(__name__)
@@ -200,6 +200,49 @@ def substitution():
         if text.isspace():
             flash("Please enter a valid text.", "error")
             return render_template("substitution.html")
+
+        # Map the keys to its equivalent alphabetical letter
+        for i in range(len(ascii_uppercase)):
+            db.execute("UPDATE  substitute SET key = ? WHERE letter = ?", key[i].upper(), ascii_uppercase[i])
+
+
+        if process == "Encrypt":
+            encrypted_text = ""
+            for character in text:
+                if character in ascii_letters:
+                    if character.isupper():
+                        encrypted_text += db.execute("SELECT key FROM substitute WHERE letter = ?", character.upper())[0]["key"]
+                    
+                    # If letter is lowercase, use the the lowercase equivalent
+                    else:
+                        encrypted_text += db.execute("SELECT key FROM substitute WHERE letter = ?", character.upper())[0]["key"].lower()
+                
+                # Character is not a alphabetical letter, keep it as is 
+                else:
+                    encrypted_text += character
+
+            print(encrypted_text)
+        
+        elif process == "Decrypt":
+            decrypted_text = ""
+            for character in text:
+                if character in ascii_letters:
+                    if character.isupper():
+                        decrypted_text += db.execute("SELECT letter FROM substitute WHERE key = ?", character.upper())[0]["letter"]
+                    
+                    # If letter is lowercase, use the the lowercase equivalent
+                    else:
+                        decrypted_text += db.execute("SELECT letter FROM substitute WHERE key = ?", character.upper())[0]["letter"].lower()
+                
+                # Character is not a alphabetical letter, keep it as is 
+                else:
+                    decrypted_text += character
+
+            print(decrypted_text)
+
+
+
+
 
         # Show enrcypted/decrypted
         flash("Success", "success")
