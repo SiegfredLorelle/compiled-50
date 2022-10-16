@@ -246,15 +246,50 @@ def substitution():
 @app.route("/plurality", methods=["GET", "POST"])
 def plurality():
     """ 
-    Voting system which prompts for number of candidates and voters then asks voters for their vote
+    Voting system which prompts for number of candidates and voters then asks the name of the candidates then asks voters for their vote
     """
 
     if request.method == "POST":
-        return render_template("plurality.html")
+        # Get values from plurality-1
+        no_candidates = request.form.get("no_candidates")
+        no_voters = request.form.get("no_voters")
+
+        # If inputs are from plurality-1
+        if no_candidates and no_voters:
+            
+            # Convert no. candidates and voters since it is sure guaranteed that they are not None
+            no_candidates = int(no_candidates)
+            no_voters = int(no_voters)
+
+            # Ensures number of candidates and number of voters are valid
+            if no_candidates > 10 or no_voters > 10:
+                flash("Number of candidates and voters must be within 1-10 inclusive.", "error")
+                return render_template("plurality-1.html")
+            
+            # If inputs are valid then redirect to next page
+            print(no_candidates, no_voters)
+            return render_template("plurality-2.html")
+
+        # Get values from plurality-
+
+        first_name = request.form.get("first_name")
+        last_name = request.form.get("last_name")
+
+        # If inputs are from plurality-2
+        # if first_name and last_name:
+
+        print(first_name, last_name)
+
+
+        
+
+
+
+        return render_template("plurality-1.html")
 
     # GET by clicking links or redirects
     else:
-        return render_template("plurality.html")
+        return render_template("plurality-1.html")
 
 
 # TODOs
@@ -285,7 +320,10 @@ def plurality():
 # substitution
 # find a way to ensure that encrypt and decrypt select was chosen in html para d na magrerestart pag input error
 
-
+# plurality
+# work on plurality-2, create table in db for voters and candidates
+# check len of db to go to next page
+# dont forget to empty both tables after giving the result
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
@@ -304,7 +342,10 @@ def plurality():
 # gawing table or grid ung may copy button para pantay pantay ung pwesto ng copy ?
 # make all google fonts oneline by adding in the family in google fonts.com
 # Try floating labels on some textbox
-
+# Toggle dropdown similar to bootstrap website
+# popovers in copy links
+# add loading imagse called spinners
+# add tooltip on hover of copy links 
 
 
 # Special thanks to cs50, Hyperplexed and Superlist for the inspiration
