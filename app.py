@@ -169,7 +169,6 @@ def substitution():
         process = request.form.get("process")
         key = request.form.get("key").upper()
         text = request.form.get("text")
-        print(f"{process}\n {key}\n {text}\n")
 
         # Ensures user selected encrypt or decrypt
         if process == "Choose...":
@@ -205,7 +204,6 @@ def substitution():
         for i in range(len(ascii_uppercase)):
             db.execute("UPDATE  substitute SET key = ? WHERE letter = ?", key[i].upper(), ascii_uppercase[i])
 
-
         if process == "Encrypt":
             result_text = ""
             for character in text:
@@ -221,8 +219,6 @@ def substitution():
                 else:
                     result_text += character
 
-
-        
         elif process == "Decrypt":
             result_text = ""
             for character in text:
@@ -238,11 +234,6 @@ def substitution():
                 else:
                     result_text += character
 
-
-
-        print(result_text)
-
-
         # Show enrcypted/decrypted
         flash(f"Success {result_text}", "success")
         return render_template("substitution.html", process=process, key=key, text=text, result_text=result_text)
@@ -252,7 +243,18 @@ def substitution():
 
 
 
+@app.route("/plurality", methods=["GET", "POST"])
+def plurality():
+    """ 
+    Voting system which prompts for number of candidates and voters then asks voters for their vote
+    """
 
+    if request.method == "POST":
+        return render_template("plurality.html")
+
+    # GET by clicking links or redirects
+    else:
+        return render_template("plurality.html")
 
 
 # TODOs
@@ -281,9 +283,8 @@ def substitution():
 # restrict the use of other languages
 
 # substitution
-# work on showing the output of substitution (plaintext, cyphertext, and key in output)
-# accept symbols and numbers, show them both in plain and cypher
-# add not sure what encrypt and decrypt does?
+# find a way to ensure that encrypt and decrypt select was chosen in html para d na magrerestart pag input error
+
 
 
 # lagay logo sa navbar
@@ -302,7 +303,7 @@ def substitution():
 # maybe add a way to keep entered value in form text box
 # gawing table or grid ung may copy button para pantay pantay ung pwesto ng copy ?
 # make all google fonts oneline by adding in the family in google fonts.com
-
+# Try floating labels on some textbox
 
 
 
