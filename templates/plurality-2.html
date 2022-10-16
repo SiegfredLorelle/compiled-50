@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Plurality
+{% endblock %}
+
+{% block main %}
+    <h1 class="py-3" id="plurality-title">PLURALITY</h1>
+    <h6>Voting System Simulation</h6><br>
+
+
+    <div class="pb-5">
+        <form action="/plurality" method="post">
+
+            <p class="fs-5 fw-bold pt-5">Candidate</p>
+            <div class="row mx-auto w-auto" id="name-box">
+                <div class="col">
+                  <input autofocus type="text" class="form-control" placeholder="First name" aria-label="First name" id="first_name" name="first_name" required>
+                </div>
+                <div class="col">
+                  <input autofocus type="text" class="form-control" placeholder="Last name" aria-label="Last name" id="last_name" name="last_name" required>
+                </div>
+            </div>
+
+            <button class="btn btn-dark m-3" type="submit">Next</button>
+        </form>
+    </div>
+
+{% endblock %}
