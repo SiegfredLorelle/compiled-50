@@ -266,21 +266,49 @@ def plurality():
                 flash("Number of candidates and voters must be within 1-10 inclusive.", "error")
                 return render_template("plurality-1.html")
             
-            # If inputs are valid then redirect to next page
-            print(no_candidates, no_voters)
+            # If inputs are valid then save infos and redirect to next page
+            db.execute("UPDATE pluralityNumbers SET no_candidates = ?, no_voters = ? WHERE number = 1", no_candidates, no_voters)
             return render_template("plurality-2.html")
 
-        # Get values from plurality-
 
+        # Get values from plurality-2
         first_name = request.form.get("first_name")
         last_name = request.form.get("last_name")
 
         # If inputs are from plurality-2
-        # if first_name and last_name:
+        if first_name and last_name:
+    
 
-        print(first_name, last_name)
+            # Check if name only contains alphabetical characters
+
+            # Make first name and last name into full name
+            full_name = first_name + " " + last_name
+            # print(full_name)
+            
+            # If name is valid save the name in candidates table in db
+            db.execute("INSERT INTO pluralityCandidates (full_name) VALUES (?)", full_name)
+            
+            # If len of pluralityCandidates
+            no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
+            candidates = db.execute("SELECT full_name FROM pluralityCandidates")
+
+            # If all candidates are named go to next page
+            if  no_candidates == len(candidates):
+                return render_template("plurality-3.html")
+
+            # Ensures error wont occur when user go back
+            elif no_candidates < len(candidates):
+                db.execute("DELETE FROM pluralityCandidates")
+                flash("An error has occured. Try doing it again.", "error")
+                return render_template("plurality-1.html")
+
+            # Asks for another candidate
+            return render_template("plurality-2.html")
 
 
+
+
+        # Always delete pluralityCandidates when rerunning the code since pg3 is not yet done where it should properly clean the table
         
 
 
