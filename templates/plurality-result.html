@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Plurality
+{% endblock %}
+
+
+{% block main %}
+    <h1 class="py-3" id="plurality-title">PLURALITY</h1>
+    <h6>Voting System Simulation</h6><br>
+
+    <div class="pt-5">
+        <p class="fs-4 fw-bold">Winner(s):</p>
+        {% for winner in winners %}
+            <p class="fs-3 fw-bold text-primary">{{ winner["full_name"] }}</p>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+
