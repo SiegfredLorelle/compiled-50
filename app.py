@@ -8,7 +8,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from string import ascii_letters, ascii_uppercase
 from re import sub
 
-from helpers import login_required, check_card, get_grade_lvl, substitute
+from helpers import login_required, check_card, get_grade_lvl
 
 # Configure application
 app = Flask(__name__)
@@ -278,7 +278,6 @@ def plurality():
         # If inputs are from plurality-2
         if first_name and last_name:
     
-
             # Check if name only contains alphabetical characters
 
             # Make first name and last name into full name
@@ -294,26 +293,46 @@ def plurality():
 
             # If all candidates are named go to next page
             if  no_candidates == len(candidates):
-                return render_template("plurality-3.html")
+                candidates = db.execute("SELECT * FROM pluralityCandidates")
+                return render_template("plurality-3.html", candidates=candidates)
 
             # Ensures error wont occur when user go back
             elif no_candidates < len(candidates):
                 db.execute("DELETE FROM pluralityCandidates")
-                flash("An error has occured. Try doing it again.", "error")
+                flash("An error has occured. Please try again.", "error")
                 return render_template("plurality-1.html")
 
             # Asks for another candidate
-            return render_template("plurality-2.html")
+            candidates = db.execute("SELECT * FROM pluralityCandidates")
+            return render_template("plurality-2.html", candidates=candidates)
 
 
+        # If input is from plurality-3
+        vote = request.form.get("vote")
+        if vote:
+            db.execute("UPDATE pluralityCandidates SET votes = (votes + 1) WHERE full_name = ?", vote)
 
+            total_votes = int(db.execute("SELECT SUM(votes) AS total_votes FROM pluralityCandidates")[0]["total_votes"])
+            no_voters = int(db.execute("SELECT no_voters FROM pluralityNumbers")[0]["no_voters"])
 
-        # Always delete pluralityCandidates when rerunning the code since pg3 is not yet done where it should properly clean the table
-        
+            # If all votes are accounted for show result
+            if total_votes == no_voters:
+                # Go to result page
+                print("Show solution")
+                db.execute("DELETE FROM pluralityCandidates")
+                return render_template("plurality-1.html")
 
-
-
-        return render_template("plurality-1.html")
+            # Asks for next vote
+            elif total_votes < no_voters:
+                candidates = db.execute("SELECT * FROM pluralityCandidates")
+                return render_template("plurality-3.html", candidates=candidates)
+            
+            # Ensures no error occurs
+            else:
+                db.execute("DELETE FROM pluralityCandidates")
+                flash("An error has occured. Please try again.", "error")
+                return render_template("plurality-1.html")
+             
 
     # GET by clicking links or redirects
     else:
@@ -349,9 +368,12 @@ def plurality():
 # find a way to ensure that encrypt and decrypt select was chosen in html para d na magrerestart pag input error
 
 # plurality
-# work on plurality-2, create table in db for voters and candidates
-# check len of db to go to next page
-# dont forget to empty both tables after giving the result
+# work on plurality-result
+# add go back button 
+# divide into three defs para d magerror pag binaback
+# work on ensuring no repeats sa names of candidatres
+
+
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
