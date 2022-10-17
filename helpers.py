@@ -122,5 +122,3 @@ def get_grade_lvl(text):
 
 
 
-def substitute(process, key, text):
-    pass
