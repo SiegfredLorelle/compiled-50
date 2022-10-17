@@ -10,12 +10,12 @@
 
     <form action="/plurality" method="post">
         <select class="form-select form-select-lg mx-auto w-auto" aria-label=".form-select-lg example" id="vote" name="vote">
-            <option selected>Vote ...</option>
+            <option hidden selected>Vote ...</option>
             {% for candidate in candidates %}
                 <option>{{ candidate["full_name"] }}</option>
             {% endfor %}
         </select>
-        <button class="btn btn-dark m-3" type="submit">Next</button>
+        <button class="btn btn-dark m-4" type="submit">Next</button>
     </form>
 
     {% if candidates %}
@@ -34,7 +34,7 @@
                     <tr>
                         <td>{{ candidate["candidate_no"] }}</td>
                         <td>{{ candidate["full_name"] }}</td>
-                        <td>{{ candidate["votes"] }}</td>
+                        <th class="text-primary">{{ candidate["votes"] }}</th>
                     </tr>
                 {% endfor %}
             </tbody>
