@@ -10,7 +10,7 @@
 
 
     <div class="pb-5">
-        <form action="/plurality_get_candidates" method="post">
+        <form action="/plurality_candidates" method="post">
 
             <p class="fs-5 fw-bold pt-5 pb-2">Candidate</p>
             <div class="row mx-auto w-auto" id="name-box">
@@ -21,7 +21,9 @@
                   <input autofocus type="text" class="form-control" placeholder="Last name" aria-label="Last name" id="last_name" name="last_name" required>
                 </div>
             </div>
-            <button class="btn btn-dark m-4" type="submit">Next</button>
+            <button class="btn btn-danger m-4" id="back-button" type="button">Back</button>
+            <button class="btn btn-dark m-4" id="back-button" type="submit">Next</button>
+            
         </form>
     </div>
 
@@ -47,4 +49,5 @@
         </div>
     {% endif %}
 
+    <script src="/static/js/go-back-to-plurality-1.js"></script>
 {% endblock %}
