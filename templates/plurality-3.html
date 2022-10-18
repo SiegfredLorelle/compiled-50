@@ -8,9 +8,11 @@
     <h1 class="py-3" id="plurality-title">PLURALITY</h1>
     <h6>Voting System Simulation</h6><br>
 
+
+    <p class="fs-5 fw-bold pt-5 pb-2">I vote for ...</p>
     <form action="/plurality_votes" method="post">
         <select class="form-select form-select-lg mx-auto w-auto" aria-label=".form-select-lg example" id="vote" name="vote">
-            <option hidden selected>Vote ...</option>
+            <option hidden selected>Candidate</option>
             {% for candidate in candidates %}
                 <option>{{ candidate["full_name"] }}</option>
             {% endfor %}
@@ -19,21 +21,19 @@
         <button class="btn btn-dark m-4" type="submit">Next</button>
     </form>
 
-    {% if candidates %}
+    {% if candidates_sorted %}
         <div class="mx-5">
             <table class="table table-hover caption-top table-sm">
                 <caption>Votes</caption>
                 <thead>
                     <tr>
-                        <th> Candidate #</th>
                         <th>Full Name</th>
                         <th>Number of Votes</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for candidate in candidates %}
+                    {% for candidate in candidates_sorted %}
                         <tr>
-                            <td>{{ candidate["candidate_no"] }}</td>
                             <td>{{ candidate["full_name"] }}</td>
                             <th class="text-primary">{{ candidate["votes"] }}</th>
                         </tr>
