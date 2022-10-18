@@ -243,127 +243,126 @@ def substitution():
 
 
 
-@app.route("/plurality", methods=["GET", "POST"])
-def plurality():
-    """ 
-    Voting system which prompts for number of candidates and voters then asks the name of the candidates then asks voters for their vote
-    """
+@app.route("/plurality_start", methods=["GET", "POST"])
+def plurality_start():
+    """ Get the number of candidates and voters"""
 
     if request.method == "POST":
-        
+        # Ensure that this is a new process
+        db.execute("DELETE FROM pluralityCandidates")
+
         # Get values from plurality-1
-        no_candidates = request.form.get("no_candidates")
-        no_voters = request.form.get("no_voters")
+        no_candidates = int(request.form.get("no_candidates"))
+        no_voters = int(request.form.get("no_voters"))
 
-        # If inputs are from plurality-1
-        if no_candidates and no_voters:
-            
-            # Ensure table is empty
-            db.execute("DELETE FROM pluralityCandidates")
+        # Ensures number of candidates and number of voters are valid
+        if no_candidates > 10 or no_voters > 10:
+            flash("Number of candidates and voters must be within 1-10 inclusive.", "error")
+            return render_template("plurality-1.html")
 
-            # Convert no. candidates and voters to int since it is sure guaranteed that they are not None
-            no_candidates = int(no_candidates)
-            no_voters = int(no_voters)
+        # If inputs are valid then save infos and redirect to next page
+        db.execute("UPDATE pluralityNumbers SET no_candidates = ?, no_voters = ? WHERE number = 1", no_candidates, no_voters)
+        return render_template("plurality-2.html")
+    
+    # GET by clicking redirect or link 
+    else:
+        return render_template("plurality-1.html")
 
-            # Ensures number of candidates and number of voters are valid
-            if no_candidates > 10 or no_voters > 10:
-                flash("Number of candidates and voters must be within 1-10 inclusive.", "error")
-                return render_template("plurality-1.html")
-            
-            # If inputs are valid then save infos and redirect to next page
-            db.execute("UPDATE pluralityNumbers SET no_candidates = ?, no_voters = ? WHERE number = 1", no_candidates, no_voters)
-            return render_template("plurality-2.html")
 
+
+@app.route("/plurality_get_candidates", methods=["GET", "POST"])
+def plurality_get_candidates():
+    """ Get the names of the candidates"""
+    if request.method == "POST":
+        candidates = db.execute("SELECT * FROM pluralityCandidates")
 
         # Get values from plurality-2
         first_name = request.form.get("first_name")
         last_name = request.form.get("last_name")
 
-        # If inputs are from plurality-2
-        if first_name and last_name:
-            candidates = db.execute("SELECT * FROM pluralityCandidates")
+        # Ensure name is not empty
+        if first_name.isspace() or last_name.isspace():
+            flash("Name cannot be empty.", "error")
+            return render_template("plurality-2.html", candidates=candidates)
 
-            # Ensure name is not empty
-            if first_name.isspace() or last_name.isspace():
-                flash("Name cannot be empty.", "error")
+        # Ensure name does not have any extra white spaces in front, end, and trailing
+        full_name = (first_name + " " + last_name)
+        full_name = sub(' +', ' ', full_name.strip()).upper()
+
+        # Ensures full name does not have any numbers or some special characters
+        for character in full_name:
+            if character in digits:
+                flash("Name cannot have any numbers.", "error")
                 return render_template("plurality-2.html", candidates=candidates)
 
-            # Ensure name does not have any extra white spaces in front, end, and trailing
-            full_name = (first_name + " " + last_name)
-            full_name = sub(' +', ' ', full_name.strip()).upper()
-
-            # Ensures full name does not have any numbers or some special characters
-            for character in full_name:
-                if character in digits:
-                    flash("Name cannot have any numbers.", "error")
-                    return render_template("plurality-2.html", candidates=candidates)
-
-            # Ensure candidate is not already in database
-            for candidate in candidates:
-                print(candidate["full_name"])
-                if full_name == candidate["full_name"]:
-                    flash(f"'{full_name}' is already a candidate.", "error")
-                    return render_template("plurality-2.html", candidates=candidates)
-
-            
-            # If name is valid then save the name in candidates table in db
-            db.execute("INSERT INTO pluralityCandidates (full_name) VALUES (?)", full_name)
-            
-            # Update the candidates to include the new candidate and check if candidates are complete
-            no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
-            candidates = db.execute("SELECT * FROM pluralityCandidates")
-
-            # If candidates are complete then go to next page
-            if  no_candidates == len(candidates):
-                return render_template("plurality-3.html", candidates=candidates)
-
-            # Ensures error wont occur when user go back
-            elif no_candidates < len(candidates):
-                db.execute("DELETE FROM pluralityCandidates")
-                flash("An error has occured. Please try again.", "error")
-                return render_template("plurality-1.html")
-
-            # If candidates are incomplete then ask for another candidate
-            else:
+        # Ensure candidate is not already in database
+        for candidate in candidates:
+            print(candidate["full_name"])
+            if full_name == candidate["full_name"]:
+                flash(f"'{full_name}' is already a candidate.", "error")
                 return render_template("plurality-2.html", candidates=candidates)
+                    
+        # If name is valid then save the name in candidates table in db and update candidates variable
+        db.execute("INSERT INTO pluralityCandidates (full_name) VALUES (?)", full_name)
+        candidates = db.execute("SELECT * FROM pluralityCandidates")
+        no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
 
+        # If candidates are complete then go to next page
+        if  no_candidates == len(candidates):
+            return render_template("plurality-3.html", candidates=candidates)
 
-        # If input is from plurality-3
-        vote = request.form.get("vote")
-        if vote:
+        # if candidate is incomplete then ask for next candidate
+        elif no_candidates > len(candidates):
+            return render_template("plurality-2.html", candidates=candidates)
 
-            # Ensure user voted
-            if vote == "Vote...":
-                flash("Please select who to vote for.", "error")
-                return render_template("plurality-3.html")
+        # Catch errors when candidates exceed
+        else:
+            flash("An error has occured. Please try again.", "error")
+            return render_template("plurality-1.html")
 
-            # Update the vote
-            db.execute("UPDATE pluralityCandidates SET votes = (votes + 1) WHERE full_name = ?", vote)
-
-            # Get values from db 
-            candidates = db.execute("SELECT * FROM pluralityCandidates")
-            total_votes = int(db.execute("SELECT SUM(votes) AS total_votes FROM pluralityCandidates")[0]["total_votes"])
-            no_voters = int(db.execute("SELECT no_voters FROM pluralityNumbers")[0]["no_voters"])
-
-            # If all votes are accounted for show result
-            if total_votes == no_voters:
-                winners = db.execute("SELECT full_name FROM pluralityCandidates WHERE votes = (SELECT MAX(votes) as votes FROM pluralityCandidates)")
-                return render_template("plurality-result.html", winners=winners, candidates=candidates)
-
-            # If votes are incomplete ask for next vote
-            elif total_votes < no_voters:
-                return render_template("plurality-3.html", candidates=candidates)
-            
-            # Ensures no error occurs if user go back
-            else:
-                flash("An error has occured. Please try again.", "error")
-                return render_template("plurality-1.html")
-             
-
-    # GET by clicking links or redirects (clean candidates also to avoid error)
+    # Get by clicking links or redirects
     else:
-        db.execute("DELETE FROM pluralityCandidates")
-        return render_template("plurality-1.html")
+        return render_template("plurality-2.html")
+
+
+
+@app.route("/plurality_get_votes", methods=["GET", "POST"])
+def plurality_get_votes():
+    """ Get the the vote of each voter then determine the winner(s)"""
+    if request.method == "POST":
+        vote = request.form.get("vote")
+
+        # Ensure user voted
+        if vote == "Vote...":
+            flash("Please select who to vote for.", "error")
+            return render_template("plurality-3.html")
+
+        # Update the vote 
+        db.execute("UPDATE pluralityCandidates SET votes = (votes + 1) WHERE full_name = ?", vote)
+
+        # Get values from db 
+        candidates = db.execute("SELECT * FROM pluralityCandidates")
+        total_votes = int(db.execute("SELECT SUM(votes) AS total_votes FROM pluralityCandidates")[0]["total_votes"])
+        no_voters = int(db.execute("SELECT no_voters FROM pluralityNumbers")[0]["no_voters"])
+
+        # If all voters voted then show ther result
+        if total_votes == no_voters:
+            winners = db.execute("SELECT full_name FROM pluralityCandidates WHERE votes = (SELECT MAX(votes) as votes FROM pluralityCandidates)")
+            return render_template("plurality-result.html", winners=winners, candidates=candidates)
+
+        # If votes are incomplete ask for next vote
+        elif total_votes < no_voters:
+            return render_template("plurality-3.html", candidates=candidates)
+        
+        # Catch errors when number of voters do not match the number of votes
+        else:
+            flash("An error has occured. Please try again.", "error")
+            return render_template("plurality-1.html")     
+    
+    # GET by clicking links or redirects
+    else:
+        return render_template("plurality-3.html")
+
 
 
 # TODOs
@@ -395,8 +394,7 @@ def plurality():
 # find a way to ensure that encrypt and decrypt select was chosen in html para d na magrerestart pag input error
 
 # plurality
-# add go back button 
-# divide into three defs para d magerror pag binaback
+# add go back button and try again in result page
 # try to test refresh and go back if it will error
 
 
