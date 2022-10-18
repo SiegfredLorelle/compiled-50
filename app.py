@@ -270,8 +270,8 @@ def plurality_start():
 
 
 
-@app.route("/plurality_get_candidates", methods=["GET", "POST"])
-def plurality_get_candidates():
+@app.route("/plurality_candidates", methods=["GET", "POST"])
+def plurality_candidates():
     """ Get the names of the candidates"""
     if request.method == "POST":
         candidates = db.execute("SELECT * FROM pluralityCandidates")
@@ -297,8 +297,14 @@ def plurality_get_candidates():
 
         # Ensure candidate is not already in database
         for candidate in candidates:
-            print(candidate["full_name"])
             if full_name == candidate["full_name"]:
+                
+                # Catch error where user refresh as soon as it gets to plurality-3 where candidate might exceed 
+                no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
+                if no_candidates == len(candidates):
+                    return render_template("plurality-3.html", candidates=candidates)
+                
+                # Show error that candidate cannot repeat and ask for a new candidate name
                 flash(f"'{full_name}' is already a candidate.", "error")
                 return render_template("plurality-2.html", candidates=candidates)
                     
@@ -322,12 +328,13 @@ def plurality_get_candidates():
 
     # Get by clicking links or redirects
     else:
+        db.execute("DELETE FROM pluralityCandidates")
         return render_template("plurality-2.html")
 
 
 
-@app.route("/plurality_get_votes", methods=["GET", "POST"])
-def plurality_get_votes():
+@app.route("/plurality_votes", methods=["GET", "POST"])
+def plurality_votes():
     """ Get the the vote of each voter then determine the winner(s)"""
     if request.method == "POST":
         vote = request.form.get("vote")
