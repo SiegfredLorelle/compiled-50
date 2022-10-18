@@ -340,9 +340,10 @@ def plurality_votes():
         vote = request.form.get("vote")
 
         # Ensure user voted
-        if vote == "Vote...":
-            flash("Please select who to vote for.", "error")
-            return render_template("plurality-3.html")
+        if vote == "Vote ...":
+            candidates = db.execute("SELECT * FROM pluralityCandidates")
+            flash("Please select a candidate to vote.", "error")
+            return render_template("plurality-3.html", candidates=candidates)
 
         # Update the vote 
         db.execute("UPDATE pluralityCandidates SET votes = (votes + 1) WHERE full_name = ?", vote)
@@ -361,14 +362,18 @@ def plurality_votes():
         elif total_votes < no_voters:
             return render_template("plurality-3.html", candidates=candidates)
         
-        # Catch errors when number of voters do not match the number of votes
+        # Catch errors when user refresh as soon as it gets to results
         else:
-            flash("An error has occured. Please try again.", "error")
-            return render_template("plurality-1.html")     
+            db.execute("UPDATE pluralityCandidates SET votes = (votes - 1) WHERE full_name = ?", vote)
+            winners = db.execute("SELECT full_name FROM pluralityCandidates WHERE votes = (SELECT MAX(votes) as votes FROM pluralityCandidates)")
+            candidates = db.execute("SELECT * FROM pluralityCandidates")
+            return render_template("plurality-result.html", winners=winners, candidates=candidates)     
     
     # GET by clicking links or redirects
     else:
-        return render_template("plurality-3.html")
+        db.execute("UPDATE pluralityCandidates SET votes = 0")
+        candidates = db.execute("SELECT * FROM pluralityCandidates")
+        return render_template("plurality-3.html", candidates=candidates)
 
 
 
