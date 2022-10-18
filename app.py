@@ -302,6 +302,7 @@ def plurality_candidates():
                 # Catch error where user refresh as soon as it gets to plurality-3 where candidate might exceed 
                 no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
                 if no_candidates == len(candidates):
+                    db.execute("UPDATE pluralityCandidates SET votes = 0")
                     return render_template("plurality-3.html", candidates=candidates)
                 
                 # Show error that candidate cannot repeat and ask for a new candidate name
@@ -342,32 +343,35 @@ def plurality_votes():
         # Ensure user voted
         if vote == "Vote ...":
             candidates = db.execute("SELECT * FROM pluralityCandidates")
+            candidates_sorted = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
             flash("Please select a candidate to vote.", "error")
-            return render_template("plurality-3.html", candidates=candidates)
+            return render_template("plurality-3.html", candidates=candidates, candidates_sorted=candidates_sorted)
 
-        # Update the vote 
+        # Count the vote
         db.execute("UPDATE pluralityCandidates SET votes = (votes + 1) WHERE full_name = ?", vote)
 
         # Get values from db 
         candidates = db.execute("SELECT * FROM pluralityCandidates")
+        candidates_sorted = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
         total_votes = int(db.execute("SELECT SUM(votes) AS total_votes FROM pluralityCandidates")[0]["total_votes"])
         no_voters = int(db.execute("SELECT no_voters FROM pluralityNumbers")[0]["no_voters"])
 
-        # If all voters voted then show ther result
+        # If all voters voted then show the result and sort them also by votes
         if total_votes == no_voters:
             winners = db.execute("SELECT full_name FROM pluralityCandidates WHERE votes = (SELECT MAX(votes) as votes FROM pluralityCandidates)")
-            return render_template("plurality-result.html", winners=winners, candidates=candidates)
+            return render_template("plurality-result.html", winners=winners, candidates_sorted=candidates_sorted)
 
         # If votes are incomplete ask for next vote
         elif total_votes < no_voters:
-            return render_template("plurality-3.html", candidates=candidates)
+            return render_template("plurality-3.html", candidates=candidates, candidates_sorted=candidates_sorted)
         
         # Catch errors when user refresh as soon as it gets to results
         else:
             db.execute("UPDATE pluralityCandidates SET votes = (votes - 1) WHERE full_name = ?", vote)
             winners = db.execute("SELECT full_name FROM pluralityCandidates WHERE votes = (SELECT MAX(votes) as votes FROM pluralityCandidates)")
-            candidates = db.execute("SELECT * FROM pluralityCandidates")
-            return render_template("plurality-result.html", winners=winners, candidates=candidates)     
+            candidates = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
+            candidates_sorted = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
+            return render_template("plurality-result.html", winners=winners, candidates_sorted=candidates_sorted)     
     
     # GET by clicking links or redirects
     else:

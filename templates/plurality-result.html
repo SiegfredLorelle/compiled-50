@@ -21,6 +21,33 @@
         <button class="btn btn-dark m-4" id ="try-again-button" type="submit">Try Again</button>
     </div>
 
+
+    <p>
+        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          See Result    
+        </button>
+    </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <table class="table table-hover caption-top table-sm">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Number of Votes</th>
+                    </tr>
+                <tbody>
+                        {% for candidate in candidates_sorted %}
+                            <tr>
+                                <td>{{ candidate["full_name"] }}</td>
+                                <th class="text-primary">{{ candidate["votes"] }}</th>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </thead>
+            </table>
+        </div>
+      </div>
+
     <script src="/static/js/plurality-3-directions.js"></script>
 
 

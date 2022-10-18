@@ -19,21 +19,19 @@
         <button class="btn btn-dark m-4" type="submit">Next</button>
     </form>
 
-    {% if candidates %}
+    {% if candidates_sorted %}
         <div class="mx-5">
             <table class="table table-hover caption-top table-sm">
                 <caption>Votes</caption>
                 <thead>
                     <tr>
-                        <th> Candidate #</th>
                         <th>Full Name</th>
                         <th>Number of Votes</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for candidate in candidates %}
+                    {% for candidate in candidates_sorted %}
                         <tr>
-                            <td>{{ candidate["candidate_no"] }}</td>
                             <td>{{ candidate["full_name"] }}</td>
                             <th class="text-primary">{{ candidate["votes"] }}</th>
                         </tr>
