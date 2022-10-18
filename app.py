@@ -341,7 +341,7 @@ def plurality_votes():
         vote = request.form.get("vote")
 
         # Ensure user voted
-        if vote == "Vote ...":
+        if vote == "Candidate":
             candidates = db.execute("SELECT * FROM pluralityCandidates")
             candidates_sorted = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
             flash("Please select a candidate to vote.", "error")

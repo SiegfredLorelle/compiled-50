@@ -8,9 +8,11 @@
     <h1 class="py-3" id="plurality-title">PLURALITY</h1>
     <h6>Voting System Simulation</h6><br>
 
+
+    <p class="fs-5 fw-bold pt-5 pb-2">I vote for ...</p>
     <form action="/plurality_votes" method="post">
         <select class="form-select form-select-lg mx-auto w-auto" aria-label=".form-select-lg example" id="vote" name="vote">
-            <option hidden selected>Vote ...</option>
+            <option hidden selected>Candidate</option>
             {% for candidate in candidates %}
                 <option>{{ candidate["full_name"] }}</option>
             {% endfor %}
