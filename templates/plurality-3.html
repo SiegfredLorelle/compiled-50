@@ -8,7 +8,7 @@
     <h1 class="py-3" id="plurality-title">PLURALITY</h1>
     <h6>Voting System Simulation</h6><br>
 
-    <form action="/plurality" method="post">
+    <form action="/plurality_get_votes" method="post">
         <select class="form-select form-select-lg mx-auto w-auto" aria-label=".form-select-lg example" id="vote" name="vote">
             <option hidden selected>Vote ...</option>
             {% for candidate in candidates %}
