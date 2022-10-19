@@ -382,6 +382,15 @@ def plurality_votes():
 
 
 
+@app.route("/filter", methods=["GET", "POST"])
+def filter():
+    """Filter a random image or an image from the user"""
+    if request.method == "POST":
+        return render_template("filter.html")
+    else:
+        return render_template("filter.html")
+
+
 # TODOs
 
 # homepage page
@@ -414,6 +423,10 @@ def plurality_votes():
 # test for bugs
 
 # filter
+# add select on what fitler to use and submit button (to filter the image)
+# ensure only 1 is selected maybe disable the other or just catch the error
+# more details expplain the process is different
+# prcoess the filter in python or css ? 
 
 
 # lagay logo sa navbar

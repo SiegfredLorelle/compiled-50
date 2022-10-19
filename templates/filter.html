@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Filter
+{% endblock %}
+
+{% block main %}
+    <h1 class="py-3" id="filter-title">FILTER</h1>
+    <h6>Filters an image.</h6><br>
+
+
+    <div class="mx-auto w-auto" id="file-box">
+        <label for="formFile" class="form-label" >Image to filter</label>
+        <input  accept="image/*" class="form-control" type="file" id="formFile" name="formFile">
+    </div>
+    <h5 class="py-3">OR</h5>
+    <button class="btn btn-dark" type="submit">Random Image</button>
+{% endblock %}
