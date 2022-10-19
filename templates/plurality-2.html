@@ -61,7 +61,7 @@
     <script>
         // Get the number of current candidates and total number of candidates
         const numberOfCandidates = document.querySelector(".table").rows.length - 1;
-        let totalNumberOfCandidates = {{ no_candidates }}
+        const totalNumberOfCandidates = {{ no_candidates }}
 
         // Compute the progress 
         const progressWidth = (numberOfCandidates / totalNumberOfCandidates) * 100

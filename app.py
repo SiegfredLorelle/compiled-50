@@ -345,8 +345,12 @@ def plurality_votes():
         if vote == "Candidate":
             candidates = db.execute("SELECT * FROM pluralityCandidates")
             candidates_sorted = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
+            
+            total_votes = int(db.execute("SELECT SUM(votes) AS total_votes FROM pluralityCandidates")[0]["total_votes"])
+            no_voters = int(db.execute("SELECT no_voters FROM pluralityNumbers")[0]["no_voters"])
+            
             flash("Please select a candidate to vote.", "error")
-            return render_template("plurality-3.html", candidates=candidates, candidates_sorted=candidates_sorted)
+            return render_template("plurality-3.html", candidates=candidates, candidates_sorted=candidates_sorted, total_votes=total_votes, no_voters=no_voters)
 
         # Count the vote
         db.execute("UPDATE pluralityCandidates SET votes = (votes + 1) WHERE full_name = ?", vote)
@@ -364,7 +368,7 @@ def plurality_votes():
 
         # If votes are incomplete ask for next vote
         elif total_votes < no_voters:
-            return render_template("plurality-3.html", candidates=candidates, candidates_sorted=candidates_sorted)
+            return render_template("plurality-3.html", candidates=candidates, candidates_sorted=candidates_sorted, total_votes=total_votes, no_voters=no_voters)
         
         # Catch errors when user refresh as soon as it gets to results
         else:
