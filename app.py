@@ -246,7 +246,6 @@ def substitution():
 @app.route("/plurality_start", methods=["GET", "POST"])
 def plurality_start():
     """ Get the number of candidates and voters"""
-
     if request.method == "POST":
         # Ensure that this is a new process
         db.execute("DELETE FROM pluralityCandidates")
@@ -275,6 +274,8 @@ def plurality_candidates():
     """ Get the names of the candidates"""
     if request.method == "POST":
         candidates = db.execute("SELECT * FROM pluralityCandidates")
+        no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
+
 
         # Get values from plurality-2
         first_name = request.form.get("first_name")
@@ -292,7 +293,6 @@ def plurality_candidates():
         # Ensures full name does not have any numbers or some special characters
         for character in full_name:
             if character in digits:
-                no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
                 flash("Name cannot have any numbers.", "error")
                 return render_template("plurality-2.html", candidates=candidates, no_candidates=no_candidates)
 
@@ -301,7 +301,6 @@ def plurality_candidates():
             if full_name == candidate["full_name"]:
                 
                 # Catch error where user refresh as soon as it gets to plurality-3 where candidate might exceed 
-                no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
                 if no_candidates == len(candidates):
                     db.execute("UPDATE pluralityCandidates SET votes = 0")
                     return render_template("plurality-3.html", candidates=candidates)
@@ -310,7 +309,7 @@ def plurality_candidates():
                 flash(f"'{full_name}' is already a candidate.", "error")
                 return render_template("plurality-2.html", candidates=candidates, no_candidates=no_candidates)
                     
-        # If name is valid then save the name in candidates table in db and update candidates variable
+        # If name is valid then save the name in candidates db and update candidates variable
         db.execute("INSERT INTO pluralityCandidates (full_name) VALUES (?)", full_name)
         candidates = db.execute("SELECT * FROM pluralityCandidates")
         no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
@@ -340,22 +339,20 @@ def plurality_votes():
     """ Get the the vote of each voter then determine the winner(s)"""
     if request.method == "POST":
         vote = request.form.get("vote")
+        candidates = db.execute("SELECT * FROM pluralityCandidates")
+        candidates_sorted = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
+        total_votes = int(db.execute("SELECT SUM(votes) AS total_votes FROM pluralityCandidates")[0]["total_votes"])
+        no_voters = int(db.execute("SELECT no_voters FROM pluralityNumbers")[0]["no_voters"])
 
         # Ensure user voted
         if vote == "Candidate":
-            candidates = db.execute("SELECT * FROM pluralityCandidates")
-            candidates_sorted = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
-            
-            total_votes = int(db.execute("SELECT SUM(votes) AS total_votes FROM pluralityCandidates")[0]["total_votes"])
-            no_voters = int(db.execute("SELECT no_voters FROM pluralityNumbers")[0]["no_voters"])
-            
             flash("Please select a candidate to vote.", "error")
             return render_template("plurality-3.html", candidates=candidates, candidates_sorted=candidates_sorted, total_votes=total_votes, no_voters=no_voters)
 
         # Count the vote
         db.execute("UPDATE pluralityCandidates SET votes = (votes + 1) WHERE full_name = ?", vote)
 
-        # Get values from db 
+        # Update the variables since db has an addition
         candidates = db.execute("SELECT * FROM pluralityCandidates")
         candidates_sorted = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
         total_votes = int(db.execute("SELECT SUM(votes) AS total_votes FROM pluralityCandidates")[0]["total_votes"])
@@ -374,7 +371,6 @@ def plurality_votes():
         else:
             db.execute("UPDATE pluralityCandidates SET votes = (votes - 1) WHERE full_name = ?", vote)
             winners = db.execute("SELECT full_name FROM pluralityCandidates WHERE votes = (SELECT MAX(votes) as votes FROM pluralityCandidates)")
-            candidates = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
             candidates_sorted = db.execute("SELECT * FROM pluralityCandidates ORDER BY votes DESC")
             return render_template("plurality-result.html", winners=winners, candidates_sorted=candidates_sorted)     
     
@@ -384,6 +380,15 @@ def plurality_votes():
         candidates = db.execute("SELECT * FROM pluralityCandidates")
         return render_template("plurality-3.html", candidates=candidates)
 
+
+
+@app.route("/filter", methods=["GET", "POST"])
+def filter():
+    """Filter a random image or an image from the user"""
+    if request.method == "POST":
+        return render_template("filter.html")
+    else:
+        return render_template("filter.html")
 
 
 # TODOs
@@ -418,6 +423,10 @@ def plurality_votes():
 # test for bugs
 
 # filter
+# add select on what fitler to use and submit button (to filter the image)
+# ensure only 1 is selected maybe disable the other or just catch the error
+# more details expplain the process is different
+# prcoess the filter in python or css ? 
 
 
 # lagay logo sa navbar
