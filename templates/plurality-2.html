@@ -21,6 +21,14 @@
                   <input autofocus type="text" class="form-control" placeholder="Last name" aria-label="Last name" id="last_name" name="last_name" required>
                 </div>
             </div>
+
+            <div class="pt-4 p-5 mx-5 mt-4">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-dark" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+
+
             <button class="btn btn-danger m-4" id="back-button" type="button">Back</button>
             <button class="btn btn-dark m-4" id="back-button" type="submit">Next</button>
             
@@ -50,4 +58,17 @@
     {% endif %}
 
     <script src="/static/js/go-back-to-plurality-1.js"></script>
+    <script>
+        // Get the number of current candidates and total number of candidates
+        const numberOfCandidates = document.querySelector(".table").rows.length - 1;
+        let totalNumberOfCandidates = {{ no_candidates }}
+
+        // Compute the progress 
+        const progressWidth = (numberOfCandidates / totalNumberOfCandidates) * 100
+
+        // Get the progress bar's attribute and apply the appropriate progress
+        const progressBar  = document.querySelector(".progress-bar")
+        const progress = progressBar.style.width = `${progressWidth}%`
+    </script>
+
 {% endblock %}

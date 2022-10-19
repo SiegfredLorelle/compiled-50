@@ -292,8 +292,9 @@ def plurality_candidates():
         # Ensures full name does not have any numbers or some special characters
         for character in full_name:
             if character in digits:
+                no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
                 flash("Name cannot have any numbers.", "error")
-                return render_template("plurality-2.html", candidates=candidates)
+                return render_template("plurality-2.html", candidates=candidates, no_candidates=no_candidates)
 
         # Ensure candidate is not already in database
         for candidate in candidates:
@@ -307,7 +308,7 @@ def plurality_candidates():
                 
                 # Show error that candidate cannot repeat and ask for a new candidate name
                 flash(f"'{full_name}' is already a candidate.", "error")
-                return render_template("plurality-2.html", candidates=candidates)
+                return render_template("plurality-2.html", candidates=candidates, no_candidates=no_candidates)
                     
         # If name is valid then save the name in candidates table in db and update candidates variable
         db.execute("INSERT INTO pluralityCandidates (full_name) VALUES (?)", full_name)
@@ -320,7 +321,7 @@ def plurality_candidates():
 
         # if candidate is incomplete then ask for next candidate
         elif no_candidates > len(candidates):
-            return render_template("plurality-2.html", candidates=candidates)
+            return render_template("plurality-2.html", candidates=candidates, no_candidates=no_candidates)
 
         # Catch errors when candidates exceed
         else:
@@ -410,8 +411,9 @@ def plurality_votes():
 # find a way to ensure that encrypt and decrypt select was chosen in html para d na magrerestart pag input error
 
 # plurality
-# add go back button and try again in result page
-# try to test refresh and go back if it will error
+# test for bugs
+
+# filter
 
 
 # lagay logo sa navbar
