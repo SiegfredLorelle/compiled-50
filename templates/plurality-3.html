@@ -11,12 +11,21 @@
 
     <p class="fs-5 fw-bold pt-5 pb-2">I vote for ...</p>
     <form action="/plurality_votes" method="post">
-        <select class="form-select form-select-lg mx-auto w-auto" aria-label=".form-select-lg example" id="vote" name="vote">
+        <select autofocus class="form-select form-select-lg mx-auto w-auto" aria-label=".form-select-lg example" id="vote" name="vote">
             <option hidden selected>Candidate</option>
             {% for candidate in candidates %}
                 <option>{{ candidate["full_name"] }}</option>
             {% endfor %}
         </select>
+
+
+        <div class="pt-4 p-5 mx-5 mt-4">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-dark" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+
+
         <button class="btn btn-danger m-4" id="back-button" type="button">Back</button>
         <button class="btn btn-dark m-4" type="submit">Next</button>
     </form>
@@ -35,7 +44,7 @@
                     {% for candidate in candidates_sorted %}
                         <tr>
                             <td>{{ candidate["full_name"] }}</td>
-                            <th class="text-primary">{{ candidate["votes"] }}</th>
+                            <th >{{ candidate["votes"] }}</th>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -44,6 +53,18 @@
     {% endif %}
 
     <script src="/static/js/go-back-to-plurality-2.js"></script>
+    <script>
+        // Get the number of current candidates and total number of candidates
+        const numberOfVotes= {{ total_votes }}
+        const totalNumberOfVotes = {{ no_voters }}
+
+        // Compute the progress 
+        const progressWidth = (numberOfVotes / totalNumberOfVotes) * 100
+
+        // Get the progress bar's attribute and apply the appropriate progress
+        const progressBar  = document.querySelector(".progress-bar")
+        const progress = progressBar.style.width = `${progressWidth}%`
+    </script>
 
 
 
