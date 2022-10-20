@@ -5,14 +5,63 @@
 {% endblock %}
 
 {% block main %}
-    <h1 class="py-3" id="filter-title">FILTER</h1>
-    <h6>Filters an image.</h6><br>
-
-
-    <div class="mx-auto w-auto" id="file-box">
-        <label for="formFile" class="form-label" >Image to filter</label>
-        <input  accept="image/*" class="form-control" type="file" id="formFile" name="formFile">
+    <div class="mb-5">
+        <h1 class="py-3" id="filter-title">FILTER</h1>
+        <h6>Filters an image.</h6><br>
     </div>
-    <h5 class="py-3">OR</h5>
-    <button class="btn btn-dark" type="submit">Random Image</button>
+
+    <form action="/filter" method="post">
+        <div class="mt-5 mb-4 pb-4">
+            <select class="form-select form-select-lg mb-3 mx-auto w-auto" aria-label=".form-select-lg example">
+                <option hidden selected>Choose filter to use ...</option>
+                <option>Grayscale</option>
+                <option>Reflection</option>
+                <option>Blur</option>
+                <option>Edges</option>
+            </select>
+        </div>
+
+        <div class="mx-auto w-auto" id="file-box">
+            <label for="formFile" class="form-label" >Image to filter</label>
+            <input  accept="image/*" class="form-control" type="file" id="formFile" name="formFile">
+        </div>
+        <h5 class="py-3">OR</h5>
+
+
+
+
+
+        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Random Image
+        </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">  
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-light">
+                                    <img src="/static/images/1.jpg" class="rounded float-start" id="random-image" alt="...">
+                                </button>
+                                <button type="button" class="btn btn-light">
+                                    <img src="/static/images/2.jpg" class="rounded float-start" id="random-image" alt="...">
+                                </button>
+                                <button type="button" class="btn btn-light">
+                                    <img src="/static/images/3.jpg" class="rounded float-start" id="random-image" alt="...">
+                                </button>
+                                <button type="button" class="btn btn-light">
+                                    <img src="/static/images/4.jpg" class="rounded float-start" id="random-image" alt="...">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn btn-dark mt-5" type="submit">Submit</button>
+    </form>
+
+
 {% endblock %}
