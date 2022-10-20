@@ -427,6 +427,7 @@ def filter():
 # ensure only 1 is selected maybe disable the other or just catch the error
 # more details expplain the process is different
 # prcoess the filter in python or css ? 
+# random image with collapse then pick a pic ?
 
 
 # lagay logo sa navbar
