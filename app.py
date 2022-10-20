@@ -386,6 +386,39 @@ def plurality_votes():
 def filter():
     """Filter a random image or an image from the user"""
     if request.method == "POST":
+        type_of_filter = request.form.get("filter")
+        image_from_user = request.form.get("formFile")
+        random_image = request.form.get("random-image-button") 
+
+        # Ensure a filter is chosen 
+        if type_of_filter == "Choose filter to use ...":
+            flash("Please select a filter to use.","error")
+            return render_template("filter.html")
+        
+        # Ensure an image is a chosen
+        if not image_from_user and not random_image:
+            flash("Attach an image or select a random image.","error")
+            return render_template("filter.html")
+
+        # Ensure only one image is chosen
+        if image_from_user and random_image:
+            flash("Only one (1) image can be filtered. Either attach an image or choose one from the random images.","error")
+            return render_template("filter.html")
+
+        
+        # Filter image based on type of filter
+
+
+
+        
+
+
+
+        print(type_of_filter)
+        print(image_from_user)
+        print(random_image)
+
+
         return render_template("filter.html")
     else:
         return render_template("filter.html")
@@ -423,11 +456,8 @@ def filter():
 # test for bugs
 
 # filter
-# add select on what fitler to use and submit button (to filter the image)
-# ensure only 1 is selected maybe disable the other or just catch the error
 # more details expplain the process is different
 # prcoess the filter in python or css ? 
-# random image with collapse then pick a pic ?
 
 
 # lagay logo sa navbar
