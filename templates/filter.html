@@ -10,7 +10,7 @@
         <h6>Filters an image.</h6><br>
     </div>
 
-    <form action="/filter" method="post">
+    <form action="/filter" method="post" enctype="multipart/form-data">
         <div class="mt-5 mb-4 pb-4">
             <select autofocus class="form-select form-select-lg mb-3 mx-auto w-auto" aria-label=".form-select-lg example" id="filter" name="filter">
                 <option hidden selected>Choose filter to use ...</option>
@@ -23,7 +23,7 @@
 
         <div class="mx-auto w-auto" id="file-box">
             <label for="formFile" class="form-label" >Image to filter</label>
-            <input accept="image/*" class="form-control" type="file" id="formFile" name="formFile">
+            <input accept="image/*" class="form-control" type="file" id="file" name="file">
             <button class="btn btn-dark mt-3" type="submit">Submit</button>
 
         </div>
@@ -65,5 +65,16 @@
         
     </form>
 
+
+
+
+
+
+
+{% if filename %}
+	<div class="mt-5">
+		<img src="{{ url_for('display_image', filename=filename) }}">
+	</div>
+{% endif %}
 
 {% endblock %}
