@@ -277,3 +277,18 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
     height: auto;
 }
 
+div .grayscale {
+    filter: grayscale(1);
+}
+
+div .sepia {
+    filter: sepia(1);
+}
+
+div .reflection {
+    transform: scaleX(-1);
+}
+
+div .blur {
+    filter: blur(5px);
+}

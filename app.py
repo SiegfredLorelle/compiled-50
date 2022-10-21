@@ -253,8 +253,8 @@ def substitution():
 
 
 
-@app.route("/plurality_start", methods=["GET", "POST"])
-def plurality_start():
+@app.route("/plurality", methods=["GET", "POST"])
+def plurality():
     """ Get the number of candidates and voters"""
     if request.method == "POST":
         # Ensure that this is a new process
@@ -279,13 +279,12 @@ def plurality_start():
 
 
 
-@app.route("/plurality_candidates", methods=["GET", "POST"])
+@app.route("/plurality/candidates", methods=["GET", "POST"])
 def plurality_candidates():
     """ Get the names of the candidates"""
     if request.method == "POST":
         candidates = db.execute("SELECT * FROM pluralityCandidates")
         no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
-
 
         # Get values from plurality-2
         first_name = request.form.get("first_name")
@@ -344,7 +343,7 @@ def plurality_candidates():
 
 
 
-@app.route("/plurality_votes", methods=["GET", "POST"])
+@app.route("/plurality/votes", methods=["GET", "POST"])
 def plurality_votes():
     """ Get the the vote of each voter then determine the winner(s)"""
     if request.method == "POST":
@@ -391,6 +390,7 @@ def plurality_votes():
         return render_template("plurality-3.html", candidates=candidates)
 
 
+
 # credits to: https://roytuts.com/upload-and-display-image-using-python-flask/
 @app.route("/filter", methods=["GET", "POST"])
 def filter():
@@ -406,8 +406,6 @@ def filter():
 
         # Check if random image is chosen
         if random_image:
-            print(random_image)
-
             # Ensure only 1 image (the random image) is chosen by checking if a file is attached
             if 'file' not in request.files:
                 flash('An error has occured. Please try again later.', "error")
@@ -418,58 +416,42 @@ def filter():
                 flash('Only one (1) image allowed. Either upload an image and submit or choose from the random image.', "error")
                 return render_template("filter.html")
 
-            # Load the random image
+            # Load the random image filtered
             random_image_filename = f"/static/images/{random_image}.jpg"
             flash("Image successfully filtered!", "success")
-            return render_template("filter.html", random_image_filename=random_image_filename)
+            return render_template("filter.html", random_image_filename=random_image_filename, type_of_filter=type_of_filter)
 
 
-
-            
-
-
-
-
-
-
-        # Filter image based on type of filter
-
-
-
-                
-
-            
-
-
-        # check if the post request has the file part
+        # Check if the post request has the file part
         if 'file' not in request.files:
             flash('An error has occured. Please try again later.', "error")
             return render_template("filter.html")
 
+        # Ensure an image is uploaded 
         file = request.files['file']
         if file.filename == '':
             flash('No image selected.', "error")
             return render_template("filter.html")
 
+        # If file extension is allowed, download it then load the image filtered
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            print('upload_image filename: ' + filename)
-            flash('Image successfully uploaded and displayed below', "success")
-            return render_template('filter.html', filename=filename)
+            flash('Image successfully filtered!', "success")
+            return render_template('filter.html', filename=filename, type_of_filter=type_of_filter)
+        
+        # If file extension not allowed, show error and reload page
         else:
             flash("png, jpg, jpeg, gif are the only accepted file extensions.", "error")
             return render_template("filter.html")
 
-
-        return render_template("filter.html")
+    # GET by clicking links or redirects
     else:
         return render_template("filter.html")
 
-
+# Used in loading the uploaded image 
 @app.route('/filter/<filename>')
 def display_image(filename):
-	#print('display_image filename: ' + filename)
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 
@@ -507,6 +489,7 @@ def display_image(filename):
 # filter
 # more details explain the process is different
 # prcoess the filter in python or css ? 
+# check if it will works if same file name is uploaded by user
 
 
 # lagay logo sa navbar

@@ -15,9 +15,9 @@
             <select autofocus class="form-select form-select-lg mb-3 mx-auto w-auto" aria-label=".form-select-lg example" id="filter" name="filter">
                 <option hidden selected>Choose filter to use ...</option>
                 <option>Grayscale</option>
+                <option>Sepia</option>
                 <option>Reflection</option>
                 <option>Blur</option>
-                <option>Edges</option>
             </select>
         </div>
 
@@ -25,19 +25,15 @@
             <label for="formFile" class="form-label" >Upload image</label>
             <input accept="image/*" class="form-control" type="file" id="file" name="file">
             <button class="btn btn-dark mt-3" type="submit">Submit</button>
-
         </div>
 
         <h5 class="py-4">OR</h5>
 
-
-
-
-
         <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             Random Image
         </button>
-        </p>
+
+
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
                 <div class="container">
@@ -66,22 +62,72 @@
 
 
 
-
-
-
 <!-- If image is uploaded by user  -->
 {% if filename %}
-	<div class="mt-5">
-		<img src="{{ url_for('display_image', filename=filename) }}" alt="uploaded image" id="result-image">
+
+    <!-- Grayscale -->
+    {% if type_of_filter == "Grayscale" %}
+	<div class="mt-5 mb-3">
+		<img src="{{ url_for('display_image', filename=filename) }}" alt="uploaded image" id="result-image" class="grayscale">
 	</div>
+    {% endif %}
+
+    <!-- Sepia -->
+    {% if type_of_filter == "Sepia" %}
+	<div class="mt-5 mb-3">
+		<img src="{{ url_for('display_image', filename=filename) }}" alt="uploaded image" id="result-image" class="sepia">
+	</div>
+    {% endif %}
+
+    <!-- Reflection -->
+    {% if type_of_filter == "Reflection" %}
+	<div class="mt-5 mb-3">
+		<img src="{{ url_for('display_image', filename=filename) }}" alt="uploaded image" id="result-image" class="reflection">
+	</div>
+    {% endif %}
+
+    <!-- Blur -->
+    {% if type_of_filter == "Blur" %}
+	<div class="mt-5 mb-3">
+		<img src="{{ url_for('display_image', filename=filename) }}" alt="uploaded image" id="result-image" class="blur">
+	</div>
+    {% endif %}
+
 {% endif %}
 
 
 <!-- If image is from random images  -->
 {% if random_image_filename %}
-	<div class="mt-5">
-		<img src="{{ random_image_filename }}" alt="random image" id="result-image">
+
+    <!-- Grayscale -->
+    {% if type_of_filter == "Grayscale" %}
+	<div class="mt-5 mb-3">
+		<img src="{{ random_image_filename }}" alt="uploaded image" id="result-image" class="grayscale">
 	</div>
+    {% endif %}
+
+    <!-- Sepia -->
+      {% if type_of_filter == "Sepia" %}
+      <div class="mt-5 mb-3">
+          <img src="{{ random_image_filename }}" alt="uploaded image" id="result-image" class="sepia">
+      </div>
+      {% endif %}
+
+    <!-- Reflection -->
+    {% if type_of_filter == "Reflection" %}
+	<div class="mt-5 mb-3">
+		<img src="{{ random_image_filename }}" alt="uploaded image" id="result-image" class="reflection">
+	</div>
+    {% endif %}
+
+    <!-- Blur -->
+    {% if type_of_filter == "Blur" %}
+	<div class="mt-5 mb-3">
+		<img src="{{ random_image_filename }}" alt="uploaded image" id="result-image" class="blur">
+	</div>
+    {% endif %}
+
+
 {% endif %}
 
 
