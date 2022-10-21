@@ -2,13 +2,18 @@
 
 
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.utils import secure_filename
+
 from string import ascii_letters, ascii_uppercase, digits
 from re import sub
+import os
 
-from helpers import login_required, check_card, get_grade_lvl
+from helpers import login_required, check_card, get_grade_lvl, allowed_file
+
+
 
 # Configure application
 app = Flask(__name__)
@@ -20,6 +25,11 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
+# Configure a folder where images uploaded by users in filter page goes
+UPLOAD_FOLDER = 'static/uploads/'
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///final-project.db")
@@ -381,36 +391,69 @@ def plurality_votes():
         return render_template("plurality-3.html", candidates=candidates)
 
 
-
+# credits to: https://roytuts.com/upload-and-display-image-using-python-flask/
 @app.route("/filter", methods=["GET", "POST"])
 def filter():
     """Filter a random image or an image from the user"""
     if request.method == "POST":
         type_of_filter = request.form.get("filter")
-        image_from_user = request.form.get("formFile")
+        image_from_user = request.form.get("file")
         random_image = request.form.get("random-image-button") 
 
-        # Ensure a filter is chosen 
-        if type_of_filter == "Choose filter to use ...":
-            flash("Please select a filter to use.","error")
-            return render_template("filter.html")
+        # # Ensure a filter is chosen 
+        # if type_of_filter == "Choose filter to use ...":
+        #     flash("Please select a filter to use.","error")
+        #     return render_template("filter.html")
         
-        # Ensure an image is a chosen
-        if not image_from_user and not random_image:
-            flash("Attach an image or select a random image.","error")
-            return render_template("filter.html")
+        # # Ensure an image is a chosen
+        # if not image_from_user and not random_image:
+        #     flash("Attach an image or select a random image.","error")
+        #     return render_template("filter.html")
 
-        # Ensure only one image is chosen
-        if image_from_user and random_image:
-            flash("Only one (1) image can be filtered. Either attach an image or choose one from the random images.","error")
-            return render_template("filter.html")
+        # # Ensure only one image is chosen
+        # if image_from_user and random_image:
+        #     flash("Only one (1) image can be filtered. Either attach an image or choose one from the random images.","error")
+        #     return render_template("filter.html")
 
         
+        # CATCH WHEN RANDOM IMAGES IS CHOSEN
+
+
+
         # Filter image based on type of filter
 
 
+                
+
+            
+
+        # Show image if uploaded by user
+        if not image_from_user:
+            # check if the post request has the file part
+            if 'file' not in request.files:
+                flash('An error has occured. Please try again later.', "error")
+                return render_template("filter.html")
+
+            file = request.files['file']
+            print(file)
+            if file.filename == '':
+                flash('No image selected for uploading.', "error")
+                return render_template("filter.html")
+
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                print('upload_image filename: ' + filename)
+                flash('Image successfully uploaded and displayed below', "success")
+                return render_template('filter.html', filename=filename)
+            else:
+                flash("png, jpg, jpeg, gif are the only accepted file extensions.", "error")
+                return render_template("filter.html")
 
         
+    
+        print("looks ok")
+
 
 
 
@@ -422,6 +465,12 @@ def filter():
         return render_template("filter.html")
     else:
         return render_template("filter.html")
+
+
+@app.route('/filter/<filename>')
+def display_image(filename):
+	#print('display_image filename: ' + filename)
+	return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 
 # TODOs
