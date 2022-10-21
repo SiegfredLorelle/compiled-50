@@ -1,3 +1,3 @@
 document.querySelector("#back-button").onclick = function () {
-    location.href = "plurality_candidates";
+    location.href = "/plurality/candidates";
 };

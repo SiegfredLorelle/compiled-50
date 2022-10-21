@@ -10,7 +10,7 @@
 
 
     <p class="fs-5 fw-bold pt-5 pb-2">I vote for ...</p>
-    <form action="/plurality_votes" method="post">
+    <form action="/plurality/votes" method="post">
         <select autofocus class="form-select form-select-lg mx-auto w-auto" aria-label=".form-select-lg example" id="vote" name="vote">
             <option hidden selected>Candidate</option>
             {% for candidate in candidates %}

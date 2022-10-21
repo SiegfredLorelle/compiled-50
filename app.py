@@ -253,8 +253,8 @@ def substitution():
 
 
 
-@app.route("/plurality_start", methods=["GET", "POST"])
-def plurality_start():
+@app.route("/plurality", methods=["GET", "POST"])
+def plurality():
     """ Get the number of candidates and voters"""
     if request.method == "POST":
         # Ensure that this is a new process
@@ -279,13 +279,12 @@ def plurality_start():
 
 
 
-@app.route("/plurality_candidates", methods=["GET", "POST"])
+@app.route("/plurality/candidates", methods=["GET", "POST"])
 def plurality_candidates():
     """ Get the names of the candidates"""
     if request.method == "POST":
         candidates = db.execute("SELECT * FROM pluralityCandidates")
         no_candidates = int(db.execute("SELECT no_candidates FROM pluralityNumbers")[0]["no_candidates"])
-
 
         # Get values from plurality-2
         first_name = request.form.get("first_name")
@@ -344,7 +343,7 @@ def plurality_candidates():
 
 
 
-@app.route("/plurality_votes", methods=["GET", "POST"])
+@app.route("/plurality/votes", methods=["GET", "POST"])
 def plurality_votes():
     """ Get the the vote of each voter then determine the winner(s)"""
     if request.method == "POST":
@@ -389,6 +388,7 @@ def plurality_votes():
         db.execute("UPDATE pluralityCandidates SET votes = 0")
         candidates = db.execute("SELECT * FROM pluralityCandidates")
         return render_template("plurality-3.html", candidates=candidates)
+
 
 
 # credits to: https://roytuts.com/upload-and-display-image-using-python-flask/
