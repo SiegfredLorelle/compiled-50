@@ -22,7 +22,7 @@
         </div>
 
         <div class="mx-auto w-auto" id="file-box">
-            <label for="formFile" class="form-label" >Image to filter</label>
+            <label for="formFile" class="form-label" >Upload image</label>
             <input accept="image/*" class="form-control" type="file" id="file" name="file">
             <button class="btn btn-dark mt-3" type="submit">Submit</button>
 
@@ -62,7 +62,6 @@
                 </div>
             </div>
         </div>
-        
     </form>
 
 
@@ -70,11 +69,20 @@
 
 
 
-
+<!-- If image is uploaded by user  -->
 {% if filename %}
 	<div class="mt-5">
-		<img src="{{ url_for('display_image', filename=filename) }}">
+		<img src="{{ url_for('display_image', filename=filename) }}" alt="uploaded image" id="result-image">
 	</div>
 {% endif %}
+
+
+<!-- If image is from random images  -->
+{% if random_image_filename %}
+	<div class="mt-5">
+		<img src="{{ random_image_filename }}" alt="random image" id="result-image">
+	</div>
+{% endif %}
+
 
 {% endblock %}
