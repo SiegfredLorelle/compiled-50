@@ -464,7 +464,6 @@ def inheritance():
 
         # User chose to randomized all
         if submit == "randomize":
-
             # Randomize the allele of parents
             db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'child' AND number = 1", get_random_allele(), get_random_allele())
            
@@ -499,6 +498,10 @@ def inheritance():
             
             
             # Check if user answered in gen, and allele
+            print(request.form.get("generation"), request.form.get("allele-1"), request.form.get("allele-2"))
+            if request.form.get("generation") != "Choose a generation ..." or request.form.get("allele-1") != "Allele" or request.form.get("allele-2") != "Allele":
+                flash("Generation and allele inputs were disregarded.", "warning")
+                return render_template("inheritance.html", family=family)
 
             # Load family tree with alleles and blood types
             family = db.execute("SELECT * FROM inheritance")
@@ -556,6 +559,7 @@ def inheritance():
 # test for bugs
 
 # inheritance
+# catch error when pressing randomize all with input
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 # work on choosing gen, and alleles
 # 
