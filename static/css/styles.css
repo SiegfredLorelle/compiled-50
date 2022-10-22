@@ -292,3 +292,15 @@ div .reflection {
 div .blur {
     filter: blur(5px);
 }
+
+
+/* Inheritance page */
+#inheritance-title {
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+@media screen and (min-width: 600px) {
+    #allele-box {
+        max-width: 30vw;
+    }
+}

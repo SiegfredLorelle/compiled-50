@@ -2,6 +2,7 @@ from flask import redirect, render_template, session
 from functools import wraps
 from string import ascii_lowercase, ascii_uppercase, ascii_letters
 from re import sub
+from random import choice
 
 def login_required(f):
     """
@@ -128,4 +129,24 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+def get_random_allele():
+    alleles = ["A", "B", "O"]
+    return choice(alleles)
+
+
+def get_blood_type(alleles):
+    alleles = alleles.get("allele_1") + alleles.get("allele_2")
+
+    if alleles == "AB" or alleles == "BA":
+        return "AB"
+    
+    if alleles == "OO":
+        return "O"
+    
+    for allele in alleles:
+        if allele == "A":
+            return "A"
+
+        if allele == "B":
+            return "B" 
 
