@@ -464,7 +464,6 @@ def inheritance():
 
         # User chose to randomized all
         if submit == "randomize":
-
             # Randomize the allele of parents
             db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'child' AND number = 1", get_random_allele(), get_random_allele())
            
@@ -497,23 +496,40 @@ def inheritance():
                 blood_type = get_blood_type(member)
                 db.execute("UPDATE inheritance SET bloodtype = ? WHERE allele_1 = ? AND allele_2 = ?", blood_type, member.get("allele_1"), member.get("allele_2"))
             
-            
-            # Check if user answered in gen, and allele
+            # Get the values to be shown in the family tree
+            family = db.execute("SELECT allele_1, allele_2, bloodtype FROM inheritance")
+
+            # Inform users that inputs in generation and alleles are disregarded
+            if request.form.get("generation") != "Choose a generation ..." or request.form.get("allele-1") != "Choose an allele ..." or request.form.get("allele-2") != "Choose an allele ...":
+                flash("Generation and allele inputs were disregarded.", "warning")
+                return render_template("inheritance.html", family=family)
 
             # Load family tree with alleles and blood types
-            family = db.execute("SELECT * FROM inheritance")
             flash("Successfully generated a family tree!", "success")
             return render_template("inheritance.html", family=family)
 
 
-
-
-            return render_template("inheritance.html")
-
-
         # User submitted a generation and allele
         else:
+            generation = request.form.get("generation")
+            allele_1 = request.form.get("allele-1")
+            allele_2 = request.form.get("allele-2")
 
+            # Check if inputs are compelete
+            if generation == "Choose a generation ...":
+                flash("No generation selected.", "error")
+                return render_template("inheritance.html")
+            
+            if allele_1 == "Choose an allele ..." or allele_2 == "Choose an allele ...":
+                flash("Incomplete alleles.", "error")
+                return render_template("inheritance.html")
+
+
+            # Input values table
+
+            # Predict the alleles of others
+
+            # Load the image
             return render_template("inheritance.html")
     
     # GET by clicking links or redirects
@@ -556,6 +572,7 @@ def inheritance():
 # test for bugs
 
 # inheritance
+# catch error when pressing randomize all with input
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 # work on choosing gen, and alleles
 # 
