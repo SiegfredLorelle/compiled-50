@@ -11,7 +11,7 @@ from string import ascii_letters, ascii_uppercase, digits
 from re import sub
 import os
 
-from helpers import login_required, check_card, get_grade_lvl, allowed_file
+from helpers import login_required, check_card, get_grade_lvl, allowed_file, get_random_allele, get_blood_type
 
 
 
@@ -460,6 +460,53 @@ def display_image(filename):
 def inheritance():
     """Determines a possible blood type combination of a three generation family"""
     if request.method == "POST":
+        submit = request.form.get("submit")
+
+        # User chose to randomized all
+        if submit == "randomize":
+
+            # Randomize the allele of parents
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'child' AND number = 1", get_random_allele(), get_random_allele())
+           
+            # Read the alleles of child
+            child_allele_1 = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'child' AND number = 1")[0].get("allele_1")
+            child_allele_2 = db.execute("SELECT allele_2 FROM inheritance WHERE generation = 'child' AND number = 1")[0].get("allele_2")
+
+            # Predict the allele of parents based on child
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'parent' AND number = 1", child_allele_1, get_random_allele())
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'parent' AND number = 2", child_allele_2, get_random_allele())
+
+           # Read the alleles of the parents
+            parent_1_allele_1 = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'parent' AND number = 1")[0].get("allele_1")
+            parent_1_allele_2 = db.execute("SELECT allele_2 FROM inheritance WHERE generation = 'parent' AND number = 1")[0].get("allele_2")
+
+            parent_2_allele_1 = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'parent' AND number = 2")[0].get("allele_1")
+            parent_2_allele_2 = db.execute("SELECT allele_2 FROM inheritance WHERE generation = 'parent' AND number = 2")[0].get("allele_2")
+            
+            # Predict the alleles of the grandparents
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 1", parent_1_allele_1, get_random_allele())
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 2", parent_1_allele_2, get_random_allele())
+
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 3", parent_2_allele_1, get_random_allele())
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 4", parent_2_allele_2, get_random_allele())
+
+            # Get the blood types of everyone bsaed on their alleles
+            family = db.execute("SELECT allele_1, allele_2 FROM inheritance")
+
+            for member in family:
+                blood_type = get_blood_type(member)
+                db.execute("UPDATE inheritance SET bloodtype = ? WHERE allele_1 = ? AND allele_2 = ?", blood_type, member.get("allele_1"), member.get("allele_2"))
+            
+            
+            # Check if user answered in gen, and allele
+            # Show table
+
+            pass
+
+        # User submitted a generation and allele
+        else:
+            pass
+
         return render_template("inheritance.html")
     
     # GET by clicking links or redirects

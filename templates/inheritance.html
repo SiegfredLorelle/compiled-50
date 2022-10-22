@@ -11,39 +11,42 @@
         <h6>Determines a possible blood type combination of a three generation family.</h6><br>
     </div>
 
-    <div class="mt-5 mb-2 mb-3">
-        <select autofocus class="form-select form-select-lg mb-3 mx-auto w-auto" aria-label=".form-select-lg example" id="filter" name="filter">
-            <option hidden selected>Choose a generation ...</option>
-            <option>Grandparent</option>
-            <option>Parent</option>
-            <option>Child</option>
-        </select>
-    </div>
-
-    <div class="row mx-auto w-auto" id="allele-box">
-        <div class="col">
-            <select class="form-select" aria-label="Default select example">
-                <option hidden selected>Allele</option>
-                <option>A</option>
-                <option>B</option>
-                <option>O</option>
-              </select>
+    <form actions="/inheritance" method="post">
+        <div class="mt-5 mb-2 mb-3">
+            <select autofocus class="form-select form-select-lg mb-3 mx-auto w-auto" aria-label=".form-select-lg example" id="filter" name="filter">
+                <option hidden selected>Choose a generation ...</option>
+                <option>Grandparent</option>
+                <option>Parent</option>
+                <option>Child</option>
+            </select>
         </div>
-        <div class="col">
-            <select class="form-select" aria-label="Default select example">
-                <option hidden selected>Allele</option>
-                <option>A</option>
-                <option>B</option>
-                <option>O</option>
-              </select>
+
+        <div class="row mx-auto w-auto" id="allele-box">
+            <div class="col">
+                <select class="form-select" aria-label="Default select example" id="allele-1">
+                    <option hidden selected>Allele</option>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>O</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example" id="allele-2">
+                    <option hidden selected>Allele</option>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>O</option>
+                </select>
+            </div>
         </div>
-    </div>
 
-    <button class="btn btn-dark mt-4" type="submit">Submit</button>
+        <button class="btn btn-dark mt-4" name="submit" type="submit" value="submit">Submit</button>
 
-    <h5 class="py-5">OR</h5>
+        <h5 class="py-5">OR</h5>
 
-    <button class="btn btn-secondary" type="submit">Randomize All</button>
+        <button class="btn btn-secondary" name="submit" type="submit" value="randomize">Randomize All</button>
+    </form>
+
 
 
     {% endblock %}
