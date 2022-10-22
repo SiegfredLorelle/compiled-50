@@ -26,7 +26,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Configure a folder where images uploaded by users in filter page goes
+# Configure a folder for images uploaded in filter page
 UPLOAD_FOLDER = 'static/uploads/'
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
@@ -408,12 +408,12 @@ def filter():
         if random_image:
             # Ensure only 1 image (the random image) is chosen by checking if a file is attached
             if 'file' not in request.files:
-                flash('An error has occured. Please try again later.', "error")
+                flash("An error has occured. Please try again later.", "error")
                 return render_template("filter.html")
 
             file = request.files['file']
             if file.filename != '':
-                flash('Only one (1) image allowed. Either upload an image and submit or choose from the random image.', "error")
+                flash("Only one (1) image allowed. Either upload an image and submit or choose from the random image.", "error")
                 return render_template("filter.html")
 
             # Load the random image filtered
@@ -424,25 +424,25 @@ def filter():
 
         # Check if the post request has the file part
         if 'file' not in request.files:
-            flash('An error has occured. Please try again later.', "error")
+            flash("An error has occured. Please try again later.", "error")
             return render_template("filter.html")
 
         # Ensure an image is uploaded 
         file = request.files['file']
         if file.filename == '':
-            flash('No image selected.', "error")
+            flash("No image selected.", "error")
             return render_template("filter.html")
 
         # If file extension is allowed, download it then load the image filtered
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash('Image successfully filtered!', "success")
-            return render_template('filter.html', filename=filename, type_of_filter=type_of_filter)
+            flash("Image successfully filtered!", "success")
+            return render_template("filter.html", filename=filename, type_of_filter=type_of_filter)
         
         # If file extension not allowed, show error and reload page
         else:
-            flash("png, jpg, jpeg, gif are the only accepted file extensions.", "error")
+            flash("File extensions must be png, jpg, jpeg, and gif.", "error")
             return render_template("filter.html")
 
     # GET by clicking links or redirects
@@ -450,9 +450,24 @@ def filter():
         return render_template("filter.html")
 
 # Used in loading the uploaded image 
-@app.route('/filter/<filename>')
+@app.route("/filter/<filename>")
 def display_image(filename):
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
+
+
+
+@app.route("/inheritance", methods=["GET", "POST"])
+def inheritance():
+    """Determines a possible blood type combination of a three generation family"""
+    if request.method == "POST":
+        return render_template("inheritance.html")
+    
+    # GET by clicking links or redirects
+    else:
+        return render_template("inheritance.html")
+
+
+
 
 
 # TODOs
