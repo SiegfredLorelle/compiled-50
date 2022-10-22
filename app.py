@@ -499,15 +499,22 @@ def inheritance():
             
             
             # Check if user answered in gen, and allele
-            # Show table
 
-            pass
+            # Load family tree with alleles and blood types
+            family = db.execute("SELECT * FROM inheritance")
+            flash("Successfully generated a family tree!", "success")
+            return render_template("inheritance.html", family=family)
+
+
+
+
+            return render_template("inheritance.html")
+
 
         # User submitted a generation and allele
         else:
-            pass
 
-        return render_template("inheritance.html")
+            return render_template("inheritance.html")
     
     # GET by clicking links or redirects
     else:
@@ -548,11 +555,10 @@ def inheritance():
 # plurality
 # test for bugs
 
-# filter
-# more details explain the process is different
-# prcoess the filter in python or css ? 
-# check if it will works if same file name is uploaded by user
-
+# inheritance
+# check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
+# work on choosing gen, and alleles
+# 
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
