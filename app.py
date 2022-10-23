@@ -533,7 +533,6 @@ def inheritance():
 
             # Predict the alleles of others
             if generation == "grandparent":
-                
                 # Predict alleles of other grandparents randomly
                 db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number == 2", get_random_allele(), get_random_allele())
                 db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number == 3", get_random_allele(), get_random_allele())
@@ -589,12 +588,24 @@ def inheritance():
 
 
         if generation == "child":
-            # TODO:work on if generation is child
-            return render_template("inheritance.html")
-    
+            # Give the inherited allele of child to parent 1 and 2
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'parent' AND number = 1", allele_1, get_random_allele())
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'parent' AND number = 2", allele_2, get_random_allele())
+            
+            # Read inherited allele of parents
+            parent_1_allele_2 = db.execute("SELECT allele_2 FROM inheritance WHERE generation = 'parent' AND number = 1")[0].get("allele_2")
+            parent_2_allele_2 = db.execute("SELECT allele_2 FROM inheritance WHERE generation = 'parent' AND number = 2")[0].get("allele_2")
+
+            # Give inherited values of parents to their grandparents
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 1", allele_1, get_random_allele())
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 2", parent_1_allele_2, get_random_allele())
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 3", allele_2, get_random_allele())
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 4", parent_2_allele_2, get_random_allele())
+
+            # Let user know which is their input
+            flash("Successfully generated a family tree! (your input is child)", "success")    
 
 
-    
         # Get the blood types of everyone based on their alleles
         family = db.execute("SELECT allele_1, allele_2 FROM inheritance")
 
