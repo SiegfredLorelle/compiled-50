@@ -122,24 +122,28 @@ def get_grade_lvl(text):
         return f"Grade {grade_level}"
 
 
+# Referenced in filter page 
 def allowed_file(filename):
+    """Check if the uploaded image's file extension is allowed"""
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}   
 
     return '.' in filename and \
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
+# Referenced in inheritance page 
 def get_random_allele():
+    """Returns a random allele with equal chances"""
     alleles = ["A", "B", "O"]
     return choice(alleles)
 
-
+# Referenced in inheritance page 
 def get_blood_type(alleles):
+    """Determines the blood type based on the person's alleles"""
     alleles = alleles.get("allele_1") + alleles.get("allele_2")
 
     if alleles == "AB" or alleles == "BA":
         return "AB"
-    
+
     if alleles == "OO":
         return "O"
     
@@ -149,4 +153,10 @@ def get_blood_type(alleles):
 
         if allele == "B":
             return "B" 
+
+# Referenced in inheritance page
+def get_allele_to_inherit(allele_1, allele_2):
+    """Randomly determine which allele to inherit"""
+    alleles = [allele_1, allele_2]
+    return choice(alleles)
 
