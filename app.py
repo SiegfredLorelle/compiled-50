@@ -11,7 +11,7 @@ from string import ascii_letters, ascii_uppercase, digits
 from re import sub
 import os
 
-from helpers import login_required, check_card, get_grade_lvl, allowed_file, get_random_allele, get_blood_type
+from helpers import login_required, check_card, get_grade_lvl, allowed_file, get_random_allele, get_blood_type, get_allele_to_inherit
 
 
 
@@ -460,6 +460,10 @@ def display_image(filename):
 def inheritance():
     """Determines a possible blood type combination of a three generation family"""
     if request.method == "POST":
+        # Empty the columns before a submit
+        db.execute("UPDATE inheritance SET allele_1 = NULL, allele_2 = NULL, bloodtype = NULL")
+
+        # Know if user submitted inputs or chose to randomize all
         submit = request.form.get("submit")
 
         # User chose to randomized all
@@ -489,7 +493,7 @@ def inheritance():
             db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 3", parent_2_allele_1, get_random_allele())
             db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 4", parent_2_allele_2, get_random_allele())
 
-            # Get the blood types of everyone bsaed on their alleles
+            # Get the blood types of everyone based on their alleles
             family = db.execute("SELECT allele_1, allele_2 FROM inheritance")
 
             for member in family:
@@ -524,16 +528,63 @@ def inheritance():
                 flash("Incomplete alleles.", "error")
                 return render_template("inheritance.html")
 
-
-            # Input values table
+            # Input the values given by user in the database
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = ? AND number = 1", allele_1, allele_2, generation)
 
             # Predict the alleles of others
+            if generation == "grandparent":
+                
+                # Predict alleles of other grandparents randomly
+                db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number == 2", get_random_allele(), get_random_allele())
+                db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number == 3", get_random_allele(), get_random_allele())
+                db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number == 4", get_random_allele(), get_random_allele())
 
-            # Load the image
-            return render_template("inheritance.html")
+                # Read allele of grandparent 1 and 2 then inherit it to parent 1
+                allele_to_inherit = get_allele_to_inherit(allele_1, allele_2)
+                grandparent_2_allele = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'grandparent' AND number = 2")[0].get("allele_1")
+                db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'parent' AND number = 1", allele_to_inherit, grandparent_2_allele)
+
+                # Read alleles of grandparents 3 and 4 then inherit it to parent 2
+                grandparent_3_allele = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'grandparent' AND number = 3")[0].get("allele_1")
+                grandparent_4_allele = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'grandparent' AND number = 4")[0].get("allele_1")
+                db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'parent' AND number = 2", grandparent_3_allele, grandparent_4_allele)
+
+                # Read allele of parent 1 then randomize which to inherit to child
+                parent_1_allele_1 = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'parent' AND number = 1")[0].get("allele_1")
+                parent_1_allele_2 = db.execute("SELECT allele_2 FROM inheritance WHERE generation = 'parent' AND number = 1")[0].get("allele_2")
+
+                allele_to_inherit = get_allele_to_inherit(parent_1_allele_1, parent_1_allele_2)
+
+                # Read allele of parent 2 then update allele of the child
+                parent_2_allele = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'parent' AND number = 2")[0].get("allele_1")
+                db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'child'", allele_to_inherit, parent_2_allele)
+
+                # Get the blood types of everyone based on their alleles
+                family = db.execute("SELECT allele_1, allele_2 FROM inheritance")
+
+                for member in family:
+                    blood_type = get_blood_type(member)
+                    db.execute("UPDATE inheritance SET bloodtype = ? WHERE allele_1 = ? AND allele_2 = ?", blood_type, member.get("allele_1"), member.get("allele_2"))
+                
+                # Update the family to include their blood types
+                family = db.execute("SELECT allele_1, allele_2, bloodtype FROM inheritance")
+
+                # Load family tree with alleles and blood types
+                flash("Successfully generated a family tree! (your input is grandparent 1)", "success")
+                return render_template("inheritance.html", family=family)
+
+        if generation == "parent":
+            # TODO:work on if generation is parent
+            pass
+        if generation == "child":
+            # TODO:work on if generation is child
+            pass
+        return render_template("inheritance.html")
     
     # GET by clicking links or redirects
     else:
+        # Empty the columns before starting
+        db.execute("UPDATE inheritance SET allele_1 = NULL, allele_2 = NULL, bloodtype = NULL")
         return render_template("inheritance.html")
 
 
@@ -572,10 +623,10 @@ def inheritance():
 # test for bugs
 
 # inheritance
-# catch error when pressing randomize all with input
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 # work on choosing gen, and alleles
-# 
+# show more details explaining that the user inputs are in 1 whether gp, p or c
+# more details members without inputted alleles have an equal chances of having an O, A, or B alleles which is unrealistic in the real world since O is the most frequently occuring blood type
 
 # lagay logo sa navbar
 # Start working on login and sign up maybe via modals nlng
