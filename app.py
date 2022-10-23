@@ -559,28 +559,55 @@ def inheritance():
                 parent_2_allele = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'parent' AND number = 2")[0].get("allele_1")
                 db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'child'", allele_to_inherit, parent_2_allele)
 
-                # Get the blood types of everyone based on their alleles
-                family = db.execute("SELECT allele_1, allele_2 FROM inheritance")
-
-                for member in family:
-                    blood_type = get_blood_type(member)
-                    db.execute("UPDATE inheritance SET bloodtype = ? WHERE allele_1 = ? AND allele_2 = ?", blood_type, member.get("allele_1"), member.get("allele_2"))
-                
-                # Update the family to include their blood types
-                family = db.execute("SELECT allele_1, allele_2, bloodtype FROM inheritance")
-
-                # Load family tree with alleles and blood types
+                # Let user know which is their input
                 flash("Successfully generated a family tree! (your input is grandparent 1)", "success")
-                return render_template("inheritance.html", family=family)
+
 
         if generation == "parent":
-            # TODO:work on if generation is parent
-            pass
+            # Give the allele inherited by parent 1 to grandparent 1 and 2
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 1", allele_1, get_random_allele())
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 2", allele_2, get_random_allele())
+
+            # Randomize the alleles of other grandparents
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 3", get_random_allele(), get_random_allele())
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'grandparent' AND number = 4", get_random_allele(), get_random_allele())
+
+            # Read alleles of grandparents 3 and 4 then inherit it to parent 2
+            grandparent_3_allele = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'grandparent' AND number = 3")[0].get("allele_1")
+            grandparent_4_allele = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'grandparent' AND number = 4")[0].get("allele_1")
+
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'parent' AND number = 2", grandparent_3_allele, grandparent_4_allele)
+
+            # Randomize alleles of parent 1 then inherit it to child
+            allele_to_inherit = get_allele_to_inherit(allele_1, allele_2)
+            parent_2_allele = db.execute("SELECT allele_1 FROM inheritance WHERE generation = 'parent' AND number = 2")[0].get("allele_1")
+
+            db.execute("UPDATE inheritance SET allele_1 = ?, allele_2 = ? WHERE generation = 'child'", allele_to_inherit, parent_2_allele)
+
+            # Let user know which is their input
+            flash("Successfully generated a family tree! (your input is parent 1)", "success")
+
+
         if generation == "child":
             # TODO:work on if generation is child
-            pass
-        return render_template("inheritance.html")
+            return render_template("inheritance.html")
     
+
+
+    
+        # Get the blood types of everyone based on their alleles
+        family = db.execute("SELECT allele_1, allele_2 FROM inheritance")
+
+        for member in family:
+            blood_type = get_blood_type(member)
+            db.execute("UPDATE inheritance SET bloodtype = ? WHERE allele_1 = ? AND allele_2 = ?", blood_type, member.get("allele_1"), member.get("allele_2"))
+        
+        # Update the family to include their blood types
+        family = db.execute("SELECT allele_1, allele_2, bloodtype FROM inheritance")
+
+        # Load family tree with alleles and blood types
+        return render_template("inheritance.html", family=family)
+
     # GET by clicking links or redirects
     else:
         # Empty the columns before starting
