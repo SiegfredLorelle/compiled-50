@@ -662,7 +662,6 @@ def inheritance():
 
 # inheritance
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
-# work on choosing gen, and alleles
 # show more details explaining that the user inputs are in 1 whether gp, p or c
 # more details members without inputted alleles have an equal chances of having an O, A, or B alleles which is unrealistic in the real world since O is the most frequently occuring blood type
 
