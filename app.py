@@ -8,6 +8,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 
 from string import ascii_letters, ascii_uppercase, digits
+from random import randint
 from re import sub
 import os
 
@@ -631,13 +632,20 @@ def inheritance():
 def trivia():
     """A 10 item trivia quiz about the Philippines"""
     if request.method == "POST":
+        
 
 
         return render_template("trivia.html")
 
     # GET by clicking links or redirects
     else:
-        return render_template("trivia.html")
+        questions = []
+        while len(questions) < 5:
+            question = randint(1, 7)
+            if question not in questions:
+                questions.append(question)
+        questions.sort()
+        return render_template("trivia.html", questions=questions)
 
 
 
@@ -645,12 +653,13 @@ def trivia():
 def birthday():
     """List the birthdays inputted"""
     if request.method == "POST":
-
+        
 
         return render_template("birthday.html")
 
     # GET by clicking links or redirects
     else:
+
         return render_template("birthday.html")
 # TODOs
 
