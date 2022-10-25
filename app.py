@@ -627,8 +627,31 @@ def inheritance():
 
 
 
+@app.route("/trivia", methods=["GET", "POST"])
+def trivia():
+    """A 10 item trivia quiz about the Philippines"""
+    if request.method == "POST":
 
 
+        return render_template("trivia.html")
+
+    # GET by clicking links or redirects
+    else:
+        return render_template("trivia.html")
+
+
+
+@app.route("/birthday", methods=["GET", "POST"])
+def birthday():
+    """List the birthdays inputted"""
+    if request.method == "POST":
+
+
+        return render_template("birthday.html")
+
+    # GET by clicking links or redirects
+    else:
+        return render_template("birthday.html")
 # TODOs
 
 # homepage page
@@ -662,36 +685,40 @@ def inheritance():
 
 # inheritance
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
-# show more details explaining that the user inputs are in 1 whether gp, p or c
-# more details members without inputted alleles have an equal chances of having an O, A, or B alleles which is unrealistic in the real world since O is the most frequently occuring blood type
+
+# trivia
+# 8 question trivia from Philippines then show score after add try again button
+# determine which from the 8 questions will be asked
+# center images in a button
+# show result with addtional trivia
+
+
+# birthday
+# name month and day then show below all the data based on what day it is today
+
+# login, sign in, log out, change pass in accounts
+
+# about
 
 # lagay logo sa navbar
-# Start working on login and sign up maybe via modals nlng
-# Plan out what projects are needed to be done
-# mario, credit, scrabble, readability, substitution...
-
+# put color in title of every page (maybe gray or gradient or different color for every page)
+# make buttons to pills
 
 # upload to heroku
-# remove cs50 from title
+# change title to compiled or compiled50
 # add white bg to icon
-# login required
+# login required, restrict opening projects in index if not logged in, redirect maybe to carousel below
 # add search and history that shows everything the user does by looking at db
 # add focus on textbox for copy clipboards in js
 # add divider per week in dropdown projects 
 # maybe add a way to keep entered value in form text box
-# gawing table or grid ung may copy button para pantay pantay ung pwesto ng copy ?
 # make all google fonts oneline by adding in the family in google fonts.com
 # Try floating labels on some textbox
 # Toggle dropdown similar to bootstrap website
 # popovers in copy links
 # add loading imagse called spinners
 # add tooltip on hover of copy links 
+# put links in homepage
 
 
-# Special thanks to cs50, Hyperplexed and Superlist for the inspiration
-
-# mario block: http://pixelartmaker.com/art/d53cda86152db67 
-# cards template: https://www.figma.com/community/file/934454786523964614
-# AMEX logo: https://www.pngegg.com/en/png-pswlb
-# scrabble tile: https://thekatespanos.com/scrabble-score-calculator/
 
