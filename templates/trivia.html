@@ -6,7 +6,7 @@
 
 {% block main %}
     <h1 class="py-3" id="trivia-title">TRIVIA</h1>
-    <h6>A 10 item trivia quiz about the Philippines.</h6><br>
+    <h6>5-items trivia quiz about the Philippines.</h6><br>
     
     <div>
         <form action="/trivia" method="post">
@@ -15,7 +15,7 @@
                 {% if question == 1 %}
                     <h4>What is the capital of the Philippines?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-1" autocomplete="off" required>
                         <label class="btn btn-outline-secondary" for="btnradio1-1">Jakarta</label>
                     
                         <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-2" autocomplete="off">
@@ -32,7 +32,7 @@
                 {% if question == 2 %}
                     <h4>Which of the following sport is most beloved by Filipinos?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-1" autocomplete="off" required>
                         <label class="btn btn-outline-secondary" for="btnradio2-1">Basketball</label>
                     
                         <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-2" autocomplete="off">
@@ -49,7 +49,7 @@
                 {% if question == 3 %}
                     <h4>Which of the following celebrities does not have a Filipino blood?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-1" autocomplete="off" required>
                         <label class="btn btn-outline-secondary" for="btnradio3-1">Bella Poarch</label>
                     
                         <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-2" autocomplete="off">
@@ -66,7 +66,7 @@
                 {% if question == 4 %}
                     <h4>Which of the following fast food restaurant is known to be from the Philippines?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-1" autocomplete="off" required>
                         <label class="btn btn-outline-secondary" for="btnradio4-1">McDonald's</label>
                     
                         <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-2" autocomplete="off">
@@ -83,7 +83,7 @@
                 {% if question == 5 %}
                     <h4>Balut, a known delicacy in the Philippines is a ____ .</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-1" autocomplete="off" required>
                         <label class="btn btn-outline-secondary" for="btnradio5-1">fertilized duck egg</label>
                     
                         <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-2" autocomplete="off">
@@ -100,7 +100,7 @@
                 {% if question == 6 %}
                     <h4>What continent is the Philippines located?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-1" autocomplete="off" required>
                         <label class="btn btn-outline-secondary" for="btnradio6-1">Africa</label>
                     
                         <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-2" autocomplete="off">
@@ -118,7 +118,7 @@
                     <!-- Credits to: https://www.flags-and-anthems.com/ -->
                     <h4>Which of the following is the Philippine flag?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-1" autocomplete="off" required>
                         <label class="btn btn-outline-secondary" for="btnradio7-1"><img class="flag" src="/static/images/flag1.jpg"></label>
                     
                         <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-2" autocomplete="off">

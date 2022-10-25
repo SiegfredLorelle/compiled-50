@@ -630,21 +630,23 @@ def inheritance():
 
 @app.route("/trivia", methods=["GET", "POST"])
 def trivia():
-    """A 10 item trivia quiz about the Philippines"""
-    if request.method == "POST":
-        
+    """A 5 item trivia quiz about the Philippines"""
+    # Randomize the questions
+    questions = []
+    while len(questions) < 5:
+        question = randint(1, 7)
+        if question not in questions:
+            questions.append(question)
 
+    questions.sort()
+
+    if request.method == "POST":
+        print(questions)
 
         return render_template("trivia.html")
 
     # GET by clicking links or redirects
     else:
-        questions = []
-        while len(questions) < 5:
-            question = randint(1, 7)
-            if question not in questions:
-                questions.append(question)
-        questions.sort()
         return render_template("trivia.html", questions=questions)
 
 
@@ -696,10 +698,11 @@ def birthday():
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 
 # trivia
-# 8 question trivia from Philippines then show score after add try again button
-# determine which from the 8 questions will be asked
+# 7 question trivia from Philippines then show score after add try again button
 # center images in a button
 # show result with addtional trivia
+# require an radio is selected in each radio group
+# modal of are you sure to submit 
 
 
 # birthday
