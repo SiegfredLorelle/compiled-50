@@ -537,3 +537,18 @@ ol.organizational-chart > li > ol > li > ol > li > div {
         width: 100%;
     }
 }
+
+/* Trivia page */
+#trivia-title {
+    font-family: 'Comforter Brush', cursive;
+}
+
+/* Birthday page */
+#birthday-title {
+    font-family: 'Inspiration', cursive;
+}
+
+label .flag {
+    max-width: 15vw;
+    height:auto;
+}

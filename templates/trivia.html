@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Trivia
+{% endblock %}
+
+{% block main %}
+    <h1 class="py-3" id="trivia-title">TRIVIA</h1>
+    <h6>A 10 item trivia quiz about the Philippines.</h6><br>
+
+    <div >
+        <h4>Q1: What is the capital of the Philippines?</h4>
+        <div class="btn-group mb-4 mt-2" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-1" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio1-1">Jakarta</label>
+          
+            <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio1-2">Taipei</label>
+          
+            <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-3" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio1-3">Manila</label>
+          
+            <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-4" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio1-4">Kuala Lumpur</label>
+        </div>
+              
+        <h4>Q2: Which of the following sport is most beloved by Filipinos?</h4>
+        <div class="btn-group mb-4 mt-2" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-1" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio2-1">Basketball</label>
+          
+            <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio2-2">Cricket</label>
+          
+            <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-3" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio2-3">Hockey</label>
+          
+            <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-4" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio2-4">Baseball</label>
+        </div>
+
+        <!-- Credits to: https://www.flags-and-anthems.com/ -->
+        <h4>Q3: Which of the following is the Philippine flag?</h4>
+        <div class="btn-group mb-4 mt-2" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-1" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio3-1"><img class="flag" src="/static/images/flag1.jpg"></label>
+          
+            <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio3-2"><img class="flag" src="/static/images/flag2.jpg"></label>
+          
+            <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-3" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio3-3"><img class="flag" src="/static/images/flag3.jpg"></label>
+          
+            <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-4" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio3-4"><img class="flag" src="/static/images/flag4.jpg"></label>
+        </div>
+
+        <h4>Q4: Which of the following fast food restaurant is known to be from the Philippines?</h4>
+        <div class="btn-group mb-4 mt-2" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-1" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio4-1">McDonald's</label>
+          
+            <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio4-2">Wendy's</label>
+          
+            <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-3" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio4-3">KFC</label>
+          
+            <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-4" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio4-4">Jollibee</label>
+        </div>
+
+        <h4>Q5: Balut, a known delicacy in the Philippines is a ____.</h4>
+        <div class="btn-group mb-4 mt-2" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio1">Jakarta</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio2">Taipei</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio3">Manila</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio4">Kuala Lumpur</label>
+        </div>
+
+        <h4>Q6: What continent is the Philippines located?</h4>
+        <div class="btn-group mb-4 mt-2" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio1">Jakarta</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio2">Taipei</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio3">Manila</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio4">Kuala Lumpur</label>
+        </div>
+
+        <h4>Q7:Which of the following celebrity is not Filipino? </h4>
+        <div class="btn-group mb-4 mt-2" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio1">Jakarta</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio2">Taipei</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio3">Manila</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio4">Kuala Lumpur</label>
+        </div>
+
+        <h4>Q8: What is the capital of the Philippines?</h4>
+        <div class="btn-group mb-4 mt-2" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio1">Jakarta</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio2">Taipei</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio3">Manila</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio4">Kuala Lumpur</label>
+        </div>
+    </div>
+
+
+{% endblock %}
