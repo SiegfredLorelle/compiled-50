@@ -272,6 +272,7 @@ def plurality():
 
         # If inputs are valid then save infos and redirect to next page
         db.execute("UPDATE pluralityNumbers SET no_candidates = ?, no_voters = ? WHERE number = 1", no_candidates, no_voters)
+        flash("Name the candidates!", "warning")
         return render_template("plurality-2.html")
     
     # GET by clicking redirect or link 
@@ -326,6 +327,8 @@ def plurality_candidates():
 
         # If candidates are complete then go to next page
         if  no_candidates == len(candidates):
+            flash("Choose who to vote!", "warning")
+
             return render_template("plurality-3.html", candidates=candidates)
 
         # if candidate is incomplete then ask for next candidate
@@ -371,6 +374,7 @@ def plurality_votes():
         # If all voters voted then show the result and sort them also by votes
         if total_votes == no_voters:
             winners = db.execute("SELECT full_name FROM pluralityCandidates WHERE votes = (SELECT MAX(votes) as votes FROM pluralityCandidates)")
+            flash("Winners determined!", "success")
             return render_template("plurality-result.html", winners=winners, candidates_sorted=candidates_sorted)
 
         # If votes are incomplete ask for next vote
@@ -674,7 +678,8 @@ def trivia():
                 score += 1     
         
         # Load the next page with the total score
-        return render_template("trivia.html", score=score, questions=questions)
+        flash("Results are out!", "success")
+        return render_template("trivia-result.html", score=score, questions=questions)
 
     # GET by clicking links or redirects
     else:
