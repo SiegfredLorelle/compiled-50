@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Trivia
+{% endblock %}
+
+{% block main %}
+    <h1 class="py-3" id="trivia-title">TRIVIA</h1>
+    <h6>5-items trivia quiz about the Philippines.</h6><br>
+
+    <!-- Failed -->
+    {% if score < 3 %}
+        <div class="pt-5">
+            <p class="fs-4 fw-bold">Score:
+                <sup><span class="badge rounded-pill bg-danger">Failed!</span></sup>
+            </p>
+            <p class="fs-1"><span class="fw-bold text-danger">{{ score }}</span><sub>/<sub>5</sub></sub></p>
+        </div>
+
+    <!-- Passed -->
+    {% else %}
+        <div class="pt-5">
+            <p class="fs-4 fw-bold">Score:
+                {% if score == 5 %}
+                    <sup><span class="badge rounded-pill bg-success">Perfect!</span></sup>
+                {% else %}
+                    <sup><span class="badge rounded-pill bg-success">Passed!</span></sup>
+                {% endif %}
+                
+            </p>
+            <p class="fs-1"><span class="fw-bold text-success">{{ score }}</span><sub>/<sub>5</sub></sub></p>
+
+        </div>
+
+    {% endif %}
+
+
+
+
+{% endblock %}
