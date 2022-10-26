@@ -674,7 +674,7 @@ def trivia():
                 score += 1     
         
         # Load the next page with the total score
-        return render_template("trivia.html", scores=scores, questions=question)
+        return render_template("trivia.html", score=score, questions=questions)
 
     # GET by clicking links or redirects
     else:
@@ -686,7 +686,6 @@ def trivia():
                 questions.append(question)
             questions.sort()
 
-        print(questions)
         return render_template("trivia.html", questions=questions)
 
 
