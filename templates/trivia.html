@@ -6,7 +6,7 @@
 
 {% block main %}
     <h1 class="py-3" id="trivia-title">TRIVIA</h1>
-    <h6>A 10 item trivia quiz about the Philippines.</h6><br>
+    <h6>5-items trivia quiz about the Philippines.</h6><br>
     
     <div>
         <form action="/trivia" method="post">
@@ -15,16 +15,16 @@
                 {% if question == 1 %}
                     <h4>What is the capital of the Philippines?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-1" autocomplete="off" required value="Jakarta">
                         <label class="btn btn-outline-secondary" for="btnradio1-1">Jakarta</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-2" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-2" autocomplete="off" value="Taipei">
                         <label class="btn btn-outline-secondary" for="btnradio1-2">Taipei</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-3" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-3" autocomplete="off" value="Manila">
                         <label class="btn btn-outline-secondary" for="btnradio1-3">Manila</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-4" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-4" autocomplete="off"value="Kuala Lumpur">
                         <label class="btn btn-outline-secondary" for="btnradio1-4">Kuala Lumpur</label>
                     </div>
                 {% endif %}
@@ -32,33 +32,33 @@
                 {% if question == 2 %}
                     <h4>Which of the following sport is most beloved by Filipinos?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-1" autocomplete="off" required value="Basketball">
                         <label class="btn btn-outline-secondary" for="btnradio2-1">Basketball</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-2" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-2" autocomplete="off" value="Cricket">
                         <label class="btn btn-outline-secondary" for="btnradio2-2">Cricket</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-3" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-3" autocomplete="off" value="Hockey">
                         <label class="btn btn-outline-secondary" for="btnradio2-3">Hockey</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-4" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-4" autocomplete="off" value="Baseball">
                         <label class="btn btn-outline-secondary" for="btnradio2-4">Baseball</label>
                     </div>
                 {% endif %}
 
                 {% if question == 3 %}
-                    <h4>Which of the following celebrities does not have a Filipino blood?</h4>
+                    <h4>Which of the following celebrities does <span class="text-danger">not</span> have a Filipino blood?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-1" autocomplete="off" required value="Bella Poarch">
                         <label class="btn btn-outline-secondary" for="btnradio3-1">Bella Poarch</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-2" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-2" autocomplete="off" value="Bruno Mars">
                         <label class="btn btn-outline-secondary" for="btnradio3-2">Bruno Mars</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-3" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-3" autocomplete="off" value="Dwayne Johnson">
                         <label class="btn btn-outline-secondary" for="btnradio3-3">Dwayne Johnson</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-4" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-4" autocomplete="off" value="Olivia Rodrigo">
                         <label class="btn btn-outline-secondary" for="btnradio3-4">Olivia Rodrigo</label>
                     </div>
                 {% endif %}
@@ -66,16 +66,16 @@
                 {% if question == 4 %}
                     <h4>Which of the following fast food restaurant is known to be from the Philippines?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-1" autocomplete="off" required value="McDonald's">
                         <label class="btn btn-outline-secondary" for="btnradio4-1">McDonald's</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-2" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-2" autocomplete="off" value="Wendy's">
                         <label class="btn btn-outline-secondary" for="btnradio4-2">Wendy's</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-3" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-3" autocomplete="off" value="KFC">
                         <label class="btn btn-outline-secondary" for="btnradio4-3">KFC</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-4" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-4" autocomplete="off" value="Jollibee">
                         <label class="btn btn-outline-secondary" for="btnradio4-4">Jollibee</label>
                     </div>
                 {% endif %}
@@ -83,16 +83,16 @@
                 {% if question == 5 %}
                     <h4>Balut, a known delicacy in the Philippines is a ____ .</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-1" autocomplete="off" required value="fertilized duck egg">
                         <label class="btn btn-outline-secondary" for="btnradio5-1">fertilized duck egg</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-2" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-2" autocomplete="off" value="fertilized chicken egg">
                         <label class="btn btn-outline-secondary" for="btnradio5-2">fertilized chicken egg</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-3" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-3" autocomplete="off" value="fertilized turkey egg">
                         <label class="btn btn-outline-secondary" for="btnradio5-3">fertilized turkey egg</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-4" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-4" autocomplete="off" value="fertilized quail egg">
                         <label class="btn btn-outline-secondary" for="btnradio5-4">fertilized quail egg</label>
                     </div>
                 {% endif %}
@@ -100,16 +100,16 @@
                 {% if question == 6 %}
                     <h4>What continent is the Philippines located?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-1" autocomplete="off" required value="Africa">
                         <label class="btn btn-outline-secondary" for="btnradio6-1">Africa</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-2" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-2" autocomplete="off" value="Europe">
                         <label class="btn btn-outline-secondary" for="btnradio6-2">Europe</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-3" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-3" autocomplete="off" value="Asia">
                         <label class="btn btn-outline-secondary" for="btnradio6-3">Asia</label>
                     
-                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-4" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-4" autocomplete="off" value="Oceania">
                         <label class="btn btn-outline-secondary" for="btnradio6-4">Oceania</label>
                     </div>
                 {% endif %}
@@ -118,16 +118,16 @@
                     <!-- Credits to: https://www.flags-and-anthems.com/ -->
                     <h4>Which of the following is the Philippine flag?</h4>
                     <div class="btn-group mb-5 mt-2" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-1" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-1" autocomplete="off" required value="Flag1">
                         <label class="btn btn-outline-secondary" for="btnradio7-1"><img class="flag" src="/static/images/flag1.jpg"></label>
                     
-                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-2" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-2" autocomplete="off" value="Flag2">
                         <label class="btn btn-outline-secondary" for="btnradio7-2"><img class="flag" src="/static/images/flag2.jpg"></label>
                     
-                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-3" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-3" autocomplete="off" value="Flag3">
                         <label class="btn btn-outline-secondary" for="btnradio7-3"><img class="flag" src="/static/images/flag3.jpg"></label>
                     
-                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-4" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-4" autocomplete="off" value="Flag4">
                         <label class="btn btn-outline-secondary" for="btnradio7-4"><img class="flag" src="/static/images/flag4.jpg"></label>
                     </div>
                 {% endif %}

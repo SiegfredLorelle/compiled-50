@@ -630,21 +630,63 @@ def inheritance():
 
 @app.route("/trivia", methods=["GET", "POST"])
 def trivia():
-    """A 10 item trivia quiz about the Philippines"""
+    """A 5 item trivia quiz about the Philippines"""
+
+
     if request.method == "POST":
+        # Count the total score and determine which questions were asked
+        score = 0
+        questions = []
+
+        if request.form.get("btnradio1"):
+            questions.append(1) 
+            if request.form.get("btnradio1") == "Manila":
+                score += 1    
+
+        if request.form.get("btnradio2"):
+            questions.append(2) 
+            if request.form.get("btnradio2") == "Basketball":
+                score += 1    
+
+        if request.form.get("btnradio3"):
+            questions.append(3) 
+            if request.form.get("btnradio3") == "Dwayne Johnson":
+                score += 1  
+
+        if request.form.get("btnradio4"): 
+            questions.append(4)    
+            if request.form.get("btnradio4") == "Jollibee":
+                score += 1    
+
+        if request.form.get("btnradio5"): 
+            questions.append(5)  
+            if request.form.get("btnradio5") == "fertilized duck egg":
+                score += 1  
+
+        if request.form.get("btnradio6"):
+            questions.append(6) 
+            if request.form.get("btnradio6") == "Asia":
+                score += 1    
+
+        if request.form.get("btnradio7"):
+            questions.append(7) 
+            if request.form.get("btnradio7") == "Flag4":
+                score += 1     
         
-
-
-        return render_template("trivia.html")
+        # Load the next page with the total score
+        return render_template("trivia.html", scores=scores, questions=question)
 
     # GET by clicking links or redirects
     else:
+        # Randomize the questions 
         questions = []
         while len(questions) < 5:
             question = randint(1, 7)
             if question not in questions:
                 questions.append(question)
-        questions.sort()
+            questions.sort()
+
+        print(questions)
         return render_template("trivia.html", questions=questions)
 
 
@@ -653,6 +695,7 @@ def trivia():
 def birthday():
     """List the birthdays inputted"""
     if request.method == "POST":
+
         
 
         return render_template("birthday.html")
@@ -696,10 +739,11 @@ def birthday():
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 
 # trivia
-# 8 question trivia from Philippines then show score after add try again button
-# determine which from the 8 questions will be asked
+# 7 question trivia from Philippines then show score after add try again button
 # center images in a button
 # show result with addtional trivia
+# require an radio is selected in each radio group
+# modal of are you sure to submit 
 
 
 # birthday
