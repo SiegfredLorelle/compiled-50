@@ -635,51 +635,117 @@ def inheritance():
 @app.route("/trivia", methods=["GET", "POST"])
 def trivia():
     """A 5 item trivia quiz about the Philippines"""
-
-
     if request.method == "POST":
-        # Count the total score and determine which questions were asked
+        # Count the total score and determine which questions were asked and which the user got wrong
         score = 0
         questions = []
+        mistakes = {}
 
         if request.form.get("btnradio1"):
             questions.append(1) 
             if request.form.get("btnradio1") == "Manila":
-                score += 1    
+                score += 1
+            else:
+                if request.form.get("btnradio1") == "Jakarta":
+                    mistakes[1] = "Jakarta"
+
+                elif request.form.get("btnradio1") == "Taipei":
+                    mistakes[1] = "Taipei"
+                
+                elif request.form.get("btnradio1") == "Kuala Lumpur":
+                    mistakes[1] = "Kuala Lumpur"
+
 
         if request.form.get("btnradio2"):
             questions.append(2) 
             if request.form.get("btnradio2") == "Basketball":
-                score += 1    
+                score += 1   
+            else:
+                if request.form.get("btnradio2") == "Cricket":
+                    mistakes[2] = "Cricket"
+
+                elif request.form.get("btnradio2") == "Hockey":
+                    mistakes[2] = "Hockey"
+                
+                elif request.form.get("btnradio2") == "Baseball":
+                    mistakes[2] = "Baseball"
+
 
         if request.form.get("btnradio3"):
             questions.append(3) 
             if request.form.get("btnradio3") == "Dwayne Johnson":
-                score += 1  
+                score += 1 
+            else:
+                if request.form.get("btnradio3") == "Bella Poarch":
+                    mistakes[3] = "Bella Poarch"
+
+                elif request.form.get("btnradio3") == "Bruno Mars":
+                    mistakes[3] = "Bruno Mars"
+                
+                elif request.form.get("btnradio3") == "Olivia Rodrigo":
+                    mistakes[3] = "Olivia Rodrigo"
+
 
         if request.form.get("btnradio4"): 
             questions.append(4)    
             if request.form.get("btnradio4") == "Jollibee":
                 score += 1    
+            else:
+                if request.form.get("btnradio4") == "McDonald's":
+                    mistakes[4] = "McDonald's"
 
+                elif request.form.get("btnradio4") == "Wendy's":
+                    mistakes[4] = "Wendy's"
+                
+                elif request.form.get("btnradio4") == "KFC":
+                    mistakes[4] = "KFC"
+                
         if request.form.get("btnradio5"): 
             questions.append(5)  
             if request.form.get("btnradio5") == "fertilized duck egg":
                 score += 1  
+            else:
+                if request.form.get("btnradio5") == "fertilized chicken egg":
+                    mistakes[5] = "fertilized chicken egg"
 
+                elif request.form.get("btnradio5") == "fertilized turkey egg":
+                    mistakes[5] = "fertilized turkey egg"
+                
+                elif request.form.get("btnradio5") == "fertilized quail egg":
+                    mistakes[5] = "fertilized quail egg"
+                
         if request.form.get("btnradio6"):
             questions.append(6) 
             if request.form.get("btnradio6") == "Asia":
                 score += 1    
+            else:
+                if request.form.get("btnradio6") == "Africa":
+                    mistakes[6] = "Africa"
+
+                elif request.form.get("btnradio6") == "Europe":
+                    mistakes[6] = "Europe"
+                
+                elif request.form.get("btnradio6") == "Oceania":
+                    mistakes[6] = "Oceania"
 
         if request.form.get("btnradio7"):
             questions.append(7) 
             if request.form.get("btnradio7") == "Flag4":
                 score += 1     
-        
+            else:
+                if request.form.get("btnradio7") == "Flag1":
+                    mistakes[7] = "Flag1"
+
+                elif request.form.get("btnradio7") == "Flag2":
+                    mistakes[7] = "Flag2"
+                
+                elif request.form.get("btnradio7") == "Flag3":
+                    mistakes[7] = "Flag3"
+
         # Load the next page with the total score
-        flash("Results are out!", "success")
-        return render_template("trivia-result.html", score=score, questions=questions)
+        flash("Result is out!", "success")
+        return render_template("trivia-result.html", score=score, questions=questions, mistakes=mistakes)
+
 
     # GET by clicking links or redirects
     else:
@@ -743,11 +809,7 @@ def birthday():
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 
 # trivia
-# 7 question trivia from Philippines then show score after add try again button
-# center images in a button
-# show result with addtional trivia
-# require an radio is selected in each radio group
-# modal of are you sure to submit 
+# circle on hover describing red is your answer, green is correct answer
 
 
 # birthday
