@@ -19,22 +19,238 @@
 
     <!-- Passed -->
     {% else %}
-        <div class="pt-5">
+        <div class="pt-5 pb-5">
             <p class="fs-4 fw-bold">Score:
                 {% if score == 5 %}
                     <sup><span class="badge rounded-pill bg-success">Perfect!</span></sup>
                 {% else %}
                     <sup><span class="badge rounded-pill bg-success">Passed!</span></sup>
                 {% endif %}
-                
             </p>
             <p class="fs-1"><span class="fw-bold text-success">{{ score }}</span><sub>/<sub>5</sub></sub></p>
-
         </div>
 
     {% endif %}
 
 
+
+
+
+    {% if mistakes %}
+        <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            See Mistakes
+        </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                {% for mistake in mistakes %}
+                    <br>
+                    {% if mistake == 1 %}
+                        <h4>What is the capital of the Philippines?</h4>
+                        <div class="btn-group mx-auto w-auto" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-1" autocomplete="off" required value="Jakarta" disabled>
+                            {% if mistakes[mistake] == "Jakarta" %}
+                                <label class="btn btn-danger" for="btnradio1-1">Jakarta</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio1-1">Jakarta</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-2" autocomplete="off" value="Taipei" disabled>
+                            {% if mistakes[mistake] == "Taipei" %}
+                                <label class="btn btn-danger" for="btnradio1-2">Taipei</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio1-2">Taipei</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-3" autocomplete="off" value="Manila" disabled>
+                            <label class="btn btn-success" for="btnradio1-3">Manila</label>
+                        
+                            <input type="radio" class="btn-check" name="btnradio1" id="btnradio1-4" autocomplete="off"value="Kuala Lumpur" disabled>
+                            {% if mistakes[mistake] == "Kuala Lumpur" %}
+                                <label class="btn btn-danger" for="btnradio1-4">Kuala Lumpur</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio1-4">Kuala Lumpur</label>
+                            {% endif %}
+                        </div>  
+                            
+                    {% elif mistake == 2 %}
+                        <h4>Which of the following sport is most beloved by Filipinos?</h4>
+                        <div class="btn-group mx-auto w-auto" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-1" autocomplete="off" required value="Basketball" disabled>
+                            <label class="btn btn-success" for="btnradio2-1">Basketball</label>
+                        
+                            <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-2" autocomplete="off" value="Cricket" disabled>
+                            {% if mistakes[mistake] == "Cricket" %}
+                                <label class="btn btn-danger" for="btnradio2-2">Cricket</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio2-2">Cricket</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-3" autocomplete="off" value="Hockey" disabled>
+                            {% if mistakes[mistake] == "Hockey" %}
+                                <label class="btn btn-danger" for="btnradio2-3">Hockey</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio2-3">Hockey</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio2" id="btnradio2-4" autocomplete="off" value="Baseball" disabled>
+                            {% if mistakes[mistake] == "Baseball" %}
+                                <label class="btn btn-danger" for="btnradio2-4">Baseball</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio2-4">Baseball</label>
+                            {% endif %}
+                        </div>
+
+                    {% elif mistake == 3 %}
+                        <h4>Which of the following celebrities does <span class="text-danger">not</span> have a Filipino blood?</h4>
+                        <div class="btn-group mx-auto w-auto" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-1" autocomplete="off" required value="Bella Poarch" disabled>
+                            {% if mistakes[mistake] == "Bella Poarch" %}
+                                <label class="btn btn-danger" for="btnradio3-1">Bella Poarch</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio3-1">Bella Poarch</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-2" autocomplete="off" value="Bruno Mars" disabled>
+                            {% if mistakes[mistake] == "Bruno Mars" %}
+                                <label class="btn btn-danger" for="btnradio3-2">Bruno Mars</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio3-2">Bruno Mars</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-3" autocomplete="off" value="Dwayne Johnson" disabled>
+                            <label class="btn btn-success" for="btnradio3-3">Dwayne Johnson</label>
+                        
+                            <input type="radio" class="btn-check" name="btnradio3" id="btnradio3-4" autocomplete="off" value="Olivia Rodrigo" disabled>
+                            {% if mistakes[mistake] == "Olivia Rodrigo" %}
+                                <label class="btn btn-danger" for="btnradio3-4">Olivia Rodrigo</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio3-4">Olivia Rodrigo</label>
+                            {% endif %}
+                        </div>
+
+                    {% elif mistake == 4 %}
+                        <h4>Which of the following fast food restaurant is known to be from the Philippines?</h4>
+                        <div class="btn-group mx-auto w-auto" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-1" autocomplete="off" required value="McDonald's" disabled>
+                            {% if mistakes[mistake] == "McDonald's" %}
+                                <label class="btn btn-danger" for="btnradio4-1">McDonald's</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio4-1">McDonald's</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-2" autocomplete="off" value="Wendy's" disabled>
+                            {% if mistakes[mistake] == "Wendy's" %}
+                                <label class="btn btn-danger" for="btnradio4-2">Wendy's</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio4-2">Wendy's</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-3" autocomplete="off" value="KFC" disabled>
+                            {% if mistakes[mistake] == "KFC" %}
+                                <label class="btn btn-danger" for="btnradio4-3">KFC</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio4-3">KFC</label>
+
+                            {% endif %}
+                            <input type="radio" class="btn-check" name="btnradio4" id="btnradio4-4" autocomplete="off" value="Jollibee" disabled>
+                            <label class="btn btn-success" for="btnradio4-4">Jollibee</label>
+                        </div>
+
+                    {% elif mistake == 5 %}
+                        <h4>Balut, a known delicacy in the Philippines is a ____ .</h4>
+                        <div class="btn-group mx-auto w-auto" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-1" autocomplete="off" required value="fertilized duck egg" disabled>
+                            <label class="btn btn-success" for="btnradio5-1">fertilized duck egg</label>
+                            
+                            <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-2" autocomplete="off" value="fertilized chicken egg" disabled>
+                            {% if mistakes[mistake] == "fertilized chicken egg" %}
+                                <label class="btn btn-danger" for="btnradio5-2">fertilized chicken egg</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio5-2">fertilized chicken egg</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-3" autocomplete="off" value="fertilized turkey egg" disabled>
+                            {% if mistakes[mistake] == "fertilized turkey egg" %}
+                                <label class="btn btn-danger" for="btnradio5-3">fertilized turkey egg</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio5-3">fertilized turkey egg</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio5" id="btnradio5-4" autocomplete="off" value="fertilized quail egg" disabled>
+                            {% if mistakes[mistake] == "fertilized quail egg" %}
+                                <label class="btn btn-danger" for="btnradio5-4">fertilized quail egg</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio5-4">fertilized quail egg</label>
+                            {% endif %}
+                        </div>
+                        
+                    {% elif mistake == 6 %}
+                        <h4>What continent is the Philippines located?</h4>
+                        <div class="btn-group mx-auto w-auto" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-1" autocomplete="off" required value="Africa" disabled>
+                            {% if mistakes[mistake] == "Africa" %}
+                                <label class="btn btn-danger" for="btnradio6-1">Africa</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio6-1">Africa</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-2" autocomplete="off" value="Europe" disabled>
+                            {% if mistakes[mistake] == "Europe" %}
+                                <label class="btn btn-danger" for="btnradio6-2">Europe</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio6-2">Europe</label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-3" autocomplete="off" value="Asia" disabled>
+                            <label class="btn btn-success" for="btnradio6-3">Asia</label>
+                        
+                            <input type="radio" class="btn-check" name="btnradio6" id="btnradio6-4" autocomplete="off" value="Oceania" disabled>
+                            {% if mistakes[mistake] == "Oceania" %}
+                                <label class="btn btn-danger" for="btnradio6-4">Oceania</label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio6-4">Oceania</label>
+                            {% endif %}
+                        </div>
+
+                    {% elif mistake == 7 %}
+                        <!-- Credits to: https://www.flags-and-anthems.com/ -->
+                        <h4>Which of the following is the Philippine flag?</h4>
+                        <div class="btn-group mx-auto w-auto" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-1" autocomplete="off" required value="Flag1" disabled>
+                            {% if mistakes[mistake] == "Flag1" %}
+                                <label class="btn btn-danger" for="btnradio7-1"><img class="flag" src="/static/images/flag1.jpg"></label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio7-1"><img class="flag" src="/static/images/flag1.jpg"></label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-2" autocomplete="off" value="Flag2" disabled>
+                            {% if mistakes[mistake] == "Flag2" %}
+                                <label class="btn btn-danger" for="btnradio7-2"><img class="flag" src="/static/images/flag2.jpg"></label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio7-2"><img class="flag" src="/static/images/flag2.jpg"></label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-3" autocomplete="off" value="Flag3" disabled>
+                            {% if mistakes[mistake] == "Flag3" %}
+                                <label class="btn btn-danger" for="btnradio7-3"><img class="flag" src="/static/images/flag3.jpg"></label>
+                            {% else %}
+                                <label class="btn btn-outline-secondary" for="btnradio7-3"><img class="flag" src="/static/images/flag3.jpg"></label>
+                            {% endif %}
+
+                            <input type="radio" class="btn-check" name="btnradio7" id="btnradio7-4" autocomplete="off" value="Flag4" disabled>
+                            <label class="btn btn-success" for="btnradio7-4"><img class="flag" src="/static/images/flag4.jpg"></label>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+
+    <a href="/trivia">
+        <button class="btn btn-dark m-4" type="button">Retake</button>
+    </a>
 
 
 {% endblock %}
