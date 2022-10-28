@@ -809,7 +809,7 @@ def birthday():
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 
 # trivia
-# circle on hover describing red is your answer, green is correct answer
+# change shade of color on hover of circles legends in trivia reuslt
 
 
 # birthday
