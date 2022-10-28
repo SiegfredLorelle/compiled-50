@@ -552,3 +552,18 @@ label .flag {
     max-width: 15vw;
     height:auto;
 }
+
+.circle-container {
+    position: relative;
+    margin: 0 auto;
+ }
+ 
+ .circle-container .circle {
+    height: 15px;
+    width: 15px;    
+    border-radius: 50%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    float: left;
+ }

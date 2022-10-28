@@ -40,11 +40,18 @@
         <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             See Mistakes
         </button>
-        </p>
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
+                <p>Legends:</p>
+                <div class="circle-container mb-4">
+                    <div class="circle bg-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Correct Answer"></div>
+                    <div class="circle bg-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your Answer"></div>
+
+                </div>
                 {% for mistake in mistakes %}
                     <br>
+
+
                     {% if mistake == 1 %}
                         <h4>What is the capital of the Philippines?</h4>
                         <div class="btn-group mx-auto w-auto" role="group" aria-label="Basic radio toggle button group">
@@ -252,5 +259,11 @@
         <button class="btn btn-dark m-4" type="button">Retake</button>
     </a>
 
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 
 {% endblock %}
