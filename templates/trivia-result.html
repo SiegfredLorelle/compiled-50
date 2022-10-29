@@ -33,24 +33,20 @@
     {% endif %}
 
 
-
-
-
     {% if mistakes %}
         <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             See Mistakes
         </button>
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
-                <p>Legends:</p>
+                <p class="fw-bold">Legends:</p>
                 <div class="circle-container mb-4">
-                    <div class="circle bg-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Correct Answer"></div>
-                    <div class="circle bg-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your Answer"></div>
+                    <div class="circle bg-success me-1" id="legend-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Correct Answer"></div>
+                    <div class="circle bg-danger ms-1" id ="legend-red" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your Answer"></div>
 
                 </div>
                 {% for mistake in mistakes %}
                     <br>
-
 
                     {% if mistake == 1 %}
                         <h4>What is the capital of the Philippines?</h4>
