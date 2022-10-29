@@ -564,6 +564,13 @@ label .flag {
     border-radius: 50%;
     text-align: center;
     display: block;
-    margin: 0 auto;
     float: left;
+ }
+
+ #legend-green:hover {
+    background-color: rgb(118, 206, 100)!important;
+ }
+
+ #legend-red:hover {
+    background-color: rgb(224, 88, 88)!important;
  }
