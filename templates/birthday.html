@@ -7,4 +7,22 @@
 {% block main %}
     <h1 class="py-3" id="birthday-title">BIRTHDAY</h1>
     <h6>Customize a list of birthdays.</h6><br>
+
+    <form class="row g-3" action="/birthday" method="post">
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="month" name="month" placeholder="Month" required>
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="day" name="Day" placeholder="Day" required>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-dark" type="submit">Add Birthday</button>
+        </div>
+
+    </form>
+
 {% endblock %}

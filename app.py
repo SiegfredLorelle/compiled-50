@@ -767,7 +767,6 @@ def birthday():
     if request.method == "POST":
 
         
-
         return render_template("birthday.html")
 
     # GET by clicking links or redirects
@@ -802,18 +801,16 @@ def birthday():
 # substitution
 # find a way to ensure that encrypt and decrypt select was chosen in html para d na magrerestart pag input error
 
-# plurality
-# test for bugs
-
 # inheritance
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
-
-# trivia
-# change shade of color on hover of circles legends in trivia reuslt
 
 
 # birthday
 # name month and day then show below all the data based on what day it is today
+# change month and day to select
+# check user inputs
+# make table for brithdays with username
+# show table
 
 # login, sign in, log out, change pass in accounts
 
@@ -822,6 +819,8 @@ def birthday():
 # lagay logo sa navbar
 # put color in title of every page (maybe gray or gradient or different color for every page)
 # make buttons to pills
+# put copy buttons in a pill or round button (add tooltip on hover and click and change shade)
+# add divider in project dropdown (divide by weeks in cs50)
 
 # upload to heroku
 # change title to compiled or compiled50
