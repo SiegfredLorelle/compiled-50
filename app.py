@@ -811,6 +811,7 @@ def birthday():
 # check user inputs
 # make table for brithdays with username
 # show table
+# try disabled in select 
 
 # login, sign in, log out, change pass in accounts
 

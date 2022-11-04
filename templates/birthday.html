@@ -10,13 +10,32 @@
 
     <form class="row g-3" action="/birthday" method="post">
         <div class="col-md-4">
-            <input type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
         </div>
         <div class="col-md-4">
-            <input type="text" class="form-control" id="month" name="month" placeholder="Month" required>
+            <select class="form-select" id="month" name="month">
+                <option hidden selected>Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
         </div>
         <div class="col-md-4">
-            <input type="text" class="form-control" id="day" name="Day" placeholder="Day" required>
+            <select class="form-select" id="month" name="month">
+                <option hidden selected>Day</option>
+                {% for day in range(1,32) %}
+                    <option>{{ day }}</option>
+                {% endfor %}
+            </select>
         </div>
 
         <div class="col-12">
@@ -25,4 +44,10 @@
 
     </form>
 
+
+
+    <script>
+
+
+    </script>
 {% endblock %}
