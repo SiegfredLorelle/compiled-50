@@ -56,6 +56,17 @@ def index():
 
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """Login the user"""
+    if request.method == "POST":
+        pass
+
+    # GET via redirect and clicking links    
+    else:
+        return render_template("login.html")
+
+
 @app.route("/mario", methods=["GET", "POST"])
 def mario():
     """Load pyramid with the given height similar to one in Super Mario Bros."""
@@ -858,6 +869,11 @@ def birthday():
 # login, sign in, log out, change pass in accounts
 
 # WORK ON LOGIN (PRIO FOR BIRTHDAY AS WELL)
+# Add underline when hovering compiled 50
+# Add sign in redirect with divider
+# Add go back button
+# Make table for users
+# work on back end
 
 # about
 
@@ -868,6 +884,7 @@ def birthday():
 # add divider in project dropdown (divide by weeks in cs50)
 
 # upload to heroku
+# change to only login button but with redirect to signin within login page
 # change title to compiled or compiled50
 # add white bg to icon
 # login required, restrict opening projects in index if not logged in, redirect maybe to carousel below
