@@ -301,7 +301,7 @@ def plurality_candidates():
         full_name = (first_name + " " + last_name)
         full_name = sub(' +', ' ', full_name.strip()).upper()
 
-        # Ensures full name does not have any numbers or some special characters
+        # Ensures full name does not have any numbers
         for character in full_name:
             if character in digits:
                 flash("Name cannot have any numbers.", "error")
@@ -765,12 +765,46 @@ def trivia():
 def birthday():
     """List the birthdays inputted"""
     if request.method == "POST":
+        name = request.form.get("name")
+        month = request.form.get("month")
+        day = request.form.get("day")
 
+        print(name, month, day)
+
+        # Ensure month and day is selected
+        if month == "Month" or day == "Day":
+            flash("Must select a month and day.", "error")
+            return render_template("birthday.html")
+
+        # Ensure name is not empty
+        if name.isspace():
+            flash("Name cannot be empty.", "error")
+            return render_template("birthday.html")
+
+        # Ensure name do not have numbers
+        for character in name:
+            if character in digits:
+                flash("Name cannot have numbers.", "error")
+                return render_template("birthday.html")
+
+        # Ensure month-day is valid
+
+        # Add the birthday to db
+
+        # Read table with birthday then load the new table
+
+
+        # Ensure name do not have whitespace in front, back and trailing
+
+
+        
         
         return render_template("birthday.html")
 
     # GET by clicking links or redirects
     else:
+        # Read table with birthday
+
 
         return render_template("birthday.html")
 # TODOs
@@ -807,7 +841,6 @@ def birthday():
 
 # birthday
 # name month and day then show below all the data based on what day it is today
-# change month and day to select
 # check user inputs
 # make table for brithdays with username
 # show table
