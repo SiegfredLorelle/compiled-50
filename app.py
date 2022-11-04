@@ -769,11 +769,9 @@ def birthday():
         month = request.form.get("month")
         day = request.form.get("day")
 
-        print(name, month, day)
-
         # Ensure month and day is selected
         if month == "Month" or day == "Day":
-            flash("Must select a month and day.", "error")
+            flash("Must select 'month' and 'day'.", "error")
             return render_template("birthday.html")
 
         # Ensure name is not empty
@@ -788,6 +786,18 @@ def birthday():
                 return render_template("birthday.html")
 
         # Ensure month-day is valid
+        # Month has 30 maximum days
+        if month in [ "4", "6", "9", "11"]:
+            if day == "31":
+                flash("Invalid date.", "error")
+                return render_template("birthday.html")
+
+        # Month is February (29 maximum days)
+        elif month == "2":
+            if day in ["30", "31"]:
+                flash("Invalid date.", "error")
+                return render_template("birthday.html")
+
 
         # Add the birthday to db
 
@@ -841,12 +851,13 @@ def birthday():
 
 # birthday
 # name month and day then show below all the data based on what day it is today
-# check user inputs
-# make table for brithdays with username
+# make table for brithdays with user_id
 # show table
-# try disabled in select 
+# try disabled in select
 
 # login, sign in, log out, change pass in accounts
+
+# WORK ON LOGIN (PRIO FOR BIRTHDAY AS WELL)
 
 # about
 
