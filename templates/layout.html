@@ -24,9 +24,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Inspiration&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
-        
+                
         <!-- https://fonts.google.com/icons?icon.platform=web&icon.style=Rounded -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 
@@ -81,28 +79,28 @@
         
         
         {% if get_flashed_messages(category_filter="error") %}
-        <header>
-            <div class="alert alert-danger mb-0 text-center alert-dismissible fade show" role="alert">
-                {{ get_flashed_messages() | join(" ") }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </header>
+            <header>
+                <div class="alert alert-danger mb-0 text-center alert-dismissible fade show" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </header>
         {% elif get_flashed_messages(category_filter="success") %}
-        <header>
-            <div class="alert alert-success mb-0 text-center alert-dismissible fade show" role="alert">
-                {{ get_flashed_messages() | join(" ") }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </header>
+            <header>
+                <div class="alert alert-success mb-0 text-center alert-dismissible fade show" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </header>
         {% elif get_flashed_messages(category_filter="warning") %}
-        <header>
-            <div class="alert alert-warning mb-0 text-center alert-dismissible fade show" role="alert">
-                {{ get_flashed_messages() | join(" ") }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </header>
+            <header>
+                <div class="alert alert-warning mb-0 text-center alert-dismissible fade show" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </header>
 
-    {% endif %}
+        {% endif %}
         
 
     <main class="container-fluid py-5 text-center">

@@ -56,6 +56,74 @@ def index():
 
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """Login the user"""
+    # Forget any user_id
+    session.clear()
+
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        print(username, password)
+        
+        # Ensure username password is not empty
+
+        # Ensure username password is submitted
+
+        # Read the usernames in the database
+        
+
+        # Ensure username is registered and it matches the passwrod
+
+        # Remember which user has logged in (create users table with id, username, hashed_password)
+        # session["user_id"] = rows[0]["id"]
+
+        # Log the user in
+        return render_template("login.html")
+
+
+
+    # GET via redirect and clicking links    
+    else:
+        return render_template("login.html")
+
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    """Create a new account"""
+    if request.method == "POST":
+
+        # Ensure username, password, and password(verification) is not empty
+
+        # Ensure username, password, and password(verification) is submitted
+
+        # Ensure username is not already registered
+
+        # Ensure passwords is matching 
+
+        # Ensure password has a uppercase, lowercase letter, a number, and at least 6 characters long
+
+        # Add the new user to the database
+
+        # Log the user in (create users table with id, username, hashed_password))
+        # session["user_id"] = row[0]["id"]
+
+
+        return render_template("signup.html")
+
+    
+    # GET via redirect and clicking links    
+    else:
+        return render_template("signup.html")
+
+
+
+# LOG OUT (SIMILAR TO FINANCE)
+
+
+
 @app.route("/mario", methods=["GET", "POST"])
 def mario():
     """Load pyramid with the given height similar to one in Super Mario Bros."""
@@ -858,6 +926,11 @@ def birthday():
 # login, sign in, log out, change pass in accounts
 
 # WORK ON LOGIN (PRIO FOR BIRTHDAY AS WELL)
+# Add underline when hovering compiled 50
+# Add sign in redirect with divider
+# Add go back button
+# Make table for users
+# work on back end
 
 # about
 
@@ -868,6 +941,7 @@ def birthday():
 # add divider in project dropdown (divide by weeks in cs50)
 
 # upload to heroku
+# change to only login button but with redirect to signin within login page
 # change title to compiled or compiled50
 # add white bg to icon
 # login required, restrict opening projects in index if not logged in, redirect maybe to carousel below
