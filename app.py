@@ -59,12 +59,69 @@ def index():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Login the user"""
+    # Forget any user_id
+    session.clear()
+
     if request.method == "POST":
-        pass
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        print(username, password)
+        
+        # Ensure username password is not empty
+
+        # Ensure username password is submitted
+
+        # Read the usernames in the database
+        
+
+        # Ensure username is registered and it matches the passwrod
+
+        # Remember which user has logged in (create users table with id, username, hashed_password)
+        # session["user_id"] = rows[0]["id"]
+
+        # Log the user in
+        return render_template("login.html")
+
+
 
     # GET via redirect and clicking links    
     else:
         return render_template("login.html")
+
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    """Create a new account"""
+    if request.method == "POST":
+
+        # Ensure username, password, and password(verification) is not empty
+
+        # Ensure username, password, and password(verification) is submitted
+
+        # Ensure username is not already registered
+
+        # Ensure passwords is matching 
+
+        # Ensure password has a uppercase, lowercase letter, a number, and at least 6 characters long
+
+        # Add the new user to the database
+
+        # Log the user in (create users table with id, username, hashed_password))
+        # session["user_id"] = row[0]["id"]
+
+
+        return render_template("signup.html")
+
+    
+    # GET via redirect and clicking links    
+    else:
+        return render_template("signup.html")
+
+
+
+# LOG OUT (SIMILAR TO FINANCE)
+
 
 
 @app.route("/mario", methods=["GET", "POST"])
