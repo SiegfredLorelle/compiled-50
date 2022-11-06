@@ -40,26 +40,27 @@
                       <a class="nav-link btn rounded-pill dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Projects
                       </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/mario">Mario</a></li>
-                        <li><a class="dropdown-item" href="/credit">Credit</a></li>
-                        <li><a class="dropdown-item" href="/scrabble">Scrabble</a></li>
-                        <li><a class="dropdown-item" href="/readability">Readability</a></li>
-                        <li><a class="dropdown-item" href="/substitution">Substitution</a></li>
-                        <li><a class="dropdown-item" href="/plurality">Plurality</a></li>
-                        <li><a class="dropdown-item" href="/filter">Filter</a></li>
-                        <li><a class="dropdown-item" href="/inheritance">Inheritance</a></li>
-                        <li><a class="dropdown-item" href="/trivia">Trivia</a></li>
-                        <li><a class="dropdown-item" href="/birthday">Birthday</a></li>
+                      <ul class="dropdown-menu rounded-3" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item rounded-pill" href="/mario">Mario</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/credit">Credit</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/scrabble">Scrabble</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/readability">Readability</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/substitution">Substitution</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/plurality">Plurality</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/filter">Filter</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/inheritance">Inheritance</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/trivia">Trivia</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/birthday">Birthday</a></li>
 
                       </ul>
                     </li>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       {% if session["user_id"] %}
-                        <button class="btn me-md-2 rounded-pill" id="nav-button-left" type="button">Log out</button>
+                        <a class="btn btn rounded-pill px-3" href="#" id="nav-button-left" role="button">Account</a>
+                        <a class="btn btn rounded-pill px-3" href="/logout" id="nav-button-left" role="button">Log Out</a>
                       {% else %}
-                        <button class="btn me-md-2 rounded-pill" id="nav-button-left" type="button">Sign in</button>
-                         <a href="/login"><button class="btn rounded-pill" id="nav-button-left" type="button">Log in</button></a>
+                        <a class="btn btn rounded-pill px-3" href="#" id="nav-button-left" role="button">Sign Up</a>
+                        <a class="btn btn rounded-pill px-3" href="/login" id="nav-button-left" role="button">Log in</a>
                       {% endif %}
                     </div>
                   </div>
@@ -67,8 +68,13 @@
               </div>
 
                 <h2 class="title">
-                    <span class="title">CS50 Compiled</span>
-                    <p class="description">by Siegfred Lorelle Mina</p>
+                  {% if session["user_id"] %}
+                    <span class="title">Compiled 50</span>
+                    <p class="description">Logged in as {{ username }}</p>
+                  {% else %}
+                    <span class="title">Compiled 50</span>
+                    <p class="description">by Siegfred Lorelle Mina</p>              
+                  {% endif %}
                 </h2>
             </div>
 
@@ -80,25 +86,26 @@
                       <a class="nav-link rounded-pill dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Projects
                       </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/mario">Mario</a></li>
-                        <li><a class="dropdown-item" href="/credit">Credit</a></li>
-                        <li><a class="dropdown-item" href="/scrabble">Scrabble</a></li>
-                        <li><a class="dropdown-item" href="/readability">Readability</a></li>
-                        <li><a class="dropdown-item" href="/substitution">Substitution</a></li>
-                        <li><a class="dropdown-item" href="/plurality">Plurality</a></li>
-                        <li><a class="dropdown-item" href="/filter">Filter</a></li>
-                        <li><a class="dropdown-item" href="/inheritance">Inheritance</a></li>
-                        <li><a class="dropdown-item" href="/trivia">Trivia</a></li>
-                        <li><a class="dropdown-item" href="/birthday">Birthday</a></li>
+                      <ul class="dropdown-menu rounded-3" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item rounded-pill" href="/mario">Mario</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/credit">Credit</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/scrabble">Scrabble</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/readability">Readability</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/substitution">Substitution</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/plurality">Plurality</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/filter">Filter</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/inheritance">Inheritance</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/trivia">Trivia</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/birthday">Birthday</a></li>
                       </ul>
                     </li>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       {% if session["user_id"] %}
-                        <button class="btn me-md-2 rounded-pill" id="nav-button-right" type="button">Log out</button>
+                        <a class="btn btn rounded-pill px-3" href="#" id="nav-button-right" role="button">Account</a>
+                        <a class="btn btn rounded-pill px-3" href="/logout" id="nav-button-right" role="button">Log Out</a>
                       {% else %}
-                        <button class="btn me-md-2 rounded-pill" id="nav-button-right" type="button">Sign in</button>
-                        <a href="/login"><button class="btn rounded-pill" id="nav-button-right" type="button">Log in</button></a>
+                        <a class="btn btn rounded-pill px-3" href="#" id="nav-button-right" role="button">Sign Up</a>
+                        <a class="btn btn rounded-pill px-3" href="/login" id="nav-button-right" role="button">Log in</a>
                       {% endif %}
                       </div>
                   </div>
@@ -107,8 +114,13 @@
 
 
                 <h2 class="title">
-                    <span class="title">CS50 Compiled</span>
-                    <p class="description">for CS50x Final Project</p>
+                  {% if session["user_id"] %}
+                    <span class="title">Compiled 50</span>
+                    <p class="description">Logged in as {{ username }}</p>
+                  {% else %}
+                    <span class="title">Compiled 50</span>
+                    <p class="description">for CS50x Final Project</p>              
+                  {% endif %}
                 </h2>
             </div>
         </div>
@@ -161,7 +173,7 @@
         
         <div class="container-fluid p-5 bg-dark">
             <footer>
-              <h4  id="title-footer"><a class="nav-item px-2" href="/">CS50 Compiled</a></h4>
+              <h4  id="title-footer"><a class="nav-item px-2" href="/">Compiled 50</a></h4>
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                     <li class="nav-item"><a class="nav-link px-2" href="">Github</a></li>
                     <li class="nav-item"><a class="nav-link px-2" href="">Facebook</a></li>
