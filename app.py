@@ -52,7 +52,11 @@ def index():
         pass
 
     else:
-        return render_template("index.html")
+        if len(session) == 1:
+            username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
+            return render_template("index.html", username=username)
+        else:
+            return render_template("index.html")
 
 
 
@@ -69,24 +73,40 @@ def login():
         print(username, password)
         
         # Ensure username password is not empty
-
-        # Ensure username password is submitted
-
-        # Read the usernames in the database
+        if username.isspace() or password.isspace():
+            flash("Username and Password cannot be empty.", "error")
+            return render_template("login.html")
         
+        # Ensure username password is submitted (already required in html but to be sure)
+        if not username or not password:
+            flash("Username and Password cannot be empty.", "error")
+            return render_template("login.html")
 
-        # Ensure username is registered and it matches the passwrod
+        # Check if user is in the database
+        user = db.execute("SELECT * FROM users WHERE username = ?", username)
+
+        # Ensure username is found
+        if len(user) != 1:
+            flash("Username is not registered.", "error")
+            return render_template("login.html")
+
+        # Ensure username matches the password
+        if  not check_password_hash(user[0]["hashed_password"], password):
+            flash("Invalid Username and/or Password.", "error")
+            return render_template("login.html")
+
 
         # Remember which user has logged in (create users table with id, username, hashed_password)
-        # session["user_id"] = rows[0]["id"]
+        session["user_id"] = user[0]["id"]
 
         # Log the user in
-        return render_template("login.html")
+        return redirect("/")
 
 
 
     # GET via redirect and clicking links    
     else:
+        # username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
         return render_template("login.html")
 
 
@@ -103,7 +123,7 @@ def signup():
 
         # Ensure passwords is matching 
 
-        # Ensure password has a uppercase, lowercase letter, a number, and at least 6 characters long
+        # Ensure password has no whitespace, has uppercase, lowercase letter, a number, and at least 6 characters long
 
         # Add the new user to the database
 
@@ -120,11 +140,20 @@ def signup():
 
 
 
-# LOG OUT (SIMILAR TO FINANCE)
+
+@app.route("/logout")
+def logout():
+    """Log the user out"""
+    # Forget any user_id
+    session.clear()
+
+    # Redirect to homepage
+    return redirect("/")
 
 
 
 @app.route("/mario", methods=["GET", "POST"])
+@login_required
 def mario():
     """Load pyramid with the given height similar to one in Super Mario Bros."""
     if request.method == "POST":
@@ -146,6 +175,7 @@ def mario():
 
 
 @app.route("/credit", methods=["GET", "POST"])
+@login_required
 def credit():
     """Tell what credit card is entered"""
     if request.method == "POST":
@@ -178,6 +208,7 @@ def credit():
 
 
 @app.route("/scrabble", methods=["GET", "POST"])
+@login_required
 def scrabble():
     """Checks if a word is real and give its score in scrabble"""
     if request.method == "POST":
@@ -218,6 +249,7 @@ def scrabble():
 
 
 @app.route("/readability", methods=["GET", "POST"])
+@login_required
 def readability():
     """Determines the readability level of the paragraph prompted"""
     if request.method == "POST":
@@ -242,6 +274,7 @@ def readability():
 
 
 @app.route("/substitution", methods=["GET", "POST"])
+@login_required
 def substitution():
     """Encrypt or decrypt the given text based on the given key"""
     if request.method == "POST":
@@ -323,6 +356,7 @@ def substitution():
 
 
 @app.route("/plurality", methods=["GET", "POST"])
+@login_required
 def plurality():
     """ Get the number of candidates and voters"""
     if request.method == "POST":
@@ -350,6 +384,7 @@ def plurality():
 
 
 @app.route("/plurality/candidates", methods=["GET", "POST"])
+@login_required
 def plurality_candidates():
     """ Get the names of the candidates"""
     if request.method == "POST":
@@ -416,6 +451,7 @@ def plurality_candidates():
 
 
 @app.route("/plurality/votes", methods=["GET", "POST"])
+@login_required
 def plurality_votes():
     """ Get the the vote of each voter then determine the winner(s)"""
     if request.method == "POST":
@@ -466,6 +502,7 @@ def plurality_votes():
 
 # credits to: https://roytuts.com/upload-and-display-image-using-python-flask/
 @app.route("/filter", methods=["GET", "POST"])
+@login_required
 def filter():
     """Filter a random image or an image from the user"""
     if request.method == "POST":
@@ -530,6 +567,7 @@ def display_image(filename):
 
 
 @app.route("/inheritance", methods=["GET", "POST"])
+@login_required
 def inheritance():
     """Determines a possible blood type combination of a three generation family"""
     if request.method == "POST":
@@ -701,6 +739,7 @@ def inheritance():
 
 
 @app.route("/trivia", methods=["GET", "POST"])
+@login_required
 def trivia():
     """A 5 item trivia quiz about the Philippines"""
     if request.method == "POST":
@@ -830,6 +869,7 @@ def trivia():
 
 
 @app.route("/birthday", methods=["GET", "POST"])
+@login_required
 def birthday():
     """List the birthdays inputted"""
     if request.method == "POST":
@@ -927,10 +967,9 @@ def birthday():
 
 # WORK ON LOGIN (PRIO FOR BIRTHDAY AS WELL)
 # Add underline when hovering compiled 50
-# Add sign in redirect with divider
 # Add go back button
-# Make table for users
-# work on back end
+
+# WORK ON LOGOUT (PRIO KASE D MAKALAS PAG LOG IN)
 
 # about
 
@@ -956,6 +995,6 @@ def birthday():
 # add loading imagse called spinners
 # add tooltip on hover of copy links 
 # put links in homepage
-
+# baliktarin  title and subtitle in index when logged in put username
 
 
