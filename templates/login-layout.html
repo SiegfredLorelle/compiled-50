@@ -27,17 +27,30 @@
     
         <a href="/"><p class="mt-5 text-uppercase" id="login-title">compiled 50</p></a>
 
-        <div class="m-5 p-5 text-dark rounded-pill" id="login-box">
-            {% if get_flashed_messages(category_filter="success") %}
-                <header>
-                    <div class="alert alert-success mb-0 text-center alert-dismissible fade show" role="alert">
-                        {{ get_flashed_messages() | join(" ") }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </header>
+        {% if get_flashed_messages(category_filter="success") %}
+            <header>
+                <div class="alert alert-success mb-0 mx-5 text-center alert-dismissible fade show rounded-pill" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </header>
 
-            {% endif %}
-            
+        {% elif get_flashed_messages(category_filter="error") %}
+            <header>
+                <div class="alert alert-danger mb-0 mx-5 text-center alert-dismissible fade show rounded-pill" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </header>
+
+        {% endif %}
+    
+
+
+
+
+        <div class="mx-5 mb-5 mt-3 p-0 text-dark rounded-pill" id="login-box">
+
             {% block main %}{% endblock %}
 
         </div>

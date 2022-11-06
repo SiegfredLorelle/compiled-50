@@ -69,19 +69,35 @@ def login():
         print(username, password)
         
         # Ensure username password is not empty
-
-        # Ensure username password is submitted
-
-        # Read the usernames in the database
+        if username.isspace() or password.isspace():
+            flash("Username and Password cannot be empty.", "error")
+            return render_template("login.html")
         
+        # Ensure username password is submitted (already required in html but to be sure)
+        if not username or not password:
+            flash("Username and Password cannot be empty.", "error")
+            return render_template("login.html")
 
-        # Ensure username is registered and it matches the passwrod
+        # Check if user is in the database
+        user = db.execute("SELECT * FROM users WHERE username = ?", username)
+
+        # Ensure username is found
+        if len(user) != 1:
+            flash("Username is not registered.", "error")
+            return render_template("login.html")
+
+        # Ensure username matches the password
+        if  not check_password_hash(user[0]["hashed_password"], password):
+            flash("Invalid Username and/or Password.", "error")
+            return render_template("login.html")
+
 
         # Remember which user has logged in (create users table with id, username, hashed_password)
-        # session["user_id"] = rows[0]["id"]
+        session["user_id"] = user[0]["id"]
 
-        # Log the user in
-        return render_template("login.html")
+        # Log the user in (SHOULD IT SHOW OR NAH ?)
+        flash("logged in as {username}.", "success")
+        return redirect("/")
 
 
 
@@ -103,7 +119,7 @@ def signup():
 
         # Ensure passwords is matching 
 
-        # Ensure password has a uppercase, lowercase letter, a number, and at least 6 characters long
+        # Ensure password has no whitespace, has uppercase, lowercase letter, a number, and at least 6 characters long
 
         # Add the new user to the database
 
@@ -927,10 +943,9 @@ def birthday():
 
 # WORK ON LOGIN (PRIO FOR BIRTHDAY AS WELL)
 # Add underline when hovering compiled 50
-# Add sign in redirect with divider
 # Add go back button
-# Make table for users
-# work on back end
+
+# WORK ON LOGOUT (PRIO KASE D MAKALAS PAG LOG IN)
 
 # about
 
