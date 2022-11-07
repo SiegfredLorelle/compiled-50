@@ -1005,35 +1005,29 @@ def birthday():
 
 # WORK ON LOGIN, SIGN UP ETC
 # Add underline when hovering compiled 50 to indicate more that it goes back and tooltip saying Compiled 50 Home
-# add question mark button that on hover says to log in as guest or button to auto log in as guest
-# similar button in sign up
+# change of highlight color in projects dropdown when clicking, and focus on sign up and login button on index
+# put copy buttons in a pill or round button (add tooltip on hover and click and change shade)
+# add divider in project dropdown (divide by weeks in cs50)
+# make all google fonts oneline by adding in the family in google fonts.com
 
 # WORK ON BIRTHDAY
 
 # about
 
 # lagay logo sa navbar
-# put color in title of every page (maybe gray or gradient or different color for every page)
+# add space below title of project 
 # make buttons to pills
 # put copy buttons in a pill or round button (add tooltip on hover and click and change shade)
-# add divider in project dropdown (divide by weeks in cs50)
-
 # upload to heroku
-# change to only login button but with redirect to signin within login page
-# change title to compiled or compiled50
+# fix mobile in index
 # add white bg to icon
 # login required, restrict opening projects in index if not logged in, redirect maybe to carousel below
-# add search and history that shows everything the user does by looking at db
 # add focus on textbox for copy clipboards in js
-# add divider per week in dropdown projects 
 # maybe add a way to keep entered value in form text box
-# make all google fonts oneline by adding in the family in google fonts.com
 # Try floating labels on some textbox
 # Toggle dropdown similar to bootstrap website
-# popovers in copy links
 # add loading imagse called spinners
 # add tooltip on hover of copy links 
 # put links in homepage
-# baliktarin  title and subtitle in index when logged in put username
 
 
