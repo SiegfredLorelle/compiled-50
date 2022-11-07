@@ -1,3 +1,13 @@
+/* all pages */
+.form-control:focus, .form-select:focus {
+    color: #212529;
+    background-color: #ffffff;
+    border-color: #565e64;
+    box-shadow: 0 0 0 0.25rem rgb(130 138 145 / 50%);
+}
+
+
+
 /* Homepage */
 
 .nav-header {
@@ -198,19 +208,8 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 }
 
 #info-button:hover {
-    background-color: #adb5bd;
+    background-color: rgb(200, 200, 200);
 }
-
-/* .tooltip-arrow, .red-tooltip + .tooltip > .tooltip-inner {
-    background-color: #f00;
-} */
-
-
-
-
-
-
-
 
 
 /* Mario page */
