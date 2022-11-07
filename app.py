@@ -1005,7 +1005,6 @@ def birthday():
 
 # WORK ON LOGIN, SIGN UP ETC
 # Add underline when hovering compiled 50 to indicate more that it goes back and tooltip saying Compiled 50 Home
-# change of highlight color in projects dropdown when clicking, and focus on sign up and login button on index
 # put copy buttons in a pill or round button (add tooltip on hover and click and change shade)
 # add divider in project dropdown (divide by weeks in cs50)
 # make all google fonts oneline by adding in the family in google fonts.com
@@ -1029,5 +1028,5 @@ def birthday():
 # add loading imagse called spinners
 # add tooltip on hover of copy links 
 # put links in homepage
-
+# add git ignore if need
 

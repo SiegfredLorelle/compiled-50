@@ -41,26 +41,26 @@
                         Projects
                       </a>
                       <ul class="dropdown-menu rounded-3" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item rounded-pill" href="/mario">Mario</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/credit">Credit</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/scrabble">Scrabble</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/readability">Readability</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/substitution">Substitution</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/plurality">Plurality</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/filter">Filter</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/inheritance">Inheritance</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/trivia">Trivia</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/birthday">Birthday</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/mario">Mario</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/credit">Credit</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/scrabble">Scrabble</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/readability">Readability</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/substitution">Substitution</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/plurality">Plurality</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/filter">Filter</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/inheritance">Inheritance</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/trivia">Trivia</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/birthday">Birthday</a></li>
 
                       </ul>
                     </li>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       {% if session["user_id"] %}
-                        <a class="btn btn rounded-pill px-3" href="#" id="nav-button-left" role="button">Account</a>
-                        <a class="btn btn rounded-pill px-3" href="/logout" id="nav-button-left" role="button">Log Out</a>
+                        <a class="btn btn rounded-pill shadow-none px-3" href="#" id="nav-button-left" role="button">Account</a>
+                        <a class="btn btn rounded-pill shadow-none px-3" href="/logout" id="nav-button-left" role="button">Log Out</a>
                       {% else %}
-                        <a class="btn btn rounded-pill px-3" href="/signup" id="nav-button-left" role="button">Sign Up</a>
-                        <a class="btn btn rounded-pill px-3" href="/login" id="nav-button-left" role="button">Log in</a>
+                        <a class="btn btn rounded-pill shadow-none px-3" href="/signup" id="nav-button-left" role="button">Sign Up</a>
+                        <a class="btn btn rounded-pill shadow-none px-3" href="/login" id="nav-button-left" role="button">Log in</a>
                       {% endif %}
                     </div>
                   </div>
@@ -87,25 +87,25 @@
                         Projects
                       </a>
                       <ul class="dropdown-menu rounded-3" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item rounded-pill" href="/mario">Mario</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/credit">Credit</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/scrabble">Scrabble</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/readability">Readability</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/substitution">Substitution</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/plurality">Plurality</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/filter">Filter</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/inheritance">Inheritance</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/trivia">Trivia</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="/birthday">Birthday</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/mario">Mario</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/credit">Credit</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/scrabble">Scrabble</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/readability">Readability</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/substitution">Substitution</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/plurality">Plurality</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/filter">Filter</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/inheritance">Inheritance</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/trivia">Trivia</a></li>
+                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/birthday">Birthday</a></li>
                       </ul>
                     </li>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       {% if session["user_id"] %}
-                        <a class="btn btn rounded-pill px-3" href="#" id="nav-button-right" role="button">Account</a>
-                        <a class="btn btn rounded-pill px-3" href="/logout" id="nav-button-right" role="button">Log Out</a>
+                        <a class="btn btn rounded-pill shadow-none px-3" href="#" id="nav-button-right" role="button">Account</a>
+                        <a class="btn btn rounded-pill shadow-none px-3" href="/logout" id="nav-button-right" role="button">Log Out</a>
                       {% else %}
-                        <a class="btn btn rounded-pill px-3" href="/signup" id="nav-button-right" role="button">Sign Up</a>
-                        <a class="btn btn rounded-pill px-3" href="/login" id="nav-button-right" role="button">Log in</a>
+                        <a class="btn btn rounded-pill shadow-none px-3" href="/signup" id="nav-button-right" role="button">Sign Up</a>
+                        <a class="btn btn rounded-pill shadow-none px-3" href="/login" id="nav-button-right" role="button">Log in</a>
                       {% endif %}
                       </div>
                   </div>
