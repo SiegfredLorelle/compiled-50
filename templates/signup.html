@@ -6,14 +6,15 @@
 
 
 {% block main %}
-    <h3 class="py-3">Sign Up</h3>
+    <h3 class="py-3 text-secondary">Sign Up</h3>
 
-    <div class="pb-5">
+    <div class="pb-3">
         <form action="/signup" method="post">
         <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="username" name="username" placeholder="Username" required type="text">
         <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="password" name="password" placeholder="Password" required type="password">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="password-verification" name="password-verification" placeholder="Password (verification)" required type="password">
-
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-1" id="password-verification" name="password-verification" placeholder="Password (verification)" required type="password">
+        <div id="emailHelp" class="form-text mb-3">Never use password that you use in other accounts.</div>
+            <!-- BUTTON HINTING TO USE GUEST GUEST AS USERNAME PASSWORD OR BUTTON TO LOGIN AS GUEST -->
         <button class="btn btn-secondary m-3" type="submit">Create Account</button>
         </form>
     </div>
