@@ -1,4 +1,4 @@
-# CS50 Compiled
+# Compiled 50
 
 
 from cs50 import SQL
@@ -7,7 +7,7 @@ from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 
-from string import ascii_letters, ascii_uppercase, digits
+from string import ascii_letters, ascii_uppercase, ascii_lowercase ,digits
 from random import randint
 from re import sub
 import os
@@ -69,8 +69,6 @@ def login():
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
-
-        print(username, password)
         
         # Ensure username password is not empty
         if username.isspace() or password.isspace():
@@ -95,18 +93,14 @@ def login():
             flash("Invalid Username and/or Password.", "error")
             return render_template("login.html")
 
-
-        # Remember which user has logged in (create users table with id, username, hashed_password)
+        # Remember which user logged in
         session["user_id"] = user[0]["id"]
 
         # Log the user in
         return redirect("/")
 
-
-
     # GET via redirect and clicking links    
     else:
-        # username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
         return render_template("login.html")
 
 
@@ -114,26 +108,66 @@ def login():
 def signup():
     """Create a new account"""
     if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        password_verification = request.form.get("password-verification")
 
         # Ensure username, password, and password(verification) is not empty
+        if username.isspace() or password.isspace() or password_verification.isspace():
+            flash("Username and Password cannot be empty.", "error")
+            return render_template("signup.html")
 
-        # Ensure username, password, and password(verification) is submitted
+        # Ensure username, password, and password(verification) is submitted (required in html but just ot be sure)
+        if not username or not password or not password_verification:
+            flash("Username and Password cannot be empty.", "error")
+            return render_template("signup.html")
+
+        # Check if username is already registered
+        user = db.execute("SELECT username FROM users WHERE username = ?", username)
 
         # Ensure username is not already registered
+        if len(user) != 0:
+            flash("Username is already used.", "error")
+            return render_template("signup.html")
 
-        # Ensure passwords is matching 
+        # Ensure passwords is matching
+        if password != password_verification:
+            flash("Passwords do not match.", "error")
+            return render_template("signup.html")
 
-        # Ensure password has no whitespace, has uppercase, lowercase letter, a number, and at least 6 characters long
+        # Ensure password is atleast 6 characters long
+        if len(password) < 6:
+            flash("Password must be at least 6 characters long.", "error")
+            return render_template("signup.html")
+
+
+        # Determine if password has whitespace, uppercase letter, lowercase letter, and number
+        has_uppercase = has_lowercase = has_number = has_space = False
+        for character in password:
+            if character in list(ascii_lowercase):
+                has_lowercase = True
+            elif character in list(ascii_uppercase):
+                has_uppercase = True
+            elif character in list(digits):
+                has_number = True
+            elif character.isspace():
+                has_space = True
+
+        # Ensure password has no whitespace, has uppercase, lowercase letter, a number
+        if not has_uppercase or not has_lowercase or not has_number or has_space:
+            flash("Password must have no whitespaces, and at least have 1 lowercase letter, uppercase letter, and digit.", "error")
+            return render_template("signup.html")
 
         # Add the new user to the database
+        db.execute("INSERT INTO users (username, hashed_password) VALUES (?, ?)", username, generate_password_hash(password))
 
-        # Log the user in (create users table with id, username, hashed_password))
-        # session["user_id"] = row[0]["id"]
+        # Remember which user logged in
+        user_id = db.execute("SELECT id FROM users WHERE username = ?", username)[0].get("id")
+        session["user_id"] = user_id
 
+        # Log the user in
+        return redirect("/")
 
-        return render_template("signup.html")
-
-    
     # GET via redirect and clicking links    
     else:
         return render_template("signup.html")
@@ -893,6 +927,10 @@ def birthday():
                 flash("Name cannot have numbers.", "error")
                 return render_template("birthday.html")
 
+        # Ensure name do not have whitespace in front, back and trailing
+
+
+
         # Ensure month-day is valid
         # Month has 30 maximum days
         if month in [ "4", "6", "9", "11"]:
@@ -907,12 +945,12 @@ def birthday():
                 return render_template("birthday.html")
 
 
+
         # Add the birthday to db
 
         # Read table with birthday then load the new table
 
 
-        # Ensure name do not have whitespace in front, back and trailing
 
 
         
@@ -963,13 +1001,14 @@ def birthday():
 # show table
 # try disabled in select
 
-# login, sign in, log out, change pass in accounts
+# change pass username and password in accounts
 
-# WORK ON LOGIN (PRIO FOR BIRTHDAY AS WELL)
-# Add underline when hovering compiled 50
-# Add go back button
+# WORK ON LOGIN, SIGN UP ETC
+# Add underline when hovering compiled 50 to indicate more that it goes back and tooltip saying Compiled 50 Home
+# add question mark button that on hover says to log in as guest or button to auto log in as guest
+# similar button in sign up
 
-# WORK ON LOGOUT (PRIO KASE D MAKALAS PAG LOG IN)
+# WORK ON BIRTHDAY
 
 # about
 
