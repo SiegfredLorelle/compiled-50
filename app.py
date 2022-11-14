@@ -1004,7 +1004,6 @@ def birthday():
 # change pass username and password in accounts
 
 # WORK ON LOGIN, SIGN UP ETC
-# Add underline when hovering compiled 50 to indicate more that it goes back and tooltip saying Compiled 50 Home
 # put copy buttons in a pill or round button (add tooltip on hover and click and change shade)
 # add divider in project dropdown (divide by weeks in cs50)
 # make all google fonts oneline by adding in the family in google fonts.com
