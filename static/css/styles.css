@@ -197,10 +197,33 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
     text-decoration: none;
 }
 
-#login-background > a > #login-title {
+#login-background > p > a {
+    position: relative;
     color:white;
     font-family: 'Bebas Neue', cursive;
     font-size: 400%;
+    text-decoration: none;
+}
+
+#login-background > p > a:hover {
+    color:white;
+}
+
+#login-background > p > a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+#login-background > p > a:hover::before {
+    transform: scaleX(1);
 }
 
 #login-box {
@@ -218,7 +241,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 }
 
 #info-button:hover {
-    background-color: rgb(200, 200, 200);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 
@@ -243,7 +266,17 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 #credit-title {
     font-family: 'Kanit', sans-serif;
 }
+#copy-btn-bg {
+    background-color: white;
+    padding-left: 8px;
+    padding-right: 7px;
+    padding-bottom: 0px;
+    padding-top: 5px;
+}
 
+#copy-btn-bg:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 .credit-bullet li:before { 
     content: '💳'; 
     margin-left: -20px; 
@@ -252,7 +285,6 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 
 #copy-button {
     font-size: 17px;
-    padding-left: 10px;
 }
 
 /* Scrabble page */

@@ -1,7 +1,12 @@
 // Make all copy buttons to listen to clicks which copies its sibling as clipboard then alert user 
 
+
+// Input for credit card number
+let input = document.querySelector("#cc_number")
+
 // Select all copy button and loop through each button 
-document.querySelectorAll("#copy-button").forEach(button => {
+
+document.querySelectorAll("#copy-btn-bg").forEach(button => {
     
     // Add Event Listener on click 
     button.addEventListener('click', () => {
@@ -10,8 +15,13 @@ document.querySelectorAll("#copy-button").forEach(button => {
         const copyText = button.previousElementSibling.innerHTML;
         navigator.clipboard.writeText(copyText).then(() => {
 
-            // Warn users that the text is copied
-            alert(`${copyText} is copied to clipboard!` );
+            // Put the copied credit card numbers in input then focus on it
+            input.value = copyText;
+            input.focus()
+
+
+            // Inform users that the text is copied and pasted on the input
+            alert(`${copyText} is copied and will be pasted to credit card number box!`);
         });
     })
 })
