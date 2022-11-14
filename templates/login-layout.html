@@ -28,7 +28,7 @@
 
     <body class="text-center" id="login-background">
     
-        <p class="mt-5 text-uppercase"><a href="/" id="login-title">compiled 50</a></p>
+        <p class="mt-5 text-uppercase"><a href="/" id="login-title" data-bs-toggle="tooltip" data-bs-placement="right" title="Home">compiled 50</a></p>
 
         {% if get_flashed_messages(category_filter="success") %}
             <header>
@@ -58,6 +58,12 @@
 
         </div>
     
-    
+        <script>
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+        </script>
+
     
     </body>
