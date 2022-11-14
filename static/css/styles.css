@@ -679,11 +679,11 @@ label .flag {
  }
 
  #legend-green:hover {
-    background-color: rgb(118, 206, 100)!important;
+    background-color: rgba(25,135,84, 0.6)!important;
  }
 
  #legend-red:hover {
-    background-color: rgb(255, 98, 98)!important;
+    background-color: rgba(220,53,69, 0.6)!important;
  }
 
 
