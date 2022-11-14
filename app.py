@@ -1004,7 +1004,7 @@ def birthday():
 # change pass username and password in accounts
 
 # WORK ON LOGIN, SIGN UP ETC
-# put copy buttons in a pill or round button (add tooltip on hover and click and change shade)
+# put copy buttons in a round button (add tooltip on hover and automatically paste the text in input)
 # add divider in project dropdown (divide by weeks in cs50)
 # make all google fonts oneline by adding in the family in google fonts.com
 
