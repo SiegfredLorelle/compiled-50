@@ -41,8 +41,8 @@
             <div class="card card-body">
                 <p class="fw-bold">Legends:</p>
                 <div class="circle-container mb-4">
-                    <div class="circle bg-success me-1" id="legend-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Correct Answer"></div>
-                    <div class="circle bg-danger ms-1" id ="legend-red" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your Answer"></div>
+                    <div class="circle bg-success me-1" id="legend-green" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="bottom" title="<b>Correct</b> Answer"></div>
+                    <div class="circle bg-danger ms-1" id ="legend-red" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="bottom" title="<b>Your</b> Answer"></div>
 
                 </div>
                 {% for mistake in mistakes %}
@@ -255,11 +255,7 @@
         <button class="btn btn-dark m-4" type="button">Retake</button>
     </a>
 
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-    </script>
+    <script src="/static/js/activate-tooltips.js"></script>
+
 
 {% endblock %}

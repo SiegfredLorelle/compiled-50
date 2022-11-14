@@ -51,13 +51,13 @@
             {% if process == "Encrypt" %}
                 <p class="fs-4 fw-normal">Plaintext: 
                     <span class="fw-bold">{{ text }}</span>
-                    <button class="btn rounded-circle m-1 shadow-none" id="copy-btn-bg" data-bs-toggle="tooltip" data-bs-placement="right" title="Copy">
+                    <button class="btn rounded-circle m-1 shadow-none" id="copy-btn-text" data-bs-toggle="tooltip" data-bs-placement="right" title="Copy">
                         <span class="material-symbols-rounded" id="copy-button">content_copy</span>
                     </button>
                 </p>
                 <p class="fs-4 fw-normal">Ciphertext: 
                     <span class="fw-bold text-primary">{{ result_text }}</span>
-                    <button class="btn rounded-circle m-1 shadow-none" id="copy-btn-bg" data-bs-toggle="tooltip" data-bs-placement="right" title="Copy">
+                    <button class="btn rounded-circle m-1 shadow-none" id="copy-btn-text" data-bs-toggle="tooltip" data-bs-placement="right" title="Copy">
                         <span class="material-symbols-rounded" id="copy-button">content_copy</span>
                     </button>
                 </p>
@@ -65,13 +65,13 @@
             {% elif process == "Decrypt" %}
                 <p class="fs-4 fw-normal">Ciphertext: 
                     <span class="fw-bold">{{ text }}</span>
-                    <button class="btn rounded-circle m-1 shadow-none" id="copy-btn-bg" data-bs-toggle="tooltip" data-bs-placement="right" title="Copy">
+                    <button class="btn rounded-circle m-1 shadow-none" id="copy-btn-text" data-bs-toggle="tooltip" data-bs-placement="right" title="Copy">
                         <span class="material-symbols-rounded" id="copy-button">content_copy</span>
                     </button>
                 </p>
                 <p class="fs-4 fw-normal">Plaintext: 
                     <span class="fw-bold text-primary">{{ result_text }}</span>
-                    <button class="btn rounded-circle m-1 shadow-none" id="copy-btn-bg" data-bs-toggle="tooltip" data-bs-placement="right" title="Copy">
+                    <button class="btn rounded-circle m-1 shadow-none" id="copy-btn-text" data-bs-toggle="tooltip" data-bs-placement="right" title="Copy">
                         <span class="material-symbols-rounded" id="copy-button">content_copy</span>
                     </button>
                 </p>
@@ -115,34 +115,10 @@
             </ul>
         </details>
     </div>
-    
-    <script>
-        // Make all copy buttons to listen to clicks which copies its sibling as clipboard then alert user 
-        // Input for key
-        const input = document.querySelector("#key")
 
-        // Select all copy button and loop through each button 
-        document.querySelectorAll("#copy-btn-bg").forEach(button => {
-            
-            // Add Event Listener on click 
-            button.addEventListener('click', () => {
+    <script src="/static/js/copy-paste-text.js"></script>
+    <script src="/static/js/copy-paste-key.js"></script>
+    <script src="/static/js/activate-tooltips.js"></script>
 
-                // Copy the card number beside it and copy it to clipboard 
-                const copyText = button.previousElementSibling.innerHTML;
-                navigator.clipboard.writeText(copyText).then(() => {
-
-                    // Inform users that the text is copied and pasted on the input
-                    alert(`${copyText} is copied to clipboard!`);
-                });
-            })
-        })
-
-    </script>
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-    </script>
 
 {% endblock %}
