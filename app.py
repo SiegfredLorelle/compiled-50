@@ -1004,9 +1004,10 @@ def birthday():
 # change pass username and password in accounts
 
 # WORK ON LOGIN, SIGN UP ETC
-# create a different script for ciphertxt and plaintxt to copy and paste on text input, automate copy and paste on key also
 # add divider in project dropdown (divide by weeks in cs50)
 # make all google fonts oneline by adding in the family in google fonts.com
+# create a different favicon for dark mode
+# fix hover on info btn in login page to show tooltip even if info pic is not hovered
 
 # WORK ON BIRTHDAY
 
