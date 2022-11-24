@@ -944,26 +944,25 @@ def birthday():
                 return render_template("birthday.html")
 
 
+        # ENSURE PERSON IS NOT ALREADY IN DB BY CHECKING IF SAME NAME AND BDAY
+
+
         # Add the birthday to db
         db.execute("INSERT INTO birthday VALUES (?, ?, ?)",  session["user_id"], name, f"{month}/{day}")
 
-
-        # Read table with birthday then load the new table
-        
-
-
-
-
-        
-        
-        return render_template("birthday.html")
+        # Reload the page 
+        return redirect("/birthday")
 
     # GET by clicking links or redirects
     else:
         # Read table with birthday
+        people = db.execute("SELECT name, birthday FROM birthday WHERE id = ?", session["user_id"])
+        
+        # Add a counter for people if not empty
+        if len(people) != 0:
+            people = enumerate(people, start=1)
 
-
-        return render_template("birthday.html")
+        return render_template("birthday.html", people=people)
 # TODOs
 
 # homepage page
@@ -1007,6 +1006,11 @@ def birthday():
 
 
 # WORK ON BIRTHDAY
+# check if person is already in db by checking name and birthate
+# add a sort button in table head
+# clear birthday db when logging out as guest
+
+
 
 # about
 

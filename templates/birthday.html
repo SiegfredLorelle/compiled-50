@@ -45,6 +45,27 @@
     </form>
 
 
+    {% if people %}
+        <div class="my-5">
+            <table class="table table-hover">
+                <thead>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Birthdate</th>
+                </thead>
+                <tbody>
+                    {% for count, person in people %}
+                        <tr>
+                            <th>{{ count }}</th>
+                            <td>{{ person["name"] }}</td>
+                            <td>{{ person["birthday"] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+
 
     <script>
 
