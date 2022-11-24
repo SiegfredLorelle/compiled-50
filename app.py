@@ -928,10 +928,9 @@ def birthday():
                 return render_template("birthday.html")
 
         # Ensure name do not have whitespace in front, back and trailing
+        name = sub(' +', ' ', name.strip())
 
-
-
-        # Ensure month-day is valid
+        # Ensure month and day is valid
         # Month has 30 maximum days
         if month in [ "4", "6", "9", "11"]:
             if day == "31":
@@ -945,10 +944,12 @@ def birthday():
                 return render_template("birthday.html")
 
 
-
         # Add the birthday to db
+        db.execute("INSERT INTO birthday VALUES (?, ?, ?)",  session["user_id"], name, f"{month}/{day}")
+
 
         # Read table with birthday then load the new table
+        
 
 
 
@@ -1003,15 +1004,14 @@ def birthday():
 
 # change pass username and password in accounts
 
-# WORK ON LOGIN, SIGN UP ETC
-# add divider in project dropdown (divide by weeks in cs50) maybe not
-# make all google fonts oneline by adding in the family in google fonts.com
+
 
 # WORK ON BIRTHDAY
 
 # about
 
 # lagay logo sa navbar
+# add divider in project dropdown (divide by weeks in cs50) maybe not
 # add space below title of project 
 # make buttons to pills
 # put copy buttons in a pill or round button (add tooltip on hover and click and change shade)
@@ -1026,5 +1026,4 @@ def birthday():
 # add loading imagse called spinners
 # add tooltip on hover of copy links 
 # put links in homepage
-# add git ignore if need
 
