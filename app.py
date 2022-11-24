@@ -1004,10 +1004,8 @@ def birthday():
 # change pass username and password in accounts
 
 # WORK ON LOGIN, SIGN UP ETC
-# add divider in project dropdown (divide by weeks in cs50)
+# add divider in project dropdown (divide by weeks in cs50) maybe not
 # make all google fonts oneline by adding in the family in google fonts.com
-# create a different favicon for dark mode
-# fix hover on info btn in login page to show tooltip even if info pic is not hovered
 
 # WORK ON BIRTHDAY
 
