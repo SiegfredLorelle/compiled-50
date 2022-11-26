@@ -914,18 +914,18 @@ def birthday():
         # Ensure month and day is selected
         if month == "Month" or day == "Day":
             flash("Must select 'month' and 'day'.", "error")
-            return render_template("birthday.html")
+            return redirect("/birthday")
 
         # Ensure name is not empty
         if name.isspace():
             flash("Name cannot be empty.", "error")
-            return render_template("birthday.html")
+            return redirect("/birthday")
 
         # Ensure name do not have numbers
         for character in name:
             if character in digits:
                 flash("Name cannot have numbers.", "error")
-                return render_template("birthday.html")
+                return redirect("/birthday")
 
         # Ensure name do not have whitespace in front, back and trailing
         name = sub(' +', ' ', name.strip())
@@ -935,22 +935,29 @@ def birthday():
         if month in [ "4", "6", "9", "11"]:
             if day == "31":
                 flash("Invalid date.", "error")
-                return render_template("birthday.html")
+                return redirect("/birthday")
 
         # Month is February (29 maximum days)
         elif month == "2":
             if day in ["30", "31"]:
                 flash("Invalid date.", "error")
-                return render_template("birthday.html")
+                return redirect("/birthday")
 
 
-        # ENSURE PERSON IS NOT ALREADY IN DB BY CHECKING IF SAME NAME AND BDAY
+        # Ensure person is not already in db
+        people = db.execute("SELECT name FROM birthday WHERE id = ?", session["user_id"])
+        print(people)
+        for person in people:
+            if person["name"] == name:
+                flash("That person is already in the lists.", "error")
+                return redirect("/birthday")
 
 
         # Add the birthday to db
         db.execute("INSERT INTO birthday VALUES (?, ?, ?)",  session["user_id"], name, f"{month}/{day}")
 
         # Reload the page 
+        flash(f"Added '{name}' to birthday list.", "success")
         return redirect("/birthday")
 
     # GET by clicking links or redirects
@@ -999,14 +1006,12 @@ def birthday():
 # name month and day then show below all the data based on what day it is today
 # make table for brithdays with user_id
 # show table
-# try disabled in select
 
 # change pass username and password in accounts
 
 
 
 # WORK ON BIRTHDAY
-# check if person is already in db by checking name and birthate
 # add a sort button in table head
 # clear birthday db when logging out as guest
 
