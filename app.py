@@ -178,6 +178,10 @@ def signup():
 @app.route("/logout")
 def logout():
     """Log the user out"""
+    # Clear data if the user is a guest
+    if session["user_id"] == 1:
+        db.execute("DELETE FROM birthday WHERE id = 1")
+
     # Forget any user_id
     session.clear()
 
@@ -1004,16 +1008,11 @@ def birthday():
 
 # birthday
 # name month and day then show below all the data based on what day it is today
-# make table for brithdays with user_id
-# show table
+# add a sort button in table head
+
+
 
 # change pass username and password in accounts
-
-
-
-# WORK ON BIRTHDAY
-# add a sort button in table head
-# clear birthday db when logging out as guest
 
 
 
