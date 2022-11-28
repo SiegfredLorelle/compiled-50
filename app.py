@@ -10,6 +10,7 @@ from werkzeug.utils import secure_filename
 from string import ascii_letters, ascii_uppercase, ascii_lowercase ,digits
 from random import randint
 from re import sub
+from datetime import date
 import os
 
 from helpers import login_required, check_card, get_grade_lvl, allowed_file, get_random_allele, get_blood_type, get_allele_to_inherit
@@ -947,7 +948,6 @@ def birthday():
                 flash("Invalid date.", "error")
                 return redirect("/birthday")
 
-
         # Ensure person is not already in db
         people = db.execute("SELECT name FROM birthday WHERE id = ?", session["user_id"])
         print(people)
@@ -955,7 +955,6 @@ def birthday():
             if person["name"] == name:
                 flash("That person is already in the lists.", "error")
                 return redirect("/birthday")
-
 
         # Add the birthday to db
         db.execute("INSERT INTO birthday VALUES (?, ?, ?)",  session["user_id"], name, f"{month}/{day}")
@@ -968,12 +967,34 @@ def birthday():
     else:
         # Read table with birthday
         people = db.execute("SELECT name, birthday FROM birthday WHERE id = ?", session["user_id"])
+
+        # Get the current month and day and split it into a list
+        today = date.today().strftime("%m %d").split()
+        month, day = today[0], today[1]
+
+        # Sort birthday list by closest to current date
+        print(people)
+        people.sort(key=lambda x: (int(x["birthday"].split("/")[0])))
+        print(people)
+
+        while int(people[0]["birthday"].split("/")[0]) - int(month) < 0:
+            tmp = people[0]
+            people.pop(0)
+            people.append(tmp)
         
+        print(people)
+
+        # TODO ALSO SORT BY DAY
+
         # Add a counter for people if not empty
         if len(people) != 0:
             people = enumerate(people, start=1)
 
+
+
         return render_template("birthday.html", people=people)
+
+
 # TODOs
 
 # homepage page
@@ -1007,8 +1028,7 @@ def birthday():
 
 
 # birthday
-# name month and day then show below all the data based on what day it is today
-# add a sort button in table head
+# TODO sort based on current date
 
 
 
