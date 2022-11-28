@@ -322,8 +322,8 @@ def substitution():
         text = request.form.get("text")
 
         # Ensures user selected encrypt or decrypt
-        if process == "Choose...":
-            flash("Please choose whether 'encrypt' to 'decrypt'.", "error")
+        if not process:
+            flash("Select whether to 'encrypt' or 'decrypt'.", "error")
             return render_template("substitution.html")
 
         # HTML already ensures the key is 26 characters in length but included another check here
@@ -501,7 +501,7 @@ def plurality_votes():
         no_voters = int(db.execute("SELECT no_voters FROM pluralityNumbers")[0]["no_voters"])
 
         # Ensure user voted
-        if vote == "Candidate":
+        if not vote:
             flash("Please select a candidate to vote.", "error")
             return render_template("plurality-3.html", candidates=candidates, candidates_sorted=candidates_sorted, total_votes=total_votes, no_voters=no_voters)
 
@@ -549,8 +549,8 @@ def filter():
         random_image = request.form.get("random-image-button") 
 
         # Ensure a filter is chosen 
-        if type_of_filter == "Choose filter to use ...":
-            flash("Please select a filter to use.","error")
+        if not type_of_filter:
+            flash("Select a filter to use.","error")
             return render_template("filter.html")
 
         # Check if random image is chosen
@@ -670,11 +670,12 @@ def inheritance():
             allele_2 = request.form.get("allele-2")
 
             # Check if inputs are compelete
-            if generation == "Choose a generation ...":
+            print(generation)
+            if not generation:
                 flash("No generation selected.", "error")
                 return render_template("inheritance.html")
             
-            if allele_1 == "Choose an allele ..." or allele_2 == "Choose an allele ...":
+            if not allele_1 or not allele_2:
                 flash("Incomplete alleles.", "error")
                 return render_template("inheritance.html")
 
@@ -917,7 +918,7 @@ def birthday():
         day = request.form.get("day")
 
         # Ensure month and day is selected
-        if month == "Month" or day == "Day":
+        if not month or not day:
             flash("Must select 'month' and 'day'.", "error")
             return redirect("/birthday")
 
@@ -1031,7 +1032,6 @@ def birthday():
 # TODO 
 # screenshot every project, add picture of project in sample project in index
 # redirect to sample project when clicking projects if not logged in
-# change color of selects hover? 
 
 
 
