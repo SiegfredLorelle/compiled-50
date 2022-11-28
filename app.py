@@ -13,7 +13,7 @@ from re import sub
 from datetime import date
 import os
 
-from helpers import login_required, check_card, get_grade_lvl, allowed_file, get_random_allele, get_blood_type, get_allele_to_inherit
+from helpers import login_required, check_card, get_grade_lvl, allowed_file, get_random_allele, get_blood_type, get_allele_to_inherit, sort_dates
 
 
 
@@ -968,30 +968,37 @@ def birthday():
         # Read table with birthday
         people = db.execute("SELECT name, birthday FROM birthday WHERE id = ?", session["user_id"])
 
-        # Get the current month and day and split it into a list
-        today = date.today().strftime("%m %d").split()
-        month, day = today[0], today[1]
+        # Sort the birthday list if 2 or more people in the list
+        if len(people) > 1:
+            # Get the current month and day and split it into a list
+            today = date.today().strftime("%m %d").split()
+            month, day = int(today[0]), int(today[1])
 
-        # Sort birthday list by closest to current date
-        print(people)
-        people.sort(key=lambda x: (int(x["birthday"].split("/")[0])))
-        print(people)
+            # Sort birthday list by date
+            people.sort(key=sort_dates)
+            
+            # Sort the birthday list based on who has an upcoming birthday relative to current date
+            for person in people:
 
-        while int(people[0]["birthday"].split("/")[0]) - int(month) < 0:
-            tmp = people[0]
-            people.pop(0)
-            people.append(tmp)
-        
-        print(people)
+                # Place at the end if the person's birthday already passed
+                if int(person["birthday"].split("/")[0]) >= month:
 
-        # TODO ALSO SORT BY DAY
+                    # Continue putting person in the end until the persons birthday that haven't passe is in the front
+                    while True:
+                        birthday_month, birthday_day = int(people[0]["birthday"].split("/")[0]), int(people[0]["birthday"].split("/")[1])
+
+                        if birthday_month - month < 0 or (birthday_month == month and birthday_day - day < 0):
+                            tmp = people[0]
+                            people.pop(0)
+                            people.append(tmp)
+                        else:
+                            break
 
         # Add a counter for people if not empty
         if len(people) != 0:
             people = enumerate(people, start=1)
 
-
-
+        # Load the page
         return render_template("birthday.html", people=people)
 
 
