@@ -1031,6 +1031,7 @@ def birthday():
 # TODO 
 # screenshot every project, add picture of project in sample project in index
 # redirect to sample project when clicking projects if not logged in
+# change color of selects hover? 
 
 
 

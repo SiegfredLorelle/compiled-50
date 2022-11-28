@@ -1,6 +1,8 @@
-// Make all copy buttons to listen to clicks which copies its sibling as clipboard then alert user 
+/* Make all copy buttons to listen to clicks then
+copy key beside the btn then paste to key input box */
+
 // Input for key
-const keyInput = document.querySelector("#key")
+const keyInput = document.querySelector("#key");
 
 // Select all copy button and loop through each button 
 document.querySelectorAll("#copy-btn-bg").forEach(button => {
@@ -14,10 +16,10 @@ document.querySelectorAll("#copy-btn-bg").forEach(button => {
 
             // Put the copied key in input then focus on it
             keyInput.value = copyKey;
-            keyInput.focus()
+            keyInput.focus();
 
             // Inform users that the text is copied and pasted on the input
             alert(`${copyKey} is copied and pasted to key input.`);
         });
-    })
-})
+    });
+});

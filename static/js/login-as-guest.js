@@ -14,15 +14,11 @@ loginAsGuestBtn.addEventListener("click", function() {
     // Reprompt if sure to log in as guest 
     if (confirm("Are you sure to log in as guest?")) {
 
-
         // Type the login details of guest
-        username.value = guest
-        password.value = guest
+        username.value = guest;
+        password.value = guest;
 
         // Click the login btn
-        loginBtn.click()
-    }
+        loginBtn.click();
+    };
 });
-
-
-// Select all copy button and loop through each button 

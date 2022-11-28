@@ -1,6 +1,8 @@
-// Make all copy buttons to listen to clicks which copies its sibling as clipboard then alert user 
+/* Make all copy buttons to listen to clicks then
+copy credit card number beside the btn then paste to credit card number input box */
+
 // Input for credit card number
-const input = document.querySelector("#cc_number")
+const input = document.querySelector("#cc_number");
 
 // Select all copy button and loop through each button 
 document.querySelectorAll("#copy-btn-bg").forEach(button => {
@@ -14,10 +16,10 @@ document.querySelectorAll("#copy-btn-bg").forEach(button => {
 
             // Put the copied credit card numbers in input then focus on it
             input.value = copyText;
-            input.focus()
+            input.focus();
 
             // Inform users that the text is copied and pasted on the input
             alert(`${copyText} is copied and will be pasted to credit card number box!`);
         });
-    })
-})
+    });
+});
