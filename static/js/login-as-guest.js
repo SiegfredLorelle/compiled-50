@@ -1,27 +1,24 @@
 // Log the user as guest automatically
 
-// Input for credit card number
+// Get the btns and inputs
 const loginAsGuestBtn = document.querySelector("#login-as-guest-btn");
 const loginBtn = document.querySelector("#login")
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");
 
 const guest = "guest";
-loginAsGuestBtn.addEventListener("click", () => 
 
-        // Copy the card number beside it and copy it to clipboard 
-        navigator.clipboard.writeText(guest).then(() => {
+// On clicking log in as guest btn
+loginAsGuestBtn.addEventListener("click", function() {
 
-            // Put the copied credit card numbers in input then focus on it
-            username.value = guest
-            password.value = guest
+    // Reprompt if sure to log in as guest 
+    if (confirm("Are you sure to log in as guest?")) {
 
-            // Inform users that the text is copied and pasted on the input
-            alert(`${guest} is copied and will be pasted to credit card number box!`)
-            
-            loginBtn.click();
-        })
-)
+        // Type the login details of guest
+        username.value = guest;
+        password.value = guest;
 
-
-// Select all copy button and loop through each button 
+        // Click the login btn
+        loginBtn.click();
+    };
+});
