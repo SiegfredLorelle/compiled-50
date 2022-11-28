@@ -1029,7 +1029,6 @@ def birthday():
 
 
 # TODO 
-# add login as guest in login page (automate login)
 # screenshot every project, add picture of project in sample project in index
 # redirect to sample project when clicking projects if not logged in
 
