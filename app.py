@@ -1005,7 +1005,6 @@ def birthday():
 # TODOs
 
 # homepage page
-# Change color of dropdown onclick
 # Add limit to how much it can drag kasi lumalagpas kapag mobile tapos sobra sa drag
 # Add modal when clicking carousel that enter as guest
 # turn off ung on click sa buttons ng nav
@@ -1013,11 +1012,6 @@ def birthday():
 # Put links to footer
 # Change homepage to only get 
 # add icons for on log in sign in log out
-
-
-# credit page
-# msg on hover for copy clipboard
-# msg below instead of alert that it is copied to clipboard 
 
 # scrabble page
 # clicking dictionary will lead to modal of list of the words in the dictionary or redirect to download of the text file
@@ -1034,8 +1028,11 @@ def birthday():
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 
 
-# birthday
-# TODO sort based on current date
+# TODO 
+# add login as guest in login page (automate login)
+# screenshot every project, add picture of project in sample project in index
+# redirect to sample project when clicking projects if not logged in
+
 
 
 
