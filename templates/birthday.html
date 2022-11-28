@@ -6,7 +6,8 @@
 
 {% block main %}
     <h1 class="py-3" id="birthday-title">BIRTHDAY</h1>
-    <h6>Save your family and friends birthdays.</h6><br>
+    <h6>Save your family and friends birthdays.</h6>
+    <p>(sorted by upcoming birthday)</p><br>
 
     <form class="row g-3" action="/birthday" method="post">
         <div class="col-md-4">
@@ -39,7 +40,7 @@
         </div>
 
         <div class="col-12">
-          <button class="btn btn-dark" type="submit">Add</button>
+          <button class="btn btn-dark" type="submit">Add to Birthday List</button>
         </div>
 
     </form>
@@ -51,14 +52,14 @@
                 <thead>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Birthdate</th>
+                    <th>Birthday</th>
                 </thead>
                 <tbody>
                     {% for count, person in people %}
                         <tr>
-                            <th>{{ count }}</th>
+                            <td>{{ count }}</td>
                             <td>{{ person["name"] }}</td>
-                            <td>{{ person["birthday"] }}</td>
+                            <th>{{ person["birthday"] }}</th>
                         </tr>
                     {% endfor %}
                 </tbody>
