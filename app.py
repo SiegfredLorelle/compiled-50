@@ -1030,7 +1030,7 @@ def birthday():
 
 
 # TODO 
-# open modal asking to login when pressing projects
+# open modal asking to login when pressing in sample projects
 # rename dog images used in filter
 # change pass username and password in accounts
 
