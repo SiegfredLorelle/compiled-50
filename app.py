@@ -1028,30 +1028,16 @@ def birthday():
 # inheritance
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 
-
-# TODO 
-# open modal asking to login when pressing projects
-# rename dog images used in filter
-# change pass username and password in accounts
-
-
-
 # about
 
-# lagay logo sa navbar
-# add divider in project dropdown (divide by weeks in cs50) maybe not
-# add space below title of project 
-# make buttons to pills
-# put copy buttons in a pill or round button (add tooltip on hover and click and change shade)
-# upload to heroku
-# fix mobile in index
-# add white bg to icon
-# login required, restrict opening projects in index if not logged in, redirect maybe to carousel below
-# add focus on textbox for copy clipboards in js
-# maybe add a way to keep entered value in form text box
-# Try floating labels on some textbox
-# Toggle dropdown similar to bootstrap website
-# add loading imagse called spinners
-# add tooltip on hover of copy links 
+
+# TODO
+# rename dog images used in filter
+# change pass username and password in accounts
+# make buttons to pills ?
 # put links in homepage
+# lagay logo sa navbar
+# fix homepage in mobile
+
+# upload to heroku
 
