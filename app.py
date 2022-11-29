@@ -1049,7 +1049,6 @@ def birthday_delete():
 # make buttons to pills ?
 # put links in homepage
 # fix homepage in mobile
-# add a remove btn in birthday list
 
 # upload to heroku
 
