@@ -34,7 +34,7 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///final-project.db")
+db = SQL("sqlite:///compiled50.db")
 
 @app.after_request
 def after_request(response):
@@ -1032,11 +1032,9 @@ def birthday():
 
 
 # TODO
-# rename dog images used in filter
 # change pass username and password in accounts
 # make buttons to pills ?
 # put links in homepage
-# lagay logo sa navbar
 # rename db if possible
 # fix homepage in mobile
 
