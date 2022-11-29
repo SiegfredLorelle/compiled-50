@@ -1003,6 +1003,19 @@ def birthday():
         return render_template("birthday.html", people=people)
 
 
+@app.route("/birthday/delete", methods=["POST"])
+@login_required
+def birthday_delete():
+    """ Delete a person on the birthday list """
+    name = request.form.get("remove-btn")
+
+    # Remove the from birthday list
+    db.execute("DELETE FROM birthday WHERE id = ? AND name = ?", session["user_id"], name)
+    
+    # Reload the page
+    flash(f"Successfully removed '{name}' from birthday list.", "success")
+    return redirect("/birthday")
+
 # TODOs
 
 # homepage page
@@ -1035,8 +1048,8 @@ def birthday():
 # change pass username and password in accounts
 # make buttons to pills ?
 # put links in homepage
-# rename db if possible
 # fix homepage in mobile
+# add a remove btn in birthday list
 
 # upload to heroku
 
