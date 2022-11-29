@@ -1032,8 +1032,7 @@ def birthday():
 # TODO 
 # screenshot every project, add picture of project in sample project in index
 # redirect to sample project when clicking projects if not logged in
-
-
+# rename dog images used in filter
 
 
 # change pass username and password in accounts
