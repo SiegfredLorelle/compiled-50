@@ -26,12 +26,7 @@
 
     <body>
 
-
-
-
         <div id="title-container">
-
-
             <div id="left-side" class="side"> 
               <div class="nav-header">
                 <nav class="navbar p-5">
@@ -41,18 +36,20 @@
                         Projects
                       </a>
                       <ul class="dropdown-menu rounded-3" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/mario">Mario</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/credit">Credit</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/scrabble">Scrabble</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/readability">Readability</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/substitution">Substitution</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/plurality">Plurality</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/filter">Filter</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/inheritance">Inheritance</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/trivia">Trivia</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/birthday">Birthday</a></li>
-
+                        {% if session["user_id"] %}
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/mario">Mario</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/credit">Credit</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/scrabble">Scrabble</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/readability">Readability</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/substitution">Substitution</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/plurality">Plurality</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/filter">Filter</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/inheritance">Inheritance</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/trivia">Trivia</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/birthday">Birthday</a></li>
+                        {% else %}
+                        
+                        {% endif %}
                       </ul>
                     </li>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -79,6 +76,7 @@
                 </h2>
             </div>
 
+
             <div id="right-side" class="side"> 
               <div class="nav-header">
                 <nav class="navbar p-5">
@@ -88,18 +86,56 @@
                         Projects
                       </a>
                       <ul class="dropdown-menu rounded-3" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/mario">Mario</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/credit">Credit</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/scrabble">Scrabble</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/readability">Readability</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/substitution">Substitution</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/plurality">Plurality</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/filter">Filter</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/inheritance">Inheritance</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/trivia">Trivia</a></li>
-                        <li><a class="dropdown-item rounded-pill" id="project-item" href="/birthday">Birthday</a></li>
+                        {% if session["user_id"] %}
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/mario">Mario</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/credit">Credit</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/scrabble">Scrabble</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/readability">Readability</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/substitution">Substitution</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/plurality">Plurality</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/filter">Filter</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/inheritance">Inheritance</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/trivia">Trivia</a></li>
+                          <li><a class="dropdown-item rounded-pill" id="project-item" href="/birthday">Birthday</a></li>
+                        {% else %}
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Mario</button></li>
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Credit</button></li>
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Scrabble</button></li>
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Readability</button></li>
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Substitution</button></li>
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Plurality</button></li>
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Filter</button></li>
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Inheritance</button></li>
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Trivia</button></li>
+                          <li><button type="button" class="btn btn-dark dropdown-item rounded-pill" id="project-item" data-bs-toggle="modal" data-bs-target="#login-modal">Birthday</button></li>
+                        {% endif %}
                       </ul>
                     </li>
+
+                    <!-- Modal suggesting to login -->
+                    {% if not session["user_id"] %}
+                      <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="login-modal-label">Sorry 😥</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <p>Users must login to access projects.</p>
+                              <p>(Logging in as guest works too!)</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                              <a class="btn btn-dark my-3" href="/login" role="button">Log In</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+
+
+
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       {% if session["user_id"] %}
                         <a class="btn btn rounded-pill shadow-none px-3" href="#" id="nav-button-right" role="button">Account</a>
@@ -147,43 +183,43 @@
               </div>
               <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                  <img src="/static/images/mario.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/mario.png" class="d-block w-100" alt="Mario">
 
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                  <img src="/static/images/credit.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/credit.png" class="d-block w-100" alt="Credit">
 
                 </div>
                 <div class="carousel-item">
-                  <img src="/static/images/scrabble.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/scrabble.png" class="d-block w-100" alt="Scrabble">
 
                 </div>
                 <div class="carousel-item">
-                  <img src="/static/images/readability.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/readability.png" class="d-block w-100" alt="Readability">
 
                 </div>
                 <div class="carousel-item">
-                  <img src="/static/images/substitution.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/substitution.png" class="d-block w-100" alt="Substitution">
 
                 </div>
                 <div class="carousel-item">
-                  <img src="/static/images/plurality.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/plurality.png" class="d-block w-100" alt="Plurality">
 
                 </div>
                 <div class="carousel-item">
-                  <img src="/static/images/filter.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/filter.png" class="d-block w-100" alt="Filter">
 
                 </div>
                 <div class="carousel-item">
-                  <img src="/static/images/inheritance.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/inheritance.png" class="d-block w-100" alt="Inheritance">
 
                 </div>
                 <div class="carousel-item">
-                  <img src="/static/images/trivia.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/trivia.png" class="d-block w-100" alt="Trivia">
 
                 </div>
                 <div class="carousel-item">
-                  <img src="/static/images/birthday.png" class="d-block w-100" alt="...">
+                  <img src="/static/images/birthday.png" class="d-block w-100" alt="Birthday">
 
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
