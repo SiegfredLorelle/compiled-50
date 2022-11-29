@@ -57,9 +57,16 @@
                 <tbody>
                     {% for count, person in people %}
                         <tr>
-                            <td>{{ count }}</td>
-                            <td>{{ person["name"] }}</td>
-                            <th>{{ person["birthday"] }}</th>
+                            <form class="row g-3" action="/birthday/delete" method="post">
+                                <td class="align-middle">{{ count }}</td>
+                                <td class="align-middle">{{ person["name"] }}</td>
+                                <th class="align-middle">{{ person["birthday"] }}</th>
+                                <td class="col-1">
+                                    <button type="submit" class="btn p-0 pt-1" id="remove-btn" name="remove-btn" value="{{ person['name'] }}">
+                                        <span class="material-symbols-rounded" id="remove-logo" name="remove-logo" >cancel</span>
+                                    </button>
+                            </form>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>

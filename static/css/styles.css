@@ -694,3 +694,15 @@ label .flag {
     font-family: 'Inspiration', cursive;
 }
 
+td > #remove-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+td > #remove-btn > #remove-logo {
+    visibility: hidden;
+}
+
+tr:hover > td > #remove-btn > #remove-logo {
+    visibility: visible;
+}
