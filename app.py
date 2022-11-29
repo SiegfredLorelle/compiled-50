@@ -954,7 +954,7 @@ def birthday():
         print(people)
         for person in people:
             if person["name"] == name:
-                flash("That person is already in the lists.", "error")
+                flash(f"'{name}' is already in the lists.", "error")
                 return redirect("/birthday")
 
         # Add the birthday to db
@@ -985,13 +985,20 @@ def birthday():
                 if int(person["birthday"].split("/")[0]) >= month:
 
                     # Continue putting person in the end until the persons birthday that haven't passe is in the front
+                    counter = 0
                     while True:
                         birthday_month, birthday_day = int(people[0]["birthday"].split("/")[0]), int(people[0]["birthday"].split("/")[1])
-
-                        if birthday_month - month < 0 or (birthday_month == month and birthday_day - day < 0):
+                        
+                        if counter == len(person):
+                            break
+                        
+                        elif birthday_month - month < 0 or (birthday_month == month and birthday_day - day < 0):
                             tmp = people[0]
                             people.pop(0)
                             people.append(tmp)
+                            counter += 1
+
+
                         else:
                             break
 
@@ -1049,7 +1056,6 @@ def birthday_delete():
 # make buttons to pills ?
 # put links in homepage
 # fix homepage in mobile
-# add a remove btn in birthday list
 
 # upload to heroku
 
