@@ -1037,6 +1037,7 @@ def birthday():
 # make buttons to pills ?
 # put links in homepage
 # lagay logo sa navbar
+# rename db if possible
 # fix homepage in mobile
 
 # upload to heroku
