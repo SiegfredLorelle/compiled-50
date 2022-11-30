@@ -45,6 +45,7 @@ def after_request(response):
     return response
 
 
+current_year = date.today().strftime("%Y")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -100,7 +101,7 @@ def login():
         # Log the user in
         return redirect("/")
 
-    # GET via redirect and clicking links    
+    # GET via redirect and clicking links
     else:
         return render_template("login.html")
 
@@ -989,16 +990,18 @@ def birthday():
                     while True:
                         birthday_month, birthday_day = int(people[0]["birthday"].split("/")[0]), int(people[0]["birthday"].split("/")[1])
                         
+                        # Stop sorting (looping) if all person have been rearranged
                         if counter == len(person):
                             break
                         
+                        # Sort if person's birthday already passed
                         elif birthday_month - month < 0 or (birthday_month == month and birthday_day - day < 0):
                             tmp = people[0]
                             people.pop(0)
                             people.append(tmp)
                             counter += 1
-
-
+                        
+                        # Stop sorting if current elements birthday haven't passed
                         else:
                             break
 
@@ -1053,9 +1056,9 @@ def birthday_delete():
 
 # TODO
 # change pass username and password in accounts
-# make buttons to pills ?
 # put links in homepage
 # fix homepage in mobile
+# change year of credit in footer to now yr
 
 # upload to heroku
 
