@@ -119,19 +119,26 @@ def signup():
             flash("Username and Password cannot be empty.", "error")
             return render_template("signup.html")
 
-        # Ensure username, password, and password(verification) is submitted (required in html but just ot be sure)
+        # Ensure username, password, and password(verification) is submitted (required in html but just to be sure)
         if not username or not password or not password_verification:
             flash("Username and Password cannot be empty.", "error")
             return render_template("signup.html")
 
+        # Ensure username does not have a whitespace
+        for character in username:
+            if character.isspace():
+                flash("Username cannot have a space.", "error")
+                return render_template("signup.html")
+
         # Check if username is already registered
         user = db.execute("SELECT username FROM users WHERE username = ?", username)
 
-        # Ensure username is not already registered
+        # Ensure username is not taken
         if len(user) != 0:
             flash("Username is already used.", "error")
             return render_template("signup.html")
 
+        
         # Ensure passwords is matching
         if password != password_verification:
             flash("Passwords do not match.", "error")
@@ -195,6 +202,48 @@ def logout():
 def account():
     """View or edit the username or password"""
     if request.method == "POST":
+        submit = request.form.get("submit")
+        
+        if submit == "save-username":
+            new_username = request.form.get("username")
+            print(new_username)
+
+            # Ensure new username is not empty
+            if not new_username or new_username.isspace():
+                flash("Username cannot be empty.", "error")
+                return redirect("/account")
+
+            # Ensure username does not have a whitespace
+            for character in new_username:
+                if character.isspace():
+                    flash("Username cannot have a space.", "error")
+                    return redirect("/account")
+
+        # Get the current username
+        current_username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
+
+        # Ensure username was changed
+        if current_username == new_username:
+            flash("No changes in username.", "error")
+            return redirect("/account")
+
+        # Check if the new username is already registered
+        user_with_username = db.execute("SELECT username FROM users WHERE username = ?", new_username)
+        
+        # Ensure new username is not taken
+        if len(user_with_username) != 0:
+            flash(f"{new_username} is already taken.", "error")
+            return redirect("/account")
+
+
+        # CHANGE USERNAME
+
+
+
+        # Submit btn pressed is Save New Password 
+        else:
+            # 
+            ...
 
         return redirect("/account")
 
