@@ -194,7 +194,17 @@ def logout():
 @login_required
 def account():
     """View or edit the username or password"""
-    return render_template("account.html")
+    if request.method == "POST":
+
+        return redirect("/account")
+
+    # GET via redirect and clicking links
+    else:
+        # Get the account details of the user
+        user = db.execute("SELECT username, hashed_password FROM users WHERE id = ?", session["user_id"])
+        username = user[0]["username"]
+
+        return render_template("account.html", username=username)
 
 
 
@@ -214,7 +224,7 @@ def mario():
         flash(f"Pyramid with a height of {height} is made!", "success")
         return render_template("mario.html", height=height)
 
-    # GET via redirect and clicking links   
+    # GET via redirect and clicking links
     else:
         return render_template("mario.html")
 

@@ -10,39 +10,58 @@
     <div class="pb-3">
         <form action="/account" method="post">
             <div class="row align-items-center justify-content-center">
-                <div class="col-auto">
-                  <label for="inputPassword6" class="col-form-label">Username</label>
+                <div class="col">
+                  <label for="username" class="col-form-label float-md-end">Username</label>
                 </div>
-                <div class="col-auto">
-                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="username" name="username" placeholder="Username" required type="text">
+                <div class="col">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3 float-md-start" id="username" name="username" placeholder="Username" type="text">
+                </div>
+            </div>
+
+            <button class="btn btn-dark m-3" type="submit">Save New Username</button>
+
+            <h5 class="py-4" id="or"><span class="line-center">OR</span></h5>
+
+
+
+            <div class="row align-items-center justify-content-center">
+                <div class="col">
+                  <label for="inputPassword6" class="col-form-label float-md-end">Old Password</label>
+                </div>
+                <div class="col">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3 float-md-start" id="password" name="password" placeholder="Old Password" type="password">
                 </div>
             </div>
 
             <div class="row align-items-center justify-content-center">
-                <div class="col-auto">
-                  <label for="inputPassword6" class="col-form-label">Password</label>
+                <div class="col float-md-end">
+                  <label for="inputPassword6" class="col-form-label float-md-end">New Password</label>
                 </div>
-                <div class="col-auto">
-                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="password" name="password" placeholder="Password" required type="password">
+                <div class="col">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3 float-md-start" id="password-verification" name="password-verification" placeholder="New Password" type="password">
                 </div>
             </div>
 
             <div class="row align-items-center justify-content-center">
-                <div class="col-auto">
-                  <label for="inputPassword6" class="col-form-label">Password</label>
+                <div class="col float-md-end">
+                  <label for="inputPassword6" class="col-form-label float-md-end">Retype New Password</label>
                 </div>
-                <div class="col-auto">
-                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-1" id="password-verification" name="password-verification" placeholder="Password (verification)" required type="password">
+                <div class="col">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3 float-md-start" id="password-verification" name="password-verification" placeholder="New Password" type="password">
                 </div>
             </div>
 
-            <div id="emailHelp" class="form-text mb-3">Never use password that you use in other accounts.</div>
-
-        <!-- <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="username" name="username" placeholder="Username" required type="text">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="password" name="password" placeholder="Password" required type="password">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-1" id="password-verification" name="password-verification" placeholder="Password (verification)" required type="password"> -->
-
-        <button class="btn btn-dark m-3" type="submit">Save Changes</button>
+            <div class="form-text mb-3">Never use password that you use in other accounts.</div>
+            
+            <button class="btn btn-dark m-3" type="submit">Save New Password</button>
         </form>
     </div>
+
+    <script>
+        /* Enter username in the username text box */
+        const input = document.querySelector("#username");
+        const username = `{{ username }}`;
+
+        input.value = username;
+    </script>
 {% endblock %}
