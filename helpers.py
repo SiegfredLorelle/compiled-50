@@ -130,11 +130,13 @@ def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 # Referenced in inheritance page 
 def get_random_allele():
     """Returns a random allele with equal chances"""
     alleles = ["A", "B", "O"]
     return choice(alleles)
+
 
 # Referenced in inheritance page 
 def get_blood_type(alleles):
@@ -154,12 +156,12 @@ def get_blood_type(alleles):
         if allele == "B":
             return "B" 
 
+
 # Referenced in inheritance page
 def get_allele_to_inherit(allele_1, allele_2):
     """Randomly determine which allele to inherit"""
     alleles = [allele_1, allele_2]
     return choice(alleles)
-
 
 
 def sort_dates(dates):
