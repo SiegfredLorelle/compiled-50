@@ -1,0 +1,48 @@
+{% extends "login-layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+    <h3 class="py-3 text-dark">Account</h3>
+
+    <div class="pb-3">
+        <form action="/account" method="post">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Username</label>
+                </div>
+                <div class="col-auto">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="username" name="username" placeholder="Username" required type="text">
+                </div>
+            </div>
+
+            <div class="row align-items-center justify-content-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Password</label>
+                </div>
+                <div class="col-auto">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="password" name="password" placeholder="Password" required type="password">
+                </div>
+            </div>
+
+            <div class="row align-items-center justify-content-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Password</label>
+                </div>
+                <div class="col-auto">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-1" id="password-verification" name="password-verification" placeholder="Password (verification)" required type="password">
+                </div>
+            </div>
+
+            <div id="emailHelp" class="form-text mb-3">Never use password that you use in other accounts.</div>
+
+        <!-- <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="username" name="username" placeholder="Username" required type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3" id="password" name="password" placeholder="Password" required type="password">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-1" id="password-verification" name="password-verification" placeholder="Password (verification)" required type="password"> -->
+
+        <button class="btn btn-dark m-3" type="submit">Save Changes</button>
+        </form>
+    </div>
+{% endblock %}

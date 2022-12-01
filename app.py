@@ -176,7 +176,6 @@ def signup():
 
 
 
-
 @app.route("/logout")
 def logout():
     """Log the user out"""
@@ -189,6 +188,13 @@ def logout():
 
     # Redirect to homepage
     return redirect("/")
+
+
+@app.route("/account", methods=["GET", "POST"])
+@login_required
+def account():
+    """View or edit the username or password"""
+    return render_template("account.html")
 
 
 
@@ -543,7 +549,7 @@ def plurality_votes():
 # credits to: https://roytuts.com/upload-and-display-image-using-python-flask/
 @app.route("/filter", methods=["GET", "POST"])
 @login_required
-def filter():
+def filter_compiled():
     """Filter a random image or an image from the user"""
     if request.method == "POST":
         type_of_filter = request.form.get("filter")
@@ -1051,11 +1057,18 @@ def birthday_delete():
 # inheritance
 # check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
 
-# about
 
 
 # TODO
 # change pass username and password in accounts
+# js to put values
+# check if changes were made
+# check if usernamd is already used
+# check if valid username and password
+# check if password matches
+# restrict accessing account when logged in as guest
+#
+
 # put links in homepage
 # fix homepage in mobile
 # change year of credit in footer to now yr
