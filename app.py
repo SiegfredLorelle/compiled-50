@@ -13,7 +13,7 @@ from re import sub
 from datetime import date
 import os
 
-from helpers import login_required, check_card, get_grade_lvl, allowed_file, get_random_allele, get_blood_type, get_allele_to_inherit, sort_dates
+from helpers import *
 
 
 
@@ -1170,11 +1170,11 @@ def birthday_delete():
 
 # TODO
 # restrict accessing account when logged in as guest
+# clear user table in db (guest is fcked, cannot log in as guest) (use Guest10 to log in tmpry)
 # prevent submitting on enter when there are multiple submit btns (account)
 
 # put links in homepage
 # fix homepage in mobile
-# change year of credit in footer to now yr
 
 # upload to heroku
 
