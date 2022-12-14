@@ -176,7 +176,7 @@ def signup():
         # Log the user in
         return redirect("/")
 
-    # GET via redirect and clicking links    
+    # GET via redirect and clicking links
     else:
         return render_template("signup.html")
 
