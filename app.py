@@ -1169,10 +1169,8 @@ def birthday_delete():
 
 
 # TODO
-# restrict accessing account when logged in as guest
-# clear user table in db (guest is fcked, cannot log in as guest) (use Guest10 to log in tmpry)
 # prevent submitting on enter when there are multiple submit btns (account)
-
+# copy color og bg for btns for unsuggested btn
 # put links in homepage
 # fix homepage in mobile
 
