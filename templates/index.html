@@ -63,7 +63,9 @@
                     </li>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       {% if session["user_id"] %}
-                        <a class="btn btn rounded-pill shadow-none px-3" href="#" id="nav-button-left" role="button">Account</a>
+                        {% if session["user_id"] != 1 %}
+                          <a class="btn btn rounded-pill shadow-none px-3" href="/account" id="nav-button-left" role="button">Account</a>
+                        {% endif %}
                         <a class="btn btn rounded-pill shadow-none px-3" href="/logout" id="nav-button-left" role="button">Log Out</a>
                       {% else %}
                         <a class="btn btn rounded-pill shadow-none px-3" href="/signup" id="nav-button-left" role="button">Sign Up</a>
@@ -80,7 +82,7 @@
                     <p class="description">Logged in as {{ username }}</p>
                   {% else %}
                     <span class="title">Compiled 50</span>
-                    <p class="description">by Siegfred Lorelle Mina</p>              
+                    <p class="description">by Siegfred Lorelle Mina</p>
                   {% endif %}
                 </h2>
             </div>
@@ -147,7 +149,9 @@
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       {% if session["user_id"] %}
-                        <a class="btn btn rounded-pill shadow-none px-3" href="/account" id="nav-button-right" role="button">Account</a>
+                        {% if session["user_id"] != 1 %}
+                          <a class="btn btn rounded-pill shadow-none px-3" href="/account" id="nav-button-right" role="button">Account</a>
+                        {% endif %}
                         <a class="btn btn rounded-pill shadow-none px-3" href="/logout" id="nav-button-right" role="button">Log Out</a>
                       {% else %}
                         <a class="btn btn rounded-pill shadow-none px-3" href="/signup" id="nav-button-right" role="button">Sign Up</a>
@@ -165,7 +169,7 @@
                     <p class="description">Logged in as {{ username }}</p>
                   {% else %}
                     <span class="title">Compiled 50</span>
-                    <p class="description">for CS50x Final Project</p>              
+                    <p class="description">for CS50x Final Project</p>
                   {% endif %}
                 </h2>
             </div>
