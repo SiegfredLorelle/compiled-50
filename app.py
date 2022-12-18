@@ -1151,7 +1151,7 @@ def birthday_delete():
 # turn off ung on click sa buttons ng nav
 # itry ung if and else ng mobile and pc para maayos ung nav bar
 # Put links to footer
-# Change homepage to only get 
+# Change homepage to only get
 # add icons for on log in sign in log out
 
 # scrabble page
@@ -1171,8 +1171,7 @@ def birthday_delete():
 
 
 # TODO
-# copy color of bg for btns for unsuggested btn
-# put links in homepage
+# learn sending email by clicking on contact us
 # fix homepage in mobile
 
 # upload to heroku
