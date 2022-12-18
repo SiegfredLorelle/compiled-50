@@ -4,5 +4,5 @@
 const submit_btn = document.querySelector("#msg-submit-btn");
 // Alert message sent when submit button is clicked
 submit_btn.addEventListener("click", () => {
-  alert("Message has been sent!");
+  alert("It may take a while to send the message.");
 });
