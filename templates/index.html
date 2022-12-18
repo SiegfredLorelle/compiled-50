@@ -339,15 +339,40 @@
             <footer>
               <h4  id="title-footer"><a class="nav-item px-2" href="/">Compiled 50</a></h4>
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li class="nav-item"><a class="nav-link px-2" href="https://github.com/SiegfredLorelle/compiled-50" target="__blank">Github</a></li>
-                    <li class="nav-item"><a class="nav-link px-2" href="https://www.facebook.com/profile.php?id=1718881634" target="__blank">Facebook</a></li>
-                    <li class="nav-item"><a class="nav-link px-2" href="https://www.linkedin.com/in/siegfred-lorelle-mina-b4900b167" target="__blank">LinkedIn</a></li>
-                    <li class="nav-item"><a class="nav-link px-2" href="">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" id="footer-item" href="https://github.com/SiegfredLorelle/compiled-50" target="__blank">Github</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" id="footer-item" href="https://www.facebook.com/profile.php?id=1718881634" target="__blank">Facebook</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" id="footer-item" href="https://www.linkedin.com/in/siegfred-lorelle-mina-b4900b167" target="__blank">LinkedIn</a></li>
+                    <li class="nav-item"><button type="button" class="btn" id="footer-item" data-bs-toggle="modal" data-bs-target="#email-modal">Contact Us</button></li>
                 </ul>
                 <p class="text-center">© <span><script>document.write( new Date().getUTCFullYear() );</script></span> Siegfred Lorelle Mina</p>
             </footer>
-        </div>       
+        </div>
+
+        <!-- Modal for sending message via email -->
+        <div class="modal fade" id="email-modal" tabindex="-1" aria-labelledby="email-modal-label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="email-modal-label">Message for Devs</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="/send_email" method="post">
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="message" class="col-form-label">Message:</label>
+                    <textarea class="form-control" name="message" id="message"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <button class="btn btn-dark my-3" type="submit" id="msg-submit-btn">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
 
         <script src="/static/js/mouse-track.js"></script>
+        <script src="/static/js/alert-email-sent.js"></script>
 
     </body>

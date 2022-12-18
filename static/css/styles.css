@@ -96,18 +96,18 @@
     text-decoration: none;
 }
 
-footer ul .nav-item a {
+footer ul .nav-item #footer-item {
     color: white;
     position: relative;
     text-decoration: none;
     font-weight: 500;
 }
 
- #title-footer a:hover, footer ul .nav-item a:hover {
+ #title-footer a:hover, footer ul .nav-item #footer-item:hover {
     color: white;
 }
 
- #title-footer a::before, footer ul .nav-item a::before {
+ #title-footer a::before, footer ul .nav-item #footer-item::before {
     content: "";
     position: absolute;
     display: block;
@@ -120,7 +120,7 @@ footer ul .nav-item a {
     transition: transform 0.3s ease;
   }
 
-#title-footer a:hover::before, footer ul .nav-item a:hover::before {
+#title-footer a:hover::before, footer ul .nav-item #footer-item:hover::before {
     transform: scaleX(1);
 }
 

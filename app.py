@@ -3,6 +3,7 @@
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session, url_for
+from flask_mail import Mail, Message
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
@@ -19,6 +20,9 @@ from helpers import *
 
 # Configure application
 app = Flask(__name__)
+
+# Instantiate mail class
+mail = Mail(app)
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -307,6 +311,16 @@ def change_password():
     flash("Password has been changed.", "success")
     return redirect("/account")
 
+
+
+@app.route("/send_email", methods=["POST"])
+def send_email():
+    """ TODO """
+    print("SENDING")
+    a = request.form.get("message")
+    print(a)
+
+    return redirect("/")
 
 
 @app.route("/mario", methods=["GET", "POST"])
@@ -1171,7 +1185,8 @@ def birthday_delete():
 
 
 # TODO
-# learn sending email by clicking on contact us
+# learn sending email (maybe create 2 emails, one sends, one receives)
+# fix footer item in layout
 # fix homepage in mobile
 
 # upload to heroku
