@@ -196,114 +196,116 @@ def logout():
     return redirect("/")
 
 
-@app.route("/account", methods=["GET", "POST"])
+
+@app.route("/account")
 @login_required
 def account():
     """View or edit the username or password"""
-    if request.method == "POST":
-        submit = request.form.get("submit")
-        
-        if submit == "save-username":
-            new_username = request.form.get("username")
+    # Get the account details of the user
+    user = db.execute("SELECT username, hashed_password FROM users WHERE id = ?", session["user_id"])
+    username = user[0]["username"]
 
-            # Ensure new username is not empty
-            if not new_username or new_username.isspace():
-                flash("Username cannot be empty.", "error")
-                return redirect("/account")
-
-            # Ensure username does not have a whitespace
-            for character in new_username:
-                if character.isspace():
-                    flash("Username must not have a whitespace.", "error")
-                    return redirect("/account")
-
-            # Get the current username
-            current_username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
-
-            # Ensure username was changed
-            if current_username == new_username:
-                flash("No changes in username.", "error")
-                return redirect("/account")
-
-            # Check if the new username is already registered
-            user_with_username = db.execute("SELECT username FROM users WHERE username = ?", new_username)
-            
-            # Ensure new username is not taken
-            if len(user_with_username) != 0:
-                flash(f"'{new_username}' is already taken.", "error")
-                return redirect("/account")
-
-            # Change the username
-            db.execute("UPDATE users SET username = ? WHERE id = ?", new_username, session["user_id"])
-
-            # Reload the page
-            flash("Username has been changed.", "success")
-            return redirect ("/account")
+    # Load account page
+    return render_template("account.html", username=username)
 
 
-        # Submit btn pressed is Save New Password 
-        else:
-            old_password = request.form.get("old-password")
-            new_password = request.form.get("new-password")
-            password_verification = request.form.get("password-verification")
 
-            print(old_password, new_password, password_verification)
+@app.route("/account/change_username", methods=["POST"])
+@login_required
+def change_username():
+    """Change username"""
+    new_username = request.form.get("username")
+    # Ensure new username is not empty
+    if not new_username or new_username.isspace():
+        flash("Username cannot be empty.", "error")
+        return redirect("/account")
 
-            # Ensure passwords are not empty
-            if not old_password or not new_password or not password_verification:
-                flash("Enter Old and New Password.", "error")
-                return redirect("/account")
-
-            # Get the current password
-            current_password = db.execute("SELECT hashed_password FROM users where id = ?", session["user_id"])[0]["hashed_password"]
-
-            # Ensure old password is correct
-            if not check_password_hash(current_password, old_password):
-                flash("Incorrect old password.", "error")
-                return redirect("/account")
-
-            # Ensure new password is matching
-            if new_password != password_verification:
-                flash("New Passwords do not match.", "error")
-                return redirect("/account")
-
-            # Ensure new password is at least 6 characters long
-            if len(new_password) < 6:
-                flash("New Password must be at least 6 characters long.", "error")
-                return redirect("/account")
-
-            # Determine if new password has whitespace, uppercase letter, lowercase letter, and number
-            has_uppercase = has_lowercase = has_number = has_space = False
-            for character in new_password:
-                if character in list(ascii_lowercase):
-                    has_lowercase = True
-                elif character in list(ascii_uppercase):
-                    has_uppercase = True
-                elif character in list(digits):
-                    has_number = True
-                elif character.isspace():
-                    has_space = True
-
-            # Ensure password has no whitespace, has uppercase, lowercase letter, a number
-            if not has_uppercase or not has_lowercase or not has_number or has_space:
-                flash("New Password must have no whitespaces, and at least have 1 lowercase letter, uppercase letter, and digit.", "error")
-                return redirect("/account")
-
-            # Change the password
-            db.execute("UPDATE users SET hashed_password = ?", generate_password_hash(new_password))
-
-            # Reload the page
-            flash("Password has been changed.", "success")
+    # Ensure username does not have a whitespace
+    for character in new_username:
+        if character.isspace():
+            flash("Username must not have a whitespace.", "error")
             return redirect("/account")
 
-    # GET via redirect and clicking links
-    else:
-        # Get the account details of the user
-        user = db.execute("SELECT username, hashed_password FROM users WHERE id = ?", session["user_id"])
-        username = user[0]["username"]
+    # Get the current username
+    current_username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
 
-        # Load account page
-        return render_template("account.html", username=username)
+    # Ensure username was changed
+    if current_username == new_username:
+        flash("No changes in username.", "error")
+        return redirect("/account")
+
+    # Check if the new username is already registered
+    user_with_username = db.execute("SELECT username FROM users WHERE username = ?", new_username)
+    
+    # Ensure new username is not taken
+    if len(user_with_username) != 0:
+        flash(f"'{new_username}' is already taken.", "error")
+        return redirect("/account")
+
+    # Change the username
+    db.execute("UPDATE users SET username = ? WHERE id = ?", new_username, session["user_id"])
+
+    # Reload the page
+    flash("Username has been changed.", "success")
+    return redirect ("/account")
+
+
+
+@app.route("/account/change_password", methods=["POST"])
+@login_required
+def change_password():
+    """Change password"""
+    # Submit btn pressed is Save New Password 
+    old_password = request.form.get("old-password")
+    new_password = request.form.get("new-password")
+    password_verification = request.form.get("password-verification")
+
+    # Ensure passwords are not empty
+    if not old_password or not new_password or not password_verification:
+        flash("Enter Old and New Password.", "error")
+        return redirect("/account")
+
+    # Get the current password
+    current_password = db.execute("SELECT hashed_password FROM users where id = ?", session["user_id"])[0]["hashed_password"]
+
+    # Ensure old password is correct
+    if not check_password_hash(current_password, old_password):
+        flash("Incorrect old password.", "error")
+        return redirect("/account")
+
+    # Ensure new password is matching
+    if new_password != password_verification:
+        flash("New Passwords do not match.", "error")
+        return redirect("/account")
+
+    # Ensure new password is at least 6 characters long
+    if len(new_password) < 6:
+        flash("New Password must be at least 6 characters long.", "error")
+        return redirect("/account")
+
+    # Determine if new password has whitespace, uppercase letter, lowercase letter, and number
+    has_uppercase = has_lowercase = has_number = has_space = False
+    for character in new_password:
+        if character in list(ascii_lowercase):
+            has_lowercase = True
+        elif character in list(ascii_uppercase):
+            has_uppercase = True
+        elif character in list(digits):
+            has_number = True
+        elif character.isspace():
+            has_space = True
+
+    # Ensure password has no whitespace, has uppercase, lowercase letter, a number
+    if not has_uppercase or not has_lowercase or not has_number or has_space:
+        flash("New Password must have no whitespaces, and at least have 1 lowercase letter, uppercase letter, and digit.", "error")
+        return redirect("/account")
+
+    # Change the password
+    db.execute("UPDATE users SET hashed_password = ?", generate_password_hash(new_password))
+
+    # Reload the page
+    flash("Password has been changed.", "success")
+    return redirect("/account")
 
 
 
