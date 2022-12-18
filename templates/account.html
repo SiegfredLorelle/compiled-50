@@ -8,28 +8,28 @@
     <h3 class="py-3 text-dark">Account</h3>
 
     <div class="pb-3">
-        <form action="/account" method="post">
+        <form action="/account/change_username" method="post">
             <div class="row align-items-center justify-content-center">
                 <div class="col">
                   <label for="username" class="col-form-label float-md-end">Username</label>
                 </div>
                 <div class="col">
-                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3 float-md-start" id="username" name="username" placeholder="Username" type="text">
+                    <input autocomplete="off" class="form-control mx-auto w-auto my-3 float-md-start" id="username" name="username" placeholder="Username" type="text">
                 </div>
             </div>
 
             <button class="btn btn-dark m-3" id="submit"name="submit" value="save-username" type="submit">Save New Username</button>
-
+        </form>
             <h5 class="py-4" id="or"><span class="line-center">OR</span></h5>
 
 
-
+        <form action="/account/change_password" method="post">
             <div class="row align-items-center justify-content-center">
                 <div class="col">
                   <label for="old-password" class="col-form-label float-md-end">Old Password</label>
                 </div>
                 <div class="col">
-                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3 float-md-start" id="old-password" name="old-password" placeholder="Old Password" type="password">
+                    <input autocomplete="off" class="form-control mx-auto w-auto my-3 float-md-start" id="old-password" name="old-password" placeholder="Old Password" type="password">
                 </div>
             </div>
 
@@ -38,7 +38,7 @@
                   <label for="new-password" class="col-form-label float-md-end">New Password</label>
                 </div>
                 <div class="col">
-                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3 float-md-start" id="new-password" name="new-password" placeholder="New Password" type="password">
+                    <input autocomplete="off" class="form-control mx-auto w-auto my-3 float-md-start" id="new-password" name="new-password" placeholder="New Password" type="password">
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                   <label for="password-verification" class="col-form-label float-md-end">Retype New Password</label>
                 </div>
                 <div class="col">
-                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto my-3 float-md-start" id="password-verification" name="password-verification" placeholder="New Password" type="password">
+                    <input autocomplete="off" class="form-control mx-auto w-auto my-3 float-md-start" id="password-verification" name="password-verification" placeholder="New Password" type="password">
                 </div>
             </div>
 
@@ -64,4 +64,11 @@
 
         input.value = username;
     </script>
+    <script>
+        function submitButtonCLick(event) {
+            event.preventDefault();
+        }
+    
+    </script>
+    
 {% endblock %}
