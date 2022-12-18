@@ -301,7 +301,7 @@ def change_password():
         return redirect("/account")
 
     # Change the password
-    db.execute("UPDATE users SET hashed_password = ?", generate_password_hash(new_password))
+    db.execute("UPDATE users SET hashed_password = ? WHERE id = ?", generate_password_hash(new_password), session["user_id"])
 
     # Reload the page
     flash("Password has been changed.", "success")
@@ -1171,8 +1171,7 @@ def birthday_delete():
 
 
 # TODO
-# prevent submitting on enter when there are multiple submit btns (account)
-# copy color og bg for btns for unsuggested btn
+# copy color of bg for btns for unsuggested btn
 # put links in homepage
 # fix homepage in mobile
 
