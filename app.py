@@ -21,7 +21,15 @@ from helpers import *
 # Configure application
 app = Flask(__name__)
 
-# Instantiate mail class
+# Configure mail server
+app.config['MAIL_SERVER']="smtp.gmail.com"
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = "dummyygenshin@gmail.com"
+app.config['MAIL_PASSWORD'] = "jzoonekfzmkjmtyi"
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
+# Instantiate mail class (for sending message/email to devs)
 mail = Mail(app)
 
 # Ensure templates are auto-reloaded
@@ -315,11 +323,20 @@ def change_password():
 
 @app.route("/send_email", methods=["POST"])
 def send_email():
-    """ TODO """
-    print("SENDING")
-    a = request.form.get("message")
-    print(a)
+    """Send the message of the user for the devs via email"""
+    # Get the message from the form
+    message = request.form.get("message")
 
+    # Create the mail and configure its title (subject), sender, and receiver
+    msg = Message("Message from Compiled 50", sender="norepy@gmail.com", recipients=['dummyygenshin@gmail.com'])
+    
+    # Put the message in body of the mail
+    msg.body = message
+
+    # Send the mail/message
+    mail.send(msg)
+
+    # Redirect to home page
     return redirect("/")
 
 
@@ -1185,9 +1202,9 @@ def birthday_delete():
 
 
 # TODO
-# learn sending email (maybe create 2 emails, one sends, one receives)
 # fix footer item in layout
+# hide credentials of mail config username and password using os.environ.get
 # fix homepage in mobile
-
+# add flask mail to requirements
 # upload to heroku
 
