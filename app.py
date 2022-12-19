@@ -57,24 +57,15 @@ def after_request(response):
     return response
 
 
-current_year = date.today().strftime("%Y")
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
     """Load homepage that allows user to go to other pages"""
-    print(os.environ.get("COMPILED50_USERNAME"))
-    print(os.environ.get("COMPILED50_PASSWORD"))
-    for item, value in os.environ.items():
-        print(f"{item} : {value}")
-    if request.method == "POST":
-        pass
-
+    if len(session) == 1:
+        username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
+        return render_template("index.html", username=username)
     else:
-        if len(session) == 1:
-            username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
-            return render_template("index.html", username=username)
-        else:
-            return render_template("index.html")
+        return render_template("index.html")
 
 
 
