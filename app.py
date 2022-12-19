@@ -24,8 +24,8 @@ app = Flask(__name__)
 # Configure mail server
 app.config['MAIL_SERVER']="smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = "dummyygenshin@gmail.com"
-app.config['MAIL_PASSWORD'] = "jzoonekfzmkjmtyi"
+app.config['MAIL_USERNAME'] = os.environ.get("compiled50-username")
+app.config['MAIL_PASSWORD'] = os.environ.get("compiled50-password")
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
@@ -1203,7 +1203,7 @@ def birthday_delete():
 
 # TODO
 # fix footer item in layout
-# hide credentials of mail config username and password using os.environ.get
+# hide credentials of mail config username and password using os.environ.get in wsl (already working in windows (need to add un and ps as os variables))
 # fix homepage in mobile
 # add flask mail to requirements
 # upload to heroku
