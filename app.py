@@ -24,8 +24,8 @@ app = Flask(__name__)
 # Configure mail server
 app.config['MAIL_SERVER']="smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = os.environ.get("compiled50-username")
-app.config['MAIL_PASSWORD'] = os.environ.get("compiled50-password")
+app.config['MAIL_USERNAME'] = os.environ.get("COMPILED50_USERNAME")
+app.config['MAIL_PASSWORD'] = os.environ.get("COMPILED50_PASSWORD")
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
@@ -62,6 +62,10 @@ current_year = date.today().strftime("%Y")
 @app.route("/", methods=["GET", "POST"])
 def index():
     """Load homepage that allows user to go to other pages"""
+    print(os.environ.get("COMPILED50_USERNAME"))
+    print(os.environ.get("COMPILED50_PASSWORD"))
+    for item, value in os.environ.items():
+        print(f"{item} : {value}")
     if request.method == "POST":
         pass
 
@@ -1204,6 +1208,7 @@ def birthday_delete():
 # TODO
 # fix footer item in layout
 # hide credentials of mail config username and password using os.environ.get in wsl (already working in windows (need to add un and ps as os variables))
+# catch errors when sending email by using try and except
 # fix homepage in mobile
 # add flask mail to requirements
 # upload to heroku
