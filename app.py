@@ -319,20 +319,25 @@ def change_password():
 @app.route("/send_email", methods=["POST"])
 def send_email():
     """Send the message of the user for the devs via email"""
-    # Get the message from the form
-    message = request.form.get("message")
+    try:
+        # Get the message from the form
+        message = request.form.get("message")
 
-    # Create the mail and configure its title (subject), sender, and receiver
-    msg = Message("Message from Compiled 50", sender="norepy@gmail.com", recipients=['dummyygenshin@gmail.com'])
-    
-    # Put the message in body of the mail
-    msg.body = message
+        # Create the mail and configure its title (subject), sender, and receiver
+        msg = Message("Message from Compiled 50", sender="norepy@gmail.com", recipients=[os.environ.get("COMPILED50_USERNAME")])
+        
+        # Put the message in body of the mail
+        msg.body = message
 
-    # Send the mail/message
-    mail.send(msg)
+        # Send the mail/message
+        mail.send(msg)
 
-    # Redirect to home page
-    return redirect("/")
+        # Redirect to home page
+        return redirect("/")
+
+    except:
+        print("ERROR: email wasn't send")
+        return redirect("/")
 
 
 @app.route("/mario", methods=["GET", "POST"])
@@ -1197,10 +1202,6 @@ def birthday_delete():
 
 
 # TODO
-# fix footer item in layout
-# hide credentials of mail config username and password using os.environ.get in wsl (already working in windows (need to add un and ps as os variables))
-# catch errors when sending email by using try and except
-# fix homepage in mobile
 # add flask mail to requirements
 # upload to heroku
 

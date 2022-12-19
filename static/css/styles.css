@@ -24,20 +24,43 @@
     width: 100%; 
 }
 
-#left-side .nav-header nav .container-fluid li .nav-link, #nav-button-left {
+#left-side .nav-header nav .container-fluid li .nav-link, .nav-button-left {
     background-color: rgb(55, 55, 55);
     color: white;
 }
 
-#right-side .nav-header nav .container-fluid li .nav-link, #nav-button-right {
+#right-side .nav-header nav .container-fluid li .nav-link, .nav-button-right {
     background-color: rgb(200, 200, 200);
     color: black;
+}
+
+@media only screen and (max-width: 1026px) {
+    #signup-btn {
+        display: none;
+    }
 }
 
 .dropdown-menu {
     background-color: white;
 }
 
+@media only screen and (max-width: 1026px) {
+    #account-dropdown {
+        display: block;
+    }
+    #home-logout-btn, #home-account-btn {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1026px) {
+    #account-dropdown {
+        display: none;
+    }
+    #home-logout-btn, #home-account-btn {
+        display: block;
+    }
+}
 
 #project-item.active, #project-item:active {
     color: rgb(255, 255, 255);
@@ -47,13 +70,20 @@
 
 #title-container .side {
     height:95vh;
-    width: 100%;    
+    width: 100%;
 
     display: grid;
 
     overflow: hidden;
     position: absolute;
 }
+
+@media only screen and (max-width: 1026px) {
+    #title-container, #title-container > .side{
+        height: 65vh;
+    }
+}
+
 
 #title-container #left-side {
     background-color: black;
@@ -68,19 +98,18 @@
 
 .side .title {
     font-family: 'Bebas Neue', cursive;
-    font-size: 8vw;
+    font-size: 10vw;
     margin: 0px 15vw;
     width: 70vw;
 }
 
  .side .description {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 2vw;
+    font-size: 3vw;
     line-height: 0.8em;
     margin: 0px 15vw;
     width: 70vw;
 }
-
 
 #sample-projects {
     font-family: 'Barlow Condensed', sans-serif;
