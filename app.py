@@ -24,8 +24,8 @@ app = Flask(__name__)
 # Configure mail server
 app.config['MAIL_SERVER']="smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = "dummyygenshin@gmail.com"
-app.config['MAIL_PASSWORD'] = "jzoonekfzmkjmtyi"
+app.config['MAIL_USERNAME'] = os.environ.get("COMPILED50_USERNAME")
+app.config['MAIL_PASSWORD'] = os.environ.get("COMPILED50_PASSWORD")
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
@@ -57,20 +57,15 @@ def after_request(response):
     return response
 
 
-current_year = date.today().strftime("%Y")
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
     """Load homepage that allows user to go to other pages"""
-    if request.method == "POST":
-        pass
-
+    if len(session) == 1:
+        username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
+        return render_template("index.html", username=username)
     else:
-        if len(session) == 1:
-            username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
-            return render_template("index.html", username=username)
-        else:
-            return render_template("index.html")
+        return render_template("index.html")
 
 
 
@@ -1203,7 +1198,8 @@ def birthday_delete():
 
 # TODO
 # fix footer item in layout
-# hide credentials of mail config username and password using os.environ.get
+# hide credentials of mail config username and password using os.environ.get in wsl (already working in windows (need to add un and ps as os variables))
+# catch errors when sending email by using try and except
 # fix homepage in mobile
 # add flask mail to requirements
 # upload to heroku
