@@ -24,14 +24,20 @@
     width: 100%; 
 }
 
-#left-side .nav-header nav .container-fluid li .nav-link, #nav-button-left {
+#left-side .nav-header nav .container-fluid li .nav-link, .nav-button-left {
     background-color: rgb(55, 55, 55);
     color: white;
 }
 
-#right-side .nav-header nav .container-fluid li .nav-link, #nav-button-right {
+#right-side .nav-header nav .container-fluid li .nav-link, .nav-button-right {
     background-color: rgb(200, 200, 200);
     color: black;
+}
+
+@media only screen and (max-width: 1026px) {
+    #signup-btn {
+        display: none;
+    }
 }
 
 .dropdown-menu {
