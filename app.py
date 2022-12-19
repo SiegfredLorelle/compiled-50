@@ -1197,8 +1197,6 @@ def birthday_delete():
 
 
 # TODO
-# fix footer item in layout
-# hide credentials of mail config username and password using os.environ.get in wsl (already working in windows (need to add un and ps as os variables))
 # catch errors when sending email by using try and except
 # fix homepage in mobile
 # add flask mail to requirements
