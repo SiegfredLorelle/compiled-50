@@ -1202,7 +1202,6 @@ def birthday_delete():
 
 
 # TODO
-# fix homepage in mobile
 # add flask mail to requirements
 # upload to heroku
 
