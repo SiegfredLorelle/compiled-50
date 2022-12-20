@@ -1100,7 +1100,6 @@ def birthday():
 
         # Ensure person is not already in db
         people = db.execute("SELECT name FROM birthday WHERE id = ?", session["user_id"])
-        print(people)
         for person in people:
             if person["name"] == name:
                 flash(f"'{name}' is already in the lists.", "error")

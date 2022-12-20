@@ -21,13 +21,13 @@
 
 ## Description
 
-It is a responsive web-based application where most project from CS50x 2022 course are compiled. Compiled projects are given a graphical interface with additional/different features. It has a 'login' system which requires users to log in before accessing and trying out the compiled projects. Although logging in as 'guest' works too. A 'contact us' feature allows user to send message to the developers via email. Compiled projects consists of 10 projects derived from labs and problem sets of CS50x 2022.
+It is a responsive web-based application where most project from CS50x 2022 course are compiled. Compiled projects are given a graphical interface with additional/different features. It has a 'login' system which requires users to log in before accessing and trying out the compiled projects. Although logging in as 'guest' works too. A 'contact us' feature allows user to send message to the developers via email. Compiled projects consist of 10 projects derived from labs and problem sets of CS50x 2022.
 
 #### Technologies
 
 - Python 3.10
 - Flask
-- SQLite3
+- SQLite 3
 - HTML, CSS, Javascript
 
 #### Compiled Projects
@@ -114,19 +114,31 @@ Filter is derived from [CS50x 2022 Problem Set 4](https://cs50.harvard.edu/x/202
 
 The additional feature here is that it allows user to upload any images (assuming its file extension is valid). For users hesistant to upload an image, there is also a 'random image' button. Clicking random image button opens up 4 images of dogs. Selecting one of them applies the selected filter to the selected image.
 
-Editing images manually via bitmaps in the problem set is far more complicated than using CSS filers and transforms here.
+Editing images manually via bitmaps in the problem set is far more complicated than using CSS filers and transforms.
 
 ![Filter](/cs50-final-project/static/images/filter.PNG)
 
 #### **Inheritance**
 
+Inheritance is derived from [CS50x 2022 Lab 5](https://cs50.harvard.edu/x/2022/labs/5/). It works similar to the lab. Although this gives the user an option to select a generation and its alleles. 'Randomize all' button exists which works the same as lab. CLicking randomize all button randomizes both alleles of the all grandparents. And parent and child must inherit one allele from each of their parents randomly.
+
+A downside of inheritance is its implementation. The code could use a more efficient algorithm and a better data structure instead of using conditionals to all possible outcomes.
+
 ![Filter](/cs50-final-project/static/images/inheritance.PNG)
 
 #### **Trivia**
 
+Trivia is derived from [CS50x 2022 Lab 8](https://cs50.harvard.edu/x/2022/labs/8/). The lab itself give us freedom to aks any questions that we want. I personalize it to be a 5 item quiz about the Philippines. There are 7 multiple choice questions in the pool of questions. Only 5 from the 7 questions are going to be asked. The probability of each question being picked from the pool is random. Clicking submit redirects to the result page. But users must answer all items before the it proceeds to the result page.
+
+The result page shows the score of user out of 5. Score below 3 are rated as failed. A score of 3 or 4 is rated as passing. And a 5 out of 5 score is rated as perfect. If user has mistakes, a 'see mistakes' button is present. Clicking see mistake button, will show all items answered incorrectly. The user's answer is highlighted as red, and the correct answer is highlighted as green. There are two small dots on top labeled as legends. Hovering the green dot, triggers a tooltip saying 'correct answer.' Hovering red dot, triggeres a tooltip saying 'your answer.'
+
 ![Filter](/cs50-final-project/static/images/trivia.PNG)
 
 #### **Birthday**
+
+Birthday is derived from [CS50x 2022 Lab 9](https://cs50.harvard.edu/x/2022/labs/9/). It works similar to the lab. Enter the name, birth month, and birth day of a person to add them to the birthday lists. The list is sorted by upcoming birthday. It has date check feature which ensures that the month date is valid. Hovering on a row of the birthday list displays an 'X' remove button on its right. Clicking the remove button removes that person on the birthday lists.
+
+The downside of birthday is in the implementation of sorting by upcoming date. There seems to be bug where sometimes it does not sort it properly. Adding more person or refreshing the page fixes the bug.
 
 ![Filter](/cs50-final-project/static/images/birthday.PNG)
 
@@ -152,6 +164,7 @@ IMAGE OF MARIO
 FIGMA AUTHOR OF CREDIT CARDS
 CREDITS TO SCRABBLE TILE
 CREDIT DOG IMGS FROM FILTER
+CREDITS TO CSS OF INHERITANCE
 ---
 
 ## Author Info
