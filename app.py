@@ -1177,6 +1177,8 @@ def birthday_delete():
 
 # TODO
 # testing then finish
+# fix img in readme
+# add links
 # upload to heroku
 # make readme md
 
