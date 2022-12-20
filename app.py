@@ -803,7 +803,7 @@ def inheritance():
             family = db.execute("SELECT allele_1, allele_2, bloodtype FROM inheritance")
 
             # Inform users that inputs in generation and alleles are disregarded
-            if request.form.get("generation") != "Choose a generation ..." or request.form.get("allele-1") != "Choose an allele ..." or request.form.get("allele-2") != "Choose an allele ...":
+            if request.form.get("generation") or request.form.get("allele-1") or request.form.get("allele-2"):
                 flash("Generation and allele inputs were disregarded.", "warning")
                 return render_template("inheritance.html", family=family)
 
@@ -1174,34 +1174,9 @@ def birthday_delete():
     flash(f"Successfully removed '{name}' from birthday list.", "success")
     return redirect("/birthday")
 
-# TODOs
-
-# homepage page
-# Add limit to how much it can drag kasi lumalagpas kapag mobile tapos sobra sa drag
-# Add modal when clicking carousel that enter as guest
-# turn off ung on click sa buttons ng nav
-# itry ung if and else ng mobile and pc para maayos ung nav bar
-# Put links to footer
-# Change homepage to only get
-# add icons for on log in sign in log out
-
-# scrabble page
-# clicking dictionary will lead to modal of list of the words in the dictionary or redirect to download of the text file
-
-# readability
-# add use proper grammar and punctuation below the text box itself
-# find a way to count words and sentences better (especially sentences)
-# restrict the use of other languages
-
-# substitution
-# find a way to ensure that encrypt and decrypt select was chosen in html para d na magrerestart pag input error
-
-# inheritance
-# check bug spaming randomize all errors (maybe empty alleles and bloodtype row in table every post or might fix when login sign in is made)
-
-
 
 # TODO
-# add flask mail to requirements
+# testing then finish
 # upload to heroku
+# make readme md
 
