@@ -34,7 +34,7 @@
 - [Other Features](#other-features)
   - [Account](#account)
   - [Contact Us](#contact-us)
-  - [Aesthetics](aesthetics)
+  - [Aesthetics](#aesthetics)
     - [Responsive](#responsive)
     - [Color Based on Mouse Position](#color-based-on-mouse-position)
     - [Copyright Year](#copyright-year)
@@ -82,7 +82,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - Install python [(here)](https://www.python.org/downloads/) and pip. [(Not sure how to install pip?)](https://pip.pypa.io/en/latest/installation/#installation)
 
-  - Install necessary [python packages](https://github.com/SiegfredLorelle/compiled-50/blob/main/requirments.txt) using pip. [(Not sure how?)](https://pip.pypa.io/en/latest/getting-started/#install-multiple-packages-using-a-requirements-file)
+  - Install necessary [python packages](https://github.com/SiegfredLorelle/compiled-50/blob/main/requirements.txt) using pip. [(Not sure how?)](https://pip.pypa.io/en/latest/getting-started/#install-multiple-packages-using-a-requirements-file)
 
   - Try running the command below on the root directory.
 
