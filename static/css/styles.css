@@ -1,4 +1,5 @@
 /* all pages */
+
 .form-control:focus, .form-select:focus {
     color: #212529;
     background-color: #ffffff;
@@ -21,7 +22,7 @@
 
 #title-container {
     height:95vh;
-    width: 100%; 
+    width: 100%;
 }
 
 #left-side .nav-header nav .container-fluid li .nav-link, .nav-button-left {
@@ -117,7 +118,6 @@
 }
 
 
-
 #title-footer a{
     font-family: 'Bebas Neue', cursive;
     color: white;
@@ -187,7 +187,6 @@ footer ul .nav-item a {
 .navbar-light .navbar-nav .nav-link:hover, .container-fluid #title:hover {
     color: white;
 }
-
 
 .navbar-light .navbar-nav .nav-link::before, .container-fluid #title::before {
     content: "";
@@ -262,6 +261,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 }
 
 /* Login */
+
 #info-button {
     background-color: white;
     padding-left: 7px;
@@ -276,6 +276,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 
 
 /* Mario page */
+
 #mario-title {
     font-family: 'Silkscreen', cursive;
 }
@@ -293,6 +294,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 }
 
 /* Credit page  */
+
 #credit-title {
     font-family: 'Kanit', sans-serif;
 }
@@ -318,6 +320,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 }
 
 /* Scrabble page */
+
 #scrabble-title {
     font-family: 'Libre Franklin', sans-serif;
 }
@@ -336,6 +339,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 
 
 /* Readability page  */
+
 #readability-title {
     font-family: 'Roboto Mono', monospace;
 }
@@ -350,6 +354,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 
 
 /* Substitution page */
+
 #substitution-title {
     font-family: 'Noto Sans Vai', sans-serif;
 }
@@ -366,6 +371,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 
 
 /* Plurality page */
+
 #plurality-title {
     font-family: 'Russo One', sans-serif;
 }
@@ -378,6 +384,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 
 
 /* Filter page */
+
 #filter-title {
     font-size: 60px;
     font-family: 'Shalimar', cursive;
@@ -394,7 +401,7 @@ div ul li #nav-tabs, div ul li #navbarDarkDropdownMenuLink {
 }
 
 /* Credits to: https://stackoverflow.com/questions/16009654/horizontal-line-in-the-middle-of-text */
-#or{
+#or {
 
     text-align:center;
     position:relative;
@@ -441,6 +448,7 @@ div .blur {
 
 
 /* Inheritance page */
+
 #inheritance-title {
     font-family: 'Chakra Petch', sans-serif;
 }
@@ -685,6 +693,7 @@ ol.organizational-chart > li > ol > li > ol > li > div {
 }
 
 /* Trivia page */
+
 #trivia-title {
     font-family: 'Comforter Brush', cursive;
 }
@@ -697,8 +706,8 @@ label .flag {
 .circle-container {
     position: relative;
     margin: 0 auto;
- }
- 
+}
+
  .circle-container .circle {
     height: 15px;
     width: 15px;    
@@ -706,15 +715,15 @@ label .flag {
     text-align: center;
     display: block;
     float: left;
- }
+}
 
  #legend-green:hover {
     background-color: rgba(25,135,84, 0.6)!important;
- }
+}
 
  #legend-red:hover {
     background-color: rgba(220,53,69, 0.6)!important;
- }
+}
 
 
 

@@ -7,7 +7,7 @@
 {% block main %}
     <h1 class="py-3" id="trivia-title">TRIVIA</h1>
     <h6>5-items trivia quiz about the Philippines.</h6><br>
-    
+
     <div>
         <form action="/trivia" method="post">
             {% for question in questions %}
@@ -133,8 +133,8 @@
                 {% endif %}
             {% endfor %}
         </div>
-        
+
         <button class="btn btn-dark m-4" type="submit">Submit</button>
     </form>
- 
+
 {% endblock %}
