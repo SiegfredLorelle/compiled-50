@@ -43,6 +43,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 - Trivia
 - Birthday
 
+[Back to the Top](#compiled-50)
+
 ---
 
 ## How to Use
@@ -51,6 +53,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 
 #### Configuration (TODO maybe set up their email to mail)
+
+[Back to the Top](#compiled-50)
 
 ---
 
@@ -62,6 +66,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Mario](static/images/mario.PNG)
 
+  [Back to the Top](#compiled-50)
+
 - #### **Credit**
 
   Credit is derived from [CS50x 2022 Problem Set 1](https://cs50.harvard.edu/x/2022/psets/1/credit/). It also works exactly the same as the problem set. It also utilizes [Luhn's Algorithm](https://www.geeksforgeeks.org/luhn-algorithm/) to determine the validity of the card. It shows type and an image of a sample card.
@@ -72,11 +78,15 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Credit](static/images/credit.PNG)
 
+  [Back to the Top](#compiled-50)
+
 - #### **Scrabble**
 
   Scrabble is derived from [CS50x 2022 Lab 2](https://cs50.harvard.edu/x/2022/labs/2/). It works slightly different from the lab. This only asks one word from the user, instead of asking two words in the lab. It only shows the total score of given word (with each letters' score), instead of comparing the score of the two words in lab. It is also stricter in terms of accepting words. Before showing the score of the word, it verifies the validity of the world by checking it to a dictionary. The dictionary used is the large dictionary from [CS50x 2022 Week 5 Problem Set 5: Speller](https://cs50.harvard.edu/x/2022/psets/5/speller/).
 
   ![Scrabble](static/images/scrabble.PNG)
+
+  [Back to the Top](#compiled-50)
 
 - #### **Readability**
 
@@ -88,6 +98,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Readability](static/images/readability.PNG)
 
+  [Back to the Top](#compiled-50)
+  
 - #### **Substitution**
 
   Subsitution is derivede from [CS50x 2022 Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/substitution/). it is similar to the problem set, difference being the function to also decrypt. The encryption works by mapping the given key (sequence of 26 distinct letters) to the English alphabet. It allows user to encrypt or decrypt, instead of just encrypt in the problem set. If the user decided to encrypt, the result is the ciphertext of the given plaintext. If the user decided to decrypt, the result is the plaintext of the given ciphertext.
@@ -95,6 +107,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
   Another additional feature is similar to credit and readability, a 'Not sure what to enter?' dropdown. The dropdown shows a list of different keys with each having a copy button beside it. Hovering the copy button, triggers a tooltip saying 'copy'. Clicking the copy button, copies the key assigned to (beside) it as clipboard and paste the copied key to the key input box. A javascript alert informs the user about the automatic copy-paste of the paragraph.
 
   The downside of substitution is that entering with incorrect/lacking inputs will clear the input boxes. A possible fix would be to check the inputs from the front-end using javascript, preventing incorrect/lacking inputs to reach the back-end (flask).
+
+  [Back to the Top](#compiled-50)
 
   ![Substitution](static/images/substitution.PNG)
 
@@ -108,6 +122,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Plurality](static/images/plurality.PNG)
 
+  [Back to the Top](#compiled-50)
+  
 - #### **Filter**
 
   Filter is derived from [CS50x 2022 Problem Set 4](https://cs50.harvard.edu/x/2022/psets/4/filter/less/). It follows the 'less comfortable' version of Filter. All features from the problem set is present. The four (4) filters available are grayscale, sepia, reflection, and blur. 
@@ -118,6 +134,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Filter](static/images/filter.PNG)
 
+  [Back to the Top](#compiled-50)
+
 - #### **Inheritance**
 
   Inheritance is derived from [CS50x 2022 Lab 5](https://cs50.harvard.edu/x/2022/labs/5/). It works similar to the lab. Although this gives the user an option to select a generation and its alleles. 'Randomize all' button exists which works the same as lab. CLicking randomize all button randomizes both alleles of the all grandparents. And parent and child must inherit one allele from each of their parents randomly.
@@ -125,6 +143,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
   A downside of inheritance is its implementation. The code could use a more efficient algorithm and a better data structure instead of using conditionals to all possible outcomes.
 
   ![Inheritance](static/images/inheritance.PNG)
+
+  [Back to the Top](#compiled-50)
 
 - #### **Trivia**
 
@@ -134,6 +154,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Trivia](static/images/trivia.PNG)
 
+  [Back to the Top](#compiled-50)
+
 - #### **Birthday**
 
   Birthday is derived from [CS50x 2022 Lab 9](https://cs50.harvard.edu/x/2022/labs/9/). It works similar to the lab. Enter the name, birth month, and birth day of a person to add them to the birthday lists. The list is sorted by upcoming birthday. It has date check feature which ensures that the month date is valid. Hovering on a row of the birthday list displays an 'X' remove button on its right. Clicking the remove button removes that person on the birthday lists. If users logged in as 'guest', their birthday list resets as soon as they logged out.
@@ -141,6 +163,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
   The downside of birthday is in the implementation of sorting by upcoming date. There seems to be bug where sometimes it does not sort it properly. Adding more person or refreshing the page fixes the bug.
 
   ![Birthday](static/images/birthday.PNG)
+
+  [Back to the Top](#compiled-50)
 
 ---
 
@@ -152,10 +176,14 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   Registering an account, requires a username and password. When logged in, users may can manage their account details, allowing users to change their username or password.
 
+  [Back to the Top](#compiled-50)
+
 - #### **Contact Us**
 
   Users may click 'contact us' button on the footer. It opens a modal prompting for a message for the developers. The message is sent via email.
 
+  [Back to the Top](#compiled-50)
+  
 - #### **Aesthetics**
 
   - ##### **Responsive**
@@ -178,6 +206,8 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
     Plenty of icons and fonts used in the web-app are from [Google Fonts](https://fonts.google.com/). Icons inludes favicon, copy button, and info button. Each compiled project has a different font for its title. The font style of the title is [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=bebas).
 
+  [Back to the Top](#compiled-50)
+
 ---
 
 ## Credits and References
@@ -195,9 +225,13 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 - [Fourth Dog in Filter](https://www.google.com/search?q=why-shiba-inu-was-falling-today&sxsrf=ALiCzsZcxwM-IhxRL9SnCh0_DxoUAvF0LQ:1671624372753&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj19L2H1or8AhUPMd4KHR5-DtMQ_AUoA3oECAEQBQ&biw=1920&bih=969&dpr=1#imgrc=2iE49j6FZZy4zM)
 - [Family Tree in Inheritance](https://www.cssscript.com/responsive-hierarchical-organization-chart-pure-css/)
 
+[Back to the Top](#compiled-50)
+
 ---
 
 ## Author Info
 - Github - [SiegfredLorelle](https://github.com/SiegfredLorelle)
 - Facebook - [Siegfred Mina](https://www.facebook.com/profile.php?id=1718881634)
 - LinkedIn - [Siegfred Lorelle Mina](https://www.linkedin.com/in/siegfred-lorelle-mina-b4900b167)
+
+[Back to the Top](#compiled-50)
