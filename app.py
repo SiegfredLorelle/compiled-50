@@ -1,4 +1,7 @@
-# Compiled 50
+"""
+Compiled 50
+A CS50 Compilation and more!
+"""
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session, url_for
@@ -337,6 +340,7 @@ def send_email():
     except:
         print("ERROR: email wasn't send")
         return redirect("/")
+
 
 
 @app.route("/mario", methods=["GET", "POST"])
@@ -1170,10 +1174,3 @@ def birthday_delete():
     # Reload the page
     flash(f"Successfully removed '{name}' from birthday list.", "success")
     return redirect("/birthday")
-
-
-# TODO
-# testing then finish
-# record 3 mins vid
-# add  the link of yt vid in readme.md
-
