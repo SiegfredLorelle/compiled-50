@@ -14,7 +14,34 @@
 
 ### Table of Contents
 
-TODO
+- [Decription](#description)
+  - [Technologies](#technologies)
+  - [Compiled Projects](#compiled-projects)
+- [How to Use](#how-to-use)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+- [Compiled Projects Details](#compiled-projects-details)
+  - [Mario](#mario)
+  - [Credit](#credit)
+  - [Scrabble](#scrabble)
+  - [Readability](#readability)
+  - [Substitution](#substitution)
+  - [Plurality](#plurality)
+  - [Filter](#filter)
+  - [Inheritance](#inheritance)
+  - [Trivia](#trivia)
+  - [Birthday](#birthday)
+- [Other Features](#other-features)
+  - [Account](#account)
+  - [Contact Us](#contact-us)
+  - [Aesthetics](aesthetics)
+    - [Responsive](#responsive)
+    - [Color Based on Mouse Position](#color-based-on-mouse-position)
+    - [Copyright Year](#copyright-year)
+    - [Favicon](#favicon)
+    - [Fonts and Icons](#fonts-and-icons)
+- [Credits and References](#credits-and-references)
+
 
 ---
 
@@ -65,24 +92,25 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - If an error occurs, try following the steps again.
 
+  [Back to the Top](#compiled-50)
+
+
 #### Configuration
 
   Your Compiled 50 should work after [installing](#installation). Hovewer the ['contact us' feature](#contact-us) won't send the message/email to you. Mail server must be configured that the username and password is from your email. To do this:
 
   - Add 2-Step Verification on the Google Account you want to receive the message. [(Not sure how?)](https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop)
 
-  - Create an App Password. The given 16-character code will be the password for your Compiled 50. [(Not sure how?)](https://support.google.com/mail/answer/185833?hl=en)
+  - Create an App Password. The given 16-character code will be the password for your the mail server. [(Not sure how?)](https://support.google.com/mail/answer/185833?hl=en)
 
   - Create an OS environment variable for username and password [(For Windows)](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0) [(For Linux)](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/#persistent-environment-variables). Make sure the variable name for username is 'COMPILED50_USERNAME' and variable name for password is 'COMPILED50_PASSWORD'.
-    The environment variable should look like below .
+    The environment variable should look like below.
     ```
     COMPILED50_USERNAME=YourGmail@gmail.com
     COMPILED50_PASSWORD=abcdefghijklmnop
     ```
 
   - Try sending a message using the 'Contact Us' feature, then check if the email has been sent to your gmail.
-
-
 
 [Back to the Top](#compiled-50)
 
@@ -198,7 +226,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 ---
 
-## Other features
+## Other Features
 
 - #### **Account**
 
@@ -224,7 +252,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
     On homepage, the background color changes based on the mouse position. On the left side of the mouse, the background color is black and text color is white. On the right side of the mouse, the background color is white and the text color is black. Left side elements of the homepage are stacked on top of the right side elements. A javascript file, 'mouse-track.js', tracks the position of mouse and get the current width, then apply that width to as style to the elements designated to the left side (also tracks touches for mobile users). That way the width of the elements of the left side are limited to the current position of the mouse which puts the right side elements on top only on the right side of the mouse.
 
-  - ##### **Year on footer**
+  - ##### **Copyright Year**
 
     At the footer of every page is a copyright symbol, year, and the developer's name. The year is entered using javascript. Javascript gets the current full year and enter it in the footer. That way the year should change automatically based on the current year. Lessening the maintainance needed.
 
@@ -244,15 +272,25 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 - [Bootstrap Documentation](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 - [Google Fonts](https://fonts.google.com/)
+
 - [Color Based on Mouse Position](https://www.youtube.com/watch?v=zGKNMm4L-r4)
+
 - [Mario Block](http://pixelartmaker.com/art/d53cda86152db67)
+
 - [Credit Card Template](https://www.figma.com/community/file/934454786523964614)
+
 - [American Express (AMEX) Logo](https://www.pngegg.com/en/png-pswlb)
+
 - [Scrabble Tile Template](https://thekatespanos.com/scrabble-score-calculator/)
+
 - [First Dog in Filter](https://www.google.com/imgres?imgurl=https%3A%2F%2Fhips.hearstapps.com%2Fhmg-prod.s3.amazonaws.com%2Fimages%2Fdog-puppy-on-garden-royalty-free-image-1586966191.jpg&imgrefurl=https%3A%2F%2Fwww.goodhousekeeping.com%2Flife%2Fpets%2Fg4531%2Fcutest-dog-breeds%2F&tbnid=k9xReEDKDkeNKM&vet=12ahUKEwiSxbir04r8AhVEUN4KHe_VBUoQMygFegUIARDqAQ..i&docid=2r6Arj4-hBjhNM&w=1999&h=1499&q=dogs&ved=2ahUKEwiSxbir04r8AhVEUN4KHe_VBUoQMygFegUIARDqAQ)
+
 - [Second Dog in Filter](https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2022%2F05%2F25%2Fgettyimages-917452888-edit_custom-c656c35e4e40bf22799195af846379af6538810c-s1100-c50.jpg&imgrefurl=https%3A%2F%2Fwww.npr.org%2F2022%2F05%2F25%2F1101178609%2Fdog-breeds-are-a-behavioral-myth-sorry&tbnid=eZ7z5QKRWWfQjM&vet=10CBkQMyh0ahcKEwigitGr04r8AhUAAAAAHQAAAAAQAw..i&docid=h1VgN3JK54ZzrM&w=1100&h=761&q=dogs&ved=0CBkQMyh0ahcKEwigitGr04r8AhUAAAAAHQAAAAAQAw)
+
 - [Third Dog in Filter](https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.aspca.org%2Fsites%2Fdefault%2Ffiles%2Fdog-care_general-dog-care_main-image.jpg&imgrefurl=https%3A%2F%2Fwww.aspca.org%2Fpet-care%2Fdog-care%2Fgeneral-dog-care&tbnid=5Ltzy9NuXgAbHM&vet=10CHcQMyieAWoXChMIoIrRq9OK_AIVAAAAAB0AAAAAEAM..i&docid=ERlyPt0D7ftS3M&w=1040&h=500&q=dogs&ved=0CHcQMyieAWoXChMIoIrRq9OK_AIVAAAAAB0AAAAAEAM)
+
 - [Fourth Dog in Filter](https://www.google.com/search?q=why-shiba-inu-was-falling-today&sxsrf=ALiCzsZcxwM-IhxRL9SnCh0_DxoUAvF0LQ:1671624372753&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj19L2H1or8AhUPMd4KHR5-DtMQ_AUoA3oECAEQBQ&biw=1920&bih=969&dpr=1#imgrc=2iE49j6FZZy4zM)
+
 - [Family Tree in Inheritance](https://www.cssscript.com/responsive-hierarchical-organization-chart-pure-css/)
 
 [Back to the Top](#compiled-50)
@@ -261,7 +299,9 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 ## Author Info
 - Github - [SiegfredLorelle](https://github.com/SiegfredLorelle)
+
 - Facebook - [Siegfred Mina](https://www.facebook.com/profile.php?id=1718881634)
+
 - LinkedIn - [Siegfred Lorelle Mina](https://www.linkedin.com/in/siegfred-lorelle-mina-b4900b167)
 
 [Back to the Top](#compiled-50)
