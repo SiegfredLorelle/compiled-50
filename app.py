@@ -1176,7 +1176,6 @@ def birthday_delete():
 
 # TODO
 # testing then finish
-# make readme md
-# fix img in readme
-# add go back to top
+# toc, installation and configuration in readme.md
+# record 3 mins vid
 

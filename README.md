@@ -49,10 +49,40 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 ## How to Use
 
-#### Installation (TODO INSTALL PACKAGES OR REDIRECT TO HEROKU)
+#### Installation
+
+  - Fork [this repository](https://github.com/SiegfredLorelle/compiled-50). [(Not sure how?)](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository)
+
+  - Install python [(here)](https://www.python.org/downloads/) and pip. [(Not sure how to install pip?)](https://pip.pypa.io/en/latest/installation/#installation)
+
+  - Install necessary [python packages](https://github.com/SiegfredLorelle/compiled-50/blob/main/requirments.txt) using pip. [(Not sure how?)](https://pip.pypa.io/en/latest/getting-started/#install-multiple-packages-using-a-requirements-file)
+
+  - Try running the command below on the root directory.
+
+    ```
+    flask run
+    ```
+
+  - If an error occurs, try following the steps again.
+
+#### Configuration
+
+  Your Compiled 50 should work after [installing](#installation). Hovewer the ['contact us' feature](#contact-us) won't send the message/email to you. Mail server must be configured that the username and password is from your email. To do this:
+
+  - Add 2-Step Verification on the Google Account you want to receive the message. [(Not sure how?)](https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop)
+
+  - Create an App Password. The given 16-character code will be the password for your Compiled 50. [(Not sure how?)](https://support.google.com/mail/answer/185833?hl=en)
+
+  - Create an OS environment variable for username and password [(For Windows)](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0) [(For Linux)](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/#persistent-environment-variables). Make sure the variable name for username is 'COMPILED50_USERNAME' and variable name for password is 'COMPILED50_PASSWORD'.
+    The environment variable should look like below .
+    ```
+    COMPILED50_USERNAME=YourGmail@gmail.com
+    COMPILED50_PASSWORD=abcdefghijklmnop
+    ```
+
+  - Try sending a message using the 'Contact Us' feature, then check if the email has been sent to your gmail.
 
 
-#### Configuration (TODO maybe set up their email to mail)
 
 [Back to the Top](#compiled-50)
 
