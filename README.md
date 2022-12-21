@@ -1,7 +1,6 @@
-
 # **COMPILED 50**
 
-#### Video Demo:  TODO URL
+#### Video Demo: TODO URL
 
 #### Description: A web-based application where projects from CS50x course are compiled.
 
@@ -15,13 +14,13 @@
 
 ### Table of Contents
 
-
+TODO
 
 ---
 
 ## Description
 
-It is a responsive web-based application where most project from CS50x 2022 course are compiled. Compiled projects are given a graphical interface with additional/different features. It has a 'login' system which requires users to log in before accessing and trying out the compiled projects. Although logging in as 'guest' works too. A 'contact us' feature allows user to send message to the developers via email. Compiled projects consist of 10 projects derived from labs and problem sets of CS50x 2022.
+It is a responsive web-based application where most project from [CS50x 2022 course](https://cs50.harvard.edu/x/2022/) are compiled. Compiled projects are given a graphical interface with additional/different features. It has a 'login' system which requires users to log in before accessing and trying out the compiled projects. Although logging in as 'guest' works too. A 'contact us' feature allows user to send message to the developers via email. Compiled projects consist of 10 projects derived from labs and problem sets of CS50x 2022.
 
 #### Technologies
 
@@ -124,7 +123,7 @@ Inheritance is derived from [CS50x 2022 Lab 5](https://cs50.harvard.edu/x/2022/l
 
 A downside of inheritance is its implementation. The code could use a more efficient algorithm and a better data structure instead of using conditionals to all possible outcomes.
 
-![Filter](/cs50-final-project/static/images/inheritance.PNG)
+![Inheritance](/cs50-final-project/static/images/inheritance.PNG)
 
 #### **Trivia**
 
@@ -132,39 +131,66 @@ Trivia is derived from [CS50x 2022 Lab 8](https://cs50.harvard.edu/x/2022/labs/8
 
 The result page shows the score of user out of 5. Score below 3 are rated as failed. A score of 3 or 4 is rated as passing. And a 5 out of 5 score is rated as perfect. If user has mistakes, a 'see mistakes' button is present. Clicking see mistake button, will show all items answered incorrectly. The user's answer is highlighted as red, and the correct answer is highlighted as green. There are two small dots on top labeled as legends. Hovering the green dot, triggers a tooltip saying 'correct answer.' Hovering red dot, triggeres a tooltip saying 'your answer.'
 
-![Filter](/cs50-final-project/static/images/trivia.PNG)
+![Trivia](/cs50-final-project/static/images/trivia.PNG)
 
 #### **Birthday**
 
-Birthday is derived from [CS50x 2022 Lab 9](https://cs50.harvard.edu/x/2022/labs/9/). It works similar to the lab. Enter the name, birth month, and birth day of a person to add them to the birthday lists. The list is sorted by upcoming birthday. It has date check feature which ensures that the month date is valid. Hovering on a row of the birthday list displays an 'X' remove button on its right. Clicking the remove button removes that person on the birthday lists.
+Birthday is derived from [CS50x 2022 Lab 9](https://cs50.harvard.edu/x/2022/labs/9/). It works similar to the lab. Enter the name, birth month, and birth day of a person to add them to the birthday lists. The list is sorted by upcoming birthday. It has date check feature which ensures that the month date is valid. Hovering on a row of the birthday list displays an 'X' remove button on its right. Clicking the remove button removes that person on the birthday lists. If users logged in as 'guest', their birthday list resets as soon as they logged out.
 
 The downside of birthday is in the implementation of sorting by upcoming date. There seems to be bug where sometimes it does not sort it properly. Adding more person or refreshing the page fixes the bug.
 
-![Filter](/cs50-final-project/static/images/birthday.PNG)
-
-
-
-
-
-
-
-
-
-
-
+![Birthday](/cs50-final-project/static/images/birthday.PNG)
 
 ---
 
 ## Other features
+
+#### **Account**
+
+In order to access the compiled projects, users must login a registered account. If user does not have a registered account, users may sign up to create an account or login as 'guest.' 
+
+Registering an account, requires a username and password. When logged in, users may can manage their account details, allowing users to change their username or password.
+
+#### **Contact Us**
+
+Users may click 'contact us' button on the footer. It opens a modal prompting for a message for the developers. The message is sent via email.
+
+#### **Aesthetics**
+
+##### **Responsive**
+
+The web-app responds to size of screen or orientation. Larger (in terms of horizontal length) screens have different layout than smaller screens. Layout is adjusted to give a better user interface that fits the user's screen. It tries to give the same experience for large screen and small screen users.
+
+##### **Color Based on Mouse Position**
+
+On homepage, the background color changes based on the mouse position. On the left side of the mouse, the background color is black and text color is white. On the right side of the mouse, the background color is white and the text color is black. Left side elements of the homepage are stacked on top of the right side elements. A javascript file, 'mouse-track.js', tracks the position of mouse and get the current width, then apply that width to as style to the elements designated to the left side (also tracks touches for mobile users). That way the width of the elements of the left side are limited to the current position of the mouse which puts the right side elements on top only on the right side of the mouse.
+
+##### **Year on footer**
+
+At the footer of every page is a copyright symbol, year, and the developer's name. The year is entered using javascript. Javascript gets the current full year and enter it in the footer. That way the year should change automatically based on the current year. Lessening the maintainance needed.
+
+##### **Favicon**
+
+The favicon used for the web-app is an [icon from Google Fonts](https://fonts.google.com/icons?icon.query=filter+none&icon.style=Rounded). The favicon color is dependent on the theme of the browser. A light theme browser uses a black favicon. A dark theme browser uses a white favicon. 
+
+##### **Fonts and Icons**
+
+Plenty of icons and fonts used in the web-app are from [Google Fonts](https://fonts.google.com/). Icons inludes favicon, copy button, and info button. Each compiled project has a different font for its title. The font style of the title is [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=bebas).
+
 ---
 
-## Credits
+## Credits and References
 YT OF HOMEPAGE DRAG
 IMAGE OF MARIO
 FIGMA AUTHOR OF CREDIT CARDS
 CREDITS TO SCRABBLE TILE
 CREDIT DOG IMGS FROM FILTER
 CREDITS TO CSS OF INHERITANCE
+CREDITS TO BOOTSTRAPS
+CREDITS TO GOOGLE FONTS
 ---
 
 ## Author Info
+- Github - [SiegfredLorelle](https://github.com/SiegfredLorelle)
+- Facebook - [Siegfred Mina](https://www.facebook.com/profile.php?id=1718881634)
+- LinkedIn - [Siegfred Lorelle Mina](https://www.linkedin.com/in/siegfred-lorelle-mina-b4900b167)

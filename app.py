@@ -1176,6 +1176,7 @@ def birthday_delete():
 
 # TODO
 # testing then finish
+# convert favicons from png to ico
 # upload to heroku
 # make readme md
 # fix img in readme
