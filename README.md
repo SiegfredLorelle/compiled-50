@@ -180,14 +180,20 @@ Plenty of icons and fonts used in the web-app are from [Google Fonts](https://fo
 ---
 
 ## Credits and References
-YT OF HOMEPAGE DRAG
-IMAGE OF MARIO
-FIGMA AUTHOR OF CREDIT CARDS
-CREDITS TO SCRABBLE TILE
-CREDIT DOG IMGS FROM FILTER
-CREDITS TO CSS OF INHERITANCE
-CREDITS TO BOOTSTRAPS
-CREDITS TO GOOGLE FONTS
+
+- [Bootstrap Documentation](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+- [Google Fonts](https://fonts.google.com/)
+- [Color Based on Mouse Position](https://www.youtube.com/watch?v=zGKNMm4L-r4)
+- [Mario Block](http://pixelartmaker.com/art/d53cda86152db67)
+- [Credit Card Template](https://www.figma.com/community/file/934454786523964614)
+- [American Express (AMEX) Logo](https://www.pngegg.com/en/png-pswlb)
+- [Scrabble Tile Template](https://thekatespanos.com/scrabble-score-calculator/)
+- [First Dog in Filter](https://www.google.com/imgres?imgurl=https%3A%2F%2Fhips.hearstapps.com%2Fhmg-prod.s3.amazonaws.com%2Fimages%2Fdog-puppy-on-garden-royalty-free-image-1586966191.jpg&imgrefurl=https%3A%2F%2Fwww.goodhousekeeping.com%2Flife%2Fpets%2Fg4531%2Fcutest-dog-breeds%2F&tbnid=k9xReEDKDkeNKM&vet=12ahUKEwiSxbir04r8AhVEUN4KHe_VBUoQMygFegUIARDqAQ..i&docid=2r6Arj4-hBjhNM&w=1999&h=1499&q=dogs&ved=2ahUKEwiSxbir04r8AhVEUN4KHe_VBUoQMygFegUIARDqAQ)
+- [Second Dog in Filter](https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2022%2F05%2F25%2Fgettyimages-917452888-edit_custom-c656c35e4e40bf22799195af846379af6538810c-s1100-c50.jpg&imgrefurl=https%3A%2F%2Fwww.npr.org%2F2022%2F05%2F25%2F1101178609%2Fdog-breeds-are-a-behavioral-myth-sorry&tbnid=eZ7z5QKRWWfQjM&vet=10CBkQMyh0ahcKEwigitGr04r8AhUAAAAAHQAAAAAQAw..i&docid=h1VgN3JK54ZzrM&w=1100&h=761&q=dogs&ved=0CBkQMyh0ahcKEwigitGr04r8AhUAAAAAHQAAAAAQAw)
+- [Third Dog in Filter](https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.aspca.org%2Fsites%2Fdefault%2Ffiles%2Fdog-care_general-dog-care_main-image.jpg&imgrefurl=https%3A%2F%2Fwww.aspca.org%2Fpet-care%2Fdog-care%2Fgeneral-dog-care&tbnid=5Ltzy9NuXgAbHM&vet=10CHcQMyieAWoXChMIoIrRq9OK_AIVAAAAAB0AAAAAEAM..i&docid=ERlyPt0D7ftS3M&w=1040&h=500&q=dogs&ved=0CHcQMyieAWoXChMIoIrRq9OK_AIVAAAAAB0AAAAAEAM)
+- [Fourth Dog in Filter](https://www.google.com/search?q=why-shiba-inu-was-falling-today&sxsrf=ALiCzsZcxwM-IhxRL9SnCh0_DxoUAvF0LQ:1671624372753&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj19L2H1or8AhUPMd4KHR5-DtMQ_AUoA3oECAEQBQ&biw=1920&bih=969&dpr=1#imgrc=2iE49j6FZZy4zM)
+- [Family Tree in Inheritance](https://www.cssscript.com/responsive-hierarchical-organization-chart-pure-css/)
+
 ---
 
 ## Author Info
