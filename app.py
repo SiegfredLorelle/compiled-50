@@ -1176,6 +1176,7 @@ def birthday_delete():
 
 # TODO
 # testing then finish
-# toc, installation and configuration in readme.md
+# add more links in description and early part of readme.md
+# toc in readme.md
 # record 3 mins vid
 
