@@ -20,7 +20,7 @@ def login_required(f):
 
 # Referenced in Credit
 def check_card(number):
-    """ 
+    """
     Use Luhn’s Algorithm to determine the validity of the card then check what card it is
     """
     current_digit = number

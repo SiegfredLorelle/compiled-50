@@ -1,6 +1,5 @@
 # Compiled 50
 
-
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_mail import Mail, Message
@@ -666,7 +665,7 @@ def plurality_votes():
         # If all voters voted then show the result and sort them also by votes
         if total_votes == no_voters:
             winners = db.execute("SELECT full_name FROM pluralityCandidates WHERE votes = (SELECT MAX(votes) as votes FROM pluralityCandidates)")
-            flash("Winners determined!", "success")
+            flash("Winner(s) determined!", "success")
             return render_template("plurality-result.html", winners=winners, candidates_sorted=candidates_sorted)
 
         # If votes are incomplete ask for next vote
@@ -819,7 +818,6 @@ def inheritance():
             allele_2 = request.form.get("allele-2")
 
             # Check if inputs are compelete
-            print(generation)
             if not generation:
                 flash("No generation selected.", "error")
                 return render_template("inheritance.html")
@@ -1176,7 +1174,6 @@ def birthday_delete():
 
 # TODO
 # testing then finish
-# add more links in description and early part of readme.md
-# toc in readme.md
 # record 3 mins vid
+# add  the link of yt vid in readme.md
 
