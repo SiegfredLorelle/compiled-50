@@ -47,7 +47,7 @@
 
 ## Description
 
-It is a responsive web-based application where most project from [CS50x 2022 course](https://cs50.harvard.edu/x/2022/) are compiled. Compiled projects are given a graphical interface with additional/different features. It has a 'login' system which requires users to log in before accessing and trying out the compiled projects. Although logging in as 'guest' works too. A 'contact us' feature allows user to send message to the developers via email. Compiled projects consist of 10 projects derived from labs and problem sets of CS50x 2022.
+It is a responsive web-based application where most project from [CS50x 2022 course](https://cs50.harvard.edu/x/2022/) are compiled. Compiled projects are given a graphical interface with additional/different features. It has a ['login' system](#account) which requires users to log in before accessing and trying out the compiled projects. Although logging in as 'guest' works too. A ['contact us' feature](#contact-us) allows user to send message to the developers via email. Compiled projects consist of 10 projects derived from labs and problem sets of CS50x 2022.
 
 #### Technologies
 
@@ -59,16 +59,16 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 #### Compiled Projects
 
-- Mario
-- Credit
-- Scrabble
-- Readability
-- Substitution
-- Plurality
-- Filter
-- Inheritance
-- Trivia
-- Birthday
+- [Mario](#mario)
+- [Credit](#credit)
+- [Scrabble](#scrabble)
+- [Readability](#readability)
+- [Substitution](#substitution)
+- [Plurality](#plurality)
+- [Filter](#filter)
+- [Inheritance](#inheritance)
+- [Trivia](#trivia)
+- [Birthday](#birthday)
 
 [Back to the Top](#compiled-50)
 
@@ -128,7 +128,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 - #### **Credit**
 
-  Credit is derived from [CS50x 2022 Problem Set 1](https://cs50.harvard.edu/x/2022/psets/1/credit/). It also works exactly the same as the problem set. It also utilizes [Luhn's Algorithm](https://www.geeksforgeeks.org/luhn-algorithm/) to determine the validity of the card. It shows type and an image of a sample card.
+  Credit is derived from [CS50x 2022 Problem Set 1](https://cs50.harvard.edu/x/2022/psets/1/credit/). It also works exactly the same as the problem set. It also utilizes [Luhn's Algorithm](https://www.geeksforgeeks.org/luhn-algorithm/) to determine the validity of the card. It shows the type of credit card and a sample image of it.
 
   The added feature here is a 'Not sure what to enter?' dropdown. The dropdown shows sample American Express (AMEX), Mastercard, and Visa credit card numbers. Beside each credit card number is a 'copy' button. Hovering the copy button triggers a tooltip saying 'copy'. Clicking the copy button automatically copy the credit card number it is assign to (or just beside it) as clipboard and automatically type the credit card number in the credit card number input box. A javascript alert informs the user about the automatic copy-paste of the credit card number.
 
@@ -160,15 +160,15 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
   
 - #### **Substitution**
 
-  Subsitution is derivede from [CS50x 2022 Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/substitution/). it is similar to the problem set, difference being the function to also decrypt. The encryption works by mapping the given key (sequence of 26 distinct letters) to the English alphabet. It allows user to encrypt or decrypt, instead of just encrypt in the problem set. If the user decided to encrypt, the result is the ciphertext of the given plaintext. If the user decided to decrypt, the result is the plaintext of the given ciphertext.
+  Subsitution is derivede from [CS50x 2022 Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/substitution/). it is similar to the problem set, key difference is that this has a function to decrypt. The encryption works by mapping the given key (sequence of 26 distinct letters) to the English alphabet. It allows user to encrypt or decrypt, instead of just encrypt in the problem set. If the user decided to encrypt, the result is the ciphertext of the given plaintext. If the user decided to decrypt, the result is the plaintext of the given ciphertext.
 
   Another additional feature is similar to credit and readability, a 'Not sure what to enter?' dropdown. The dropdown shows a list of different keys with each having a copy button beside it. Hovering the copy button, triggers a tooltip saying 'copy'. Clicking the copy button, copies the key assigned to (beside) it as clipboard and paste the copied key to the key input box. A javascript alert informs the user about the automatic copy-paste of the paragraph.
 
   The downside of substitution is that entering with incorrect/lacking inputs will clear the input boxes. A possible fix would be to check the inputs from the front-end using javascript, preventing incorrect/lacking inputs to reach the back-end (flask).
 
-  [Back to the Top](#compiled-50)
-
   ![Substitution](static/images/substitution.PNG)
+
+  [Back to the Top](#compiled-50)
 
 - #### **Plurality**
 
@@ -196,7 +196,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 - #### **Inheritance**
 
-  Inheritance is derived from [CS50x 2022 Lab 5](https://cs50.harvard.edu/x/2022/labs/5/). It works similar to the lab. Although this gives the user an option to select a generation and its alleles. 'Randomize all' button exists which works the same as lab. CLicking randomize all button randomizes both alleles of the all grandparents. And parent and child must inherit one allele from each of their parents randomly.
+  Inheritance is derived from [CS50x 2022 Lab 5](https://cs50.harvard.edu/x/2022/labs/5/). It works similar to the lab. Although this gives the user an option to select a generation and its alleles. 'Randomize all' button exists which works the same as lab. Clicking randomize all button randomizes both alleles of the all grandparents. And parent and child must inherit one allele from each of their parents randomly.
 
   A downside of inheritance is its implementation. The code could use a more efficient algorithm and a better data structure instead of using conditionals to all possible outcomes.
 
@@ -206,7 +206,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 - #### **Trivia**
 
-  Trivia is derived from [CS50x 2022 Lab 8](https://cs50.harvard.edu/x/2022/labs/8/). The lab itself give us freedom to aks any questions that we want. I personalize it to be a 5 item quiz about the Philippines. There are 7 multiple choice questions in the pool of questions. Only 5 from the 7 questions are going to be asked. The probability of each question being picked from the pool is random. Clicking submit redirects to the result page. But users must answer all items before the it proceeds to the result page.
+  Trivia is derived from [CS50x 2022 Lab 8](https://cs50.harvard.edu/x/2022/labs/8/). The lab itself give us freedom to aks any questions that we want. I personalize it to be a 5 item quiz about the [Philippines](https://en.wikipedia.org/wiki/Philippines). There are 7 multiple choice questions in the pool of questions. Only 5 from the 7 questions are going to be asked. The probability of each question being picked from the pool is random. Clicking submit redirects to the result page. But users must answer all items before the it proceeds to the result page.
 
   The result page shows the score of user out of 5. Score below 3 are rated as failed. A score of 3 or 4 is rated as passing. And a 5 out of 5 score is rated as perfect. If user has mistakes, a 'see mistakes' button is present. Clicking see mistake button, will show all items answered incorrectly. The user's answer is highlighted as red, and the correct answer is highlighted as green. There are two small dots on top labeled as legends. Hovering the green dot, triggers a tooltip saying 'correct answer.' Hovering red dot, triggeres a tooltip saying 'your answer.'
 
@@ -232,7 +232,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   In order to access the compiled projects, users must login a registered account. If user does not have a registered account, users may sign up to create an account or login as 'guest.' 
 
-  Registering an account, requires a username and password. When logged in, users may can manage their account details, allowing users to change their username or password.
+  Registering an account, requires a username and password. When logged in, users can manage their account details, allowing them to change their username or password.
 
   [Back to the Top](#compiled-50)
 
@@ -250,7 +250,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - ##### **Color Based on Mouse Position**
 
-    On homepage, the background color changes based on the mouse position. On the left side of the mouse, the background color is black and text color is white. On the right side of the mouse, the background color is white and the text color is black. Left side elements of the homepage are stacked on top of the right side elements. A javascript file, 'mouse-track.js', tracks the position of mouse and get the current width, then apply that width to as style to the elements designated to the left side (also tracks touches for mobile users). That way the width of the elements of the left side are limited to the current position of the mouse which puts the right side elements on top only on the right side of the mouse.
+    On homepage, the background color changes based on the mouse position. On the left side of the mouse, the background color is black and text color is white. On the right side of the mouse, the background color is white and the text color is black. Left side elements of the homepage are stacked on top of the right side elements. A javascript file, 'mouse-track.js', tracks the position of mouse (also tracks touches for mobile users) and get the current width, then apply that width to as style to the elements designated to the left side. That way the width of the elements of the left side are limited to the current position of the mouse which puts the right side elements on top only on the right side of the mouse.
 
   - ##### **Copyright Year**
 
@@ -262,7 +262,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - ##### **Fonts and Icons**
 
-    Plenty of icons and fonts used in the web-app are from [Google Fonts](https://fonts.google.com/). Icons inludes favicon, copy button, and info button. Each compiled project has a different font for its title. The font style of the title is [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=bebas).
+    Plenty of icons and fonts used in the web-app are from [Google Fonts](https://fonts.google.com/). Icons inludes favicon, copy button, and info button. Each compiled project has a different font for its title. The font style of the the title of the web-app, Compiled 50, is [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=bebas).
 
   [Back to the Top](#compiled-50)
 
