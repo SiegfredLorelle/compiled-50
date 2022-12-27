@@ -41,6 +41,7 @@
     - [Favicon](#favicon)
     - [Fonts and Icons](#fonts-and-icons)
 - [Credits and References](#credits-and-references)
+- [Author Info](#author-info)
 
 
 ---
