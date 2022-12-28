@@ -18,7 +18,7 @@ def login_required(f):
     return decorated_function
 
 
-# Referenced in Credit
+# Referenced in credit page
 def check_card(number):
     """
     Use Luhn’s Algorithm to determine the validity of the card then check what card it is
@@ -86,7 +86,7 @@ def Luhns_step2(digit, sum):
     return sum
 
 
-# Referenced in Readability
+# Referenced in readability page
 def get_grade_lvl(text):
     """
     Counts the number of letters, words, and sentences then Use Coleman Liau Index to get grade level
@@ -162,9 +162,3 @@ def get_allele_to_inherit(allele_1, allele_2):
     """Randomly determine which allele to inherit"""
     alleles = [allele_1, allele_2]
     return choice(alleles)
-
-
-def sort_dates(dates):
-    month_day = dates["birthday"].split("/")
-    month_day = [int(date) for date in month_day]
-    return month_day[0], month_day[1]
