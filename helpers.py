@@ -162,3 +162,9 @@ def get_allele_to_inherit(allele_1, allele_2):
     """Randomly determine which allele to inherit"""
     alleles = [allele_1, allele_2]
     return choice(alleles)
+
+# Referenced in birthday page
+def sort_dates(dates):
+    month_day = dates["birthday"].split("/")
+    month_day = [int(date) for date in month_day]
+    return month_day[0], month_day[1]
