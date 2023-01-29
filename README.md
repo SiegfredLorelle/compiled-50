@@ -14,7 +14,7 @@
 
 ### Table of Contents
 
-- [Decription](#description)
+- [Description](#description)
   - [Technologies](#technologies)
   - [Compiled Projects](#compiled-projects)
 - [How to Use](#how-to-use)
@@ -81,7 +81,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - Fork [this repository](https://github.com/SiegfredLorelle/compiled-50). [(Not sure how?)](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository)
 
-  - Install python [(here)](https://www.python.org/downloads/) and pip. [(Not sure how to install pip?)](https://pip.pypa.io/en/latest/installation/#installation)
+  - Install [python](https://www.python.org/downloads/) and pip. [(Not sure how?)](https://pip.pypa.io/en/latest/installation/#installation)
 
   - Install necessary [python packages](https://github.com/SiegfredLorelle/compiled-50/blob/main/requirements.txt) using pip. [(Not sure how?)](https://pip.pypa.io/en/latest/getting-started/#install-multiple-packages-using-a-requirements-file)
 
@@ -98,13 +98,13 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 #### Configuration
 
-  Your Compiled 50 should work after [installing](#installation). Hovewer the ['contact us' feature](#contact-us) won't send the message/email to you. Mail server must be configured that the username and password is from your email. To do this:
+  Your Compiled 50 should work after [installing](#installation). However the ['contact us' feature](#contact-us) won't send the message/email to you. Mail server must be configured that the username and password is from your email. To do this:
 
   - Add 2-Step Verification on the Google Account you want to receive the message. [(Not sure how?)](https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop)
 
   - Create an App Password. The given 16-character code will be the password for your the mail server. [(Not sure how?)](https://support.google.com/mail/answer/185833?hl=en)
 
-  - Create an OS environment variable for username and password [(For Windows)](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0) [(For Linux)](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/#persistent-environment-variables). Make sure the variable name for username is 'COMPILED50_USERNAME' and variable name for password is 'COMPILED50_PASSWORD'.
+  - Create an OS environment variable for username and password [(Windows)](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0) [(Linux)](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/#persistent-environment-variables). Make sure the variable name for username is 'COMPILED50_USERNAME' and variable name for password is 'COMPILED50_PASSWORD'.
     The environment variable should look like below.
     ```
     COMPILED50_USERNAME=YourGmail@gmail.com
@@ -151,9 +151,9 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   Readability is derived from [CS50x 2022 Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/readability/). It works similar to the problem set. The readability test used is [Coleman-Liau Index](https://readable.com/readability/coleman-liau-readability-index/) which considers the number of letters, words, and sentences of the paragraph. It will show the approximate grade level needed to comprehend the given paragraph.
 
-  The added feature here is similar to credit, a 'Not sure what to enter?' dropdown. The dropdown shows a list different grade levels with a 'copy' button beside. Clicking a grade level, shows a sample paragraph intented for that grade level. Hovering the 'copy button triggers a tooltip saying 'copy'. Clicking the copy button, automatically copies the paragraph assigned to (under) the grade level as clipboard and automatically paste the copied paragraph in the paragraph input box. A javascript alerts informs the user about the automatic copy-paste of the paragraph.
+  The added feature here is similar to credit, a 'Not sure what to enter?' dropdown. The dropdown shows a list different grade levels with a 'copy' button beside. Clicking a grade level, shows a sample paragraph intended for that grade level. Hovering the 'copy button triggers a tooltip saying 'copy'. Clicking the copy button, automatically copies the paragraph assigned to (under) the grade level as clipboard and automatically paste the copied paragraph in the paragraph input box. A javascript alerts informs the user about the automatic copy-paste of the paragraph.
 
-  A downside of using readability is its lack of validity checks. Any character, including digits, special characters, characters from other languages, are accepted as letter which can affect accuracy of the results. Considering the readability test used is intented only for the English language.
+  A downside of using readability is its lack of validity checks. Any character, including digits, special characters, characters from other languages, are accepted as letter which can affect accuracy of the results. Considering the readability test used is intended only for the English language.
 
   ![Readability](static/images/readability.PNG)
 
@@ -161,7 +161,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
   
 - #### **Substitution**
 
-  Subsitution is derivede from [CS50x 2022 Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/substitution/). it is similar to the problem set, key difference is that this has a function to decrypt. The encryption works by mapping the given key (sequence of 26 distinct letters) to the English alphabet. It allows user to encrypt or decrypt, instead of just encrypt in the problem set. If the user decided to encrypt, the result is the ciphertext of the given plaintext. If the user decided to decrypt, the result is the plaintext of the given ciphertext.
+  Substitution is derived from [CS50x 2022 Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/substitution/). it is similar to the problem set, key difference is that this has a function to decrypt. The encryption works by mapping the given key (sequence of 26 distinct letters) to the English alphabet. It allows user to encrypt or decrypt, instead of just encrypt in the problem set. If the user decided to encrypt, the result is the cipher-text of the given plain-text. If the user decided to decrypt, the result is the plain-text of the given cipher-text.
 
   Another additional feature is similar to credit and readability, a 'Not sure what to enter?' dropdown. The dropdown shows a list of different keys with each having a copy button beside it. Hovering the copy button, triggers a tooltip saying 'copy'. Clicking the copy button, copies the key assigned to (beside) it as clipboard and paste the copied key to the key input box. A javascript alert informs the user about the automatic copy-paste of the paragraph.
 
@@ -187,7 +187,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   Filter is derived from [CS50x 2022 Problem Set 4](https://cs50.harvard.edu/x/2022/psets/4/filter/less/). It follows the 'less comfortable' version of Filter. All features from the problem set is present. The four (4) filters available are grayscale, sepia, reflection, and blur. 
 
-  The additional feature here is that it allows user to upload any images (assuming its file extension is valid). For users hesistant to upload an image, there is also a 'random image' button. Clicking random image button opens up 4 images of dogs. Selecting one of them applies the selected filter to the selected image.
+  The additional feature here is that it allows user to upload any images (assuming its file extension is valid). For users hesitant to upload an image, there is also a 'random image' button. Clicking random image button opens up 4 images of dogs. Selecting one of them applies the selected filter to the selected image.
 
   Editing images manually via bitmaps in the problem set is far more complicated than using CSS filers and transforms.
 
@@ -209,7 +209,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   Trivia is derived from [CS50x 2022 Lab 8](https://cs50.harvard.edu/x/2022/labs/8/). The lab itself give us freedom to aks any questions that we want. I personalize it to be a 5 item quiz about the [Philippines](https://en.wikipedia.org/wiki/Philippines). There are 7 multiple choice questions in the pool of questions. Only 5 from the 7 questions are going to be asked. The probability of each question being picked from the pool is random. Clicking submit redirects to the result page. But users must answer all items before the it proceeds to the result page.
 
-  The result page shows the score of user out of 5. Score below 3 are rated as failed. A score of 3 or 4 is rated as passing. And a 5 out of 5 score is rated as perfect. If user has mistakes, a 'see mistakes' button is present. Clicking see mistake button, will show all items answered incorrectly. The user's answer is highlighted as red, and the correct answer is highlighted as green. There are two small dots on top labeled as legends. Hovering the green dot, triggers a tooltip saying 'correct answer.' Hovering red dot, triggeres a tooltip saying 'your answer.'
+  The result page shows the score of user out of 5. Score below 3 are rated as failed. A score of 3 or 4 is rated as passing. And a 5 out of 5 score is rated as perfect. If user has mistakes, a 'see mistakes' button is present. Clicking see mistake button, will show all items answered incorrectly. The user's answer is highlighted as red, and the correct answer is highlighted as green. There are two small dots on top labeled as legends. Hovering the green dot, triggers a tooltip saying 'correct answer.' Hovering red dot, triggers a tooltip saying 'your answer.'
 
   ![Trivia](static/images/trivia.PNG)
 
@@ -255,7 +255,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - ##### **Copyright Year**
 
-    At the footer of every page is a copyright symbol, year, and the developer's name. The year is entered using javascript. Javascript gets the current full year and enter it in the footer. That way the year should change automatically based on the current year. Lessening the maintainance needed.
+    At the footer of every page is a copyright symbol, year, and the developer's name. The year is entered using javascript. Javascript gets the current full year and enter it in the footer. That way the year should change automatically based on the current year. Lessening the maintenance needed.
 
   - ##### **Favicon**
 
@@ -263,7 +263,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - ##### **Fonts and Icons**
 
-    Plenty of icons and fonts used in the web-app are from [Google Fonts](https://fonts.google.com/). Icons inludes favicon, copy button, and info button. Each compiled project has a different font for its title. The font style of the the title of the web-app, Compiled 50, is [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=bebas).
+    Plenty of icons and fonts used in the web-app are from [Google Fonts](https://fonts.google.com/). Icons includes favicon, copy button, and info button. Each compiled project has a different font for its title. The font style of the the title of the web-app, Compiled 50, is [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=bebas).
 
   [Back to the Top](#compiled-50)
 
@@ -273,25 +273,15 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 - [Bootstrap Documentation](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 - [Google Fonts](https://fonts.google.com/)
-
 - [Color Based on Mouse Position](https://www.youtube.com/watch?v=zGKNMm4L-r4)
-
 - [Mario Block](http://pixelartmaker.com/art/d53cda86152db67)
-
 - [Credit Card Template](https://www.figma.com/community/file/934454786523964614)
-
 - [American Express (AMEX) Logo](https://www.pngegg.com/en/png-pswlb)
-
 - [Scrabble Tile Template](https://thekatespanos.com/scrabble-score-calculator/)
-
 - [First Dog in Filter](https://www.google.com/imgres?imgurl=https%3A%2F%2Fhips.hearstapps.com%2Fhmg-prod.s3.amazonaws.com%2Fimages%2Fdog-puppy-on-garden-royalty-free-image-1586966191.jpg&imgrefurl=https%3A%2F%2Fwww.goodhousekeeping.com%2Flife%2Fpets%2Fg4531%2Fcutest-dog-breeds%2F&tbnid=k9xReEDKDkeNKM&vet=12ahUKEwiSxbir04r8AhVEUN4KHe_VBUoQMygFegUIARDqAQ..i&docid=2r6Arj4-hBjhNM&w=1999&h=1499&q=dogs&ved=2ahUKEwiSxbir04r8AhVEUN4KHe_VBUoQMygFegUIARDqAQ)
-
 - [Second Dog in Filter](https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2022%2F05%2F25%2Fgettyimages-917452888-edit_custom-c656c35e4e40bf22799195af846379af6538810c-s1100-c50.jpg&imgrefurl=https%3A%2F%2Fwww.npr.org%2F2022%2F05%2F25%2F1101178609%2Fdog-breeds-are-a-behavioral-myth-sorry&tbnid=eZ7z5QKRWWfQjM&vet=10CBkQMyh0ahcKEwigitGr04r8AhUAAAAAHQAAAAAQAw..i&docid=h1VgN3JK54ZzrM&w=1100&h=761&q=dogs&ved=0CBkQMyh0ahcKEwigitGr04r8AhUAAAAAHQAAAAAQAw)
-
 - [Third Dog in Filter](https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.aspca.org%2Fsites%2Fdefault%2Ffiles%2Fdog-care_general-dog-care_main-image.jpg&imgrefurl=https%3A%2F%2Fwww.aspca.org%2Fpet-care%2Fdog-care%2Fgeneral-dog-care&tbnid=5Ltzy9NuXgAbHM&vet=10CHcQMyieAWoXChMIoIrRq9OK_AIVAAAAAB0AAAAAEAM..i&docid=ERlyPt0D7ftS3M&w=1040&h=500&q=dogs&ved=0CHcQMyieAWoXChMIoIrRq9OK_AIVAAAAAB0AAAAAEAM)
-
 - [Fourth Dog in Filter](https://www.google.com/search?q=why-shiba-inu-was-falling-today&sxsrf=ALiCzsZcxwM-IhxRL9SnCh0_DxoUAvF0LQ:1671624372753&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj19L2H1or8AhUPMd4KHR5-DtMQ_AUoA3oECAEQBQ&biw=1920&bih=969&dpr=1#imgrc=2iE49j6FZZy4zM)
-
 - [Family Tree in Inheritance](https://www.cssscript.com/responsive-hierarchical-organization-chart-pure-css/)
 
 [Back to the Top](#compiled-50)
