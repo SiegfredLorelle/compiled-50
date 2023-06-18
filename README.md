@@ -1,4 +1,4 @@
-# **COMPILED 50**
+# COMPILED 50
 
 #### Website Link: [Compiled 50](https://compiled-50.onrender.com/)
 
