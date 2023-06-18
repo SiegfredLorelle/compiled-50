@@ -1,6 +1,6 @@
 # **COMPILED 50**
 
-#### Video Demo: [Youtube Link](https://youtu.be/UnkQ9v9KPbw)
+#### Website Link: [Compiled 50](https://compiled-50.onrender.com/)
 
 #### Description: A web-based application where projects from CS50x course are compiled.
 
@@ -77,41 +77,46 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 ## How to Use
 
-#### Installation
+#### Visit in the Web
 
-  - Fork [this repository](https://github.com/SiegfredLorelle/compiled-50). [(Not sure how?)](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository)
+Website Link: [Compiled 50](https://compiled-50.onrender.com/)
 
-  - Install [python](https://www.python.org/downloads/) and pip. [(Not sure how?)](https://pip.pypa.io/en/latest/installation/#installation)
+#### Install & Configure your own Compiled 50
+  - ##### Installation
 
-  - Install necessary [python packages](https://github.com/SiegfredLorelle/compiled-50/blob/main/requirements.txt) using pip. [(Not sure how?)](https://pip.pypa.io/en/latest/getting-started/#install-multiple-packages-using-a-requirements-file)
+    - Fork [this repository](https://github.com/SiegfredLorelle/compiled-50). [(Not sure how?)](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository)
 
-  - Try running the command below on the root directory.
+    - Install [python](https://www.python.org/downloads/) and pip. [(Not sure how?)](https://pip.pypa.io/en/latest/installation/#installation)
 
-    ```
-    flask run
-    ```
+    - Install necessary [python packages](https://github.com/SiegfredLorelle/compiled-50/blob/main/requirements.txt) using pip. [(Not sure how?)](https://pip.pypa.io/en/latest/getting-started/#install-multiple-packages-using-a-requirements-file)
 
-  - If an error occurs, try following the steps again.
+    - Try running the command below on the root directory.
 
-  [&#9650; Go Back Top](#compiled-50)
+      ```
+      flask run
+      ```
+
+    - If an error occurs, try following the steps again.
+
+    [&#9650; Go Back Top](#compiled-50)
 
 
-#### Configuration
+  - ##### Configuration
 
-  Your Compiled 50 should work after [installing](#installation). However the ['contact us' feature](#contact-us) won't send the message/email to you. Mail server must be configured that the username and password is from your email. To do this:
+    Your Compiled 50 should work after [installing](#installation). However the ['contact us' feature](#contact-us) won't send the message/email to you. Mail server must be configured that the username and password is from your email. To do this:
 
-  - Add 2-Step Verification on the Google Account you want to receive the message. [(Not sure how?)](https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop)
+    - Add 2-Step Verification on the Google Account you want to receive the message. [(Not sure how?)](https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop)
 
-  - Create an App Password. The given 16-character code will be the password for your the mail server. [(Not sure how?)](https://support.google.com/mail/answer/185833?hl=en)
+    - Create an App Password. The given 16-character code will be the password for your the mail server. [(Not sure how?)](https://support.google.com/mail/answer/185833?hl=en)
 
-  - Create an OS environment variable for username and password [(Windows)](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0) [(Linux)](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/#persistent-environment-variables). Make sure the variable name for username is 'COMPILED50_USERNAME' and variable name for password is 'COMPILED50_PASSWORD'.
-    The environment variable should look like below.
-    ```
-    COMPILED50_USERNAME=YourGmail@gmail.com
-    COMPILED50_PASSWORD=abcdefghijklmnop
-    ```
+    - Create an OS environment variable for username and password [(Windows)](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0) [(Linux)](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/#persistent-environment-variables). Make sure the variable name for username is 'COMPILED50_USERNAME' and variable name for password is 'COMPILED50_PASSWORD'.
+      The environment variable should look like below.
+      ```
+      COMPILED50_USERNAME=YourGmail@gmail.com
+      COMPILED50_PASSWORD=abcdefghijklmnop
+      ```
 
-  - Try sending a message using the 'Contact Us' feature, then check if the email has been sent to your gmail.
+    - Try sending a message using the 'Contact Us' feature, then check if the email has been sent to your gmail.
 
 [&#9650; Go Back Top](#compiled-50)
 
