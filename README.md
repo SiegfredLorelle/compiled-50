@@ -97,11 +97,10 @@ Website Link: [Compiled 50](https://compiled-50.onrender.com/)
     ```
 
   - If an error occurs, try following the steps again.
-ls
+
 [Back to the Top](#compiled-50)
 
-
-- ##### Configuration
+##### Configuration
 
   Your Compiled 50 should work after [installing](#installation). However the ['contact us' feature](#contact-us) won't send the message/email to you. Mail server must be configured that the username and password is from your email. To do this:
 
