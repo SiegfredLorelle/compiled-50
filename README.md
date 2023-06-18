@@ -71,7 +71,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 - [Trivia](#trivia)
 - [Birthday](#birthday)
 
-[Back to the Top](#compiled-50)
+[&#9650; Go Back Top](#compiled-50)
 
 ---
 
@@ -93,7 +93,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - If an error occurs, try following the steps again.
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 
 #### Configuration
@@ -113,7 +113,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - Try sending a message using the 'Contact Us' feature, then check if the email has been sent to your gmail.
 
-[Back to the Top](#compiled-50)
+[&#9650; Go Back Top](#compiled-50)
 
 ---
 
@@ -125,7 +125,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Mario](static/images/mario.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 - #### **Credit**
 
@@ -137,7 +137,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Credit](static/images/credit.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 - #### **Scrabble**
 
@@ -145,7 +145,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Scrabble](static/images/scrabble.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 - #### **Readability**
 
@@ -157,7 +157,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Readability](static/images/readability.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
   
 - #### **Substitution**
 
@@ -169,7 +169,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Substitution](static/images/substitution.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 - #### **Plurality**
 
@@ -181,7 +181,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Plurality](static/images/plurality.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
   
 - #### **Filter**
 
@@ -193,7 +193,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Filter](static/images/filter.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 - #### **Inheritance**
 
@@ -203,7 +203,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Inheritance](static/images/inheritance.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 - #### **Trivia**
 
@@ -213,7 +213,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Trivia](static/images/trivia.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 - #### **Birthday**
 
@@ -223,7 +223,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   ![Birthday](static/images/birthday.png)
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 ---
 
@@ -235,13 +235,13 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   Registering an account, requires a username and password. When logged in, users can manage their account details, allowing them to change their username or password.
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 - #### **Contact Us**
 
   Users may click 'contact us' button on the footer. It opens a modal prompting for a message for the developers. The message is sent via email.
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
   
 - #### **Aesthetics**
 
@@ -265,7 +265,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
     Plenty of icons and fonts used in the web-app are from [Google Fonts](https://fonts.google.com/). Icons includes favicon, copy button, and info button. Each compiled project has a different font for its title. The font style of the the title of the web-app, Compiled 50, is [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=bebas).
 
-  [Back to the Top](#compiled-50)
+  [&#9650; Go Back Top](#compiled-50)
 
 ---
 
@@ -284,7 +284,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 - [Fourth Dog in Filter](https://www.google.com/search?q=why-shiba-inu-was-falling-today&sxsrf=ALiCzsZcxwM-IhxRL9SnCh0_DxoUAvF0LQ:1671624372753&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj19L2H1or8AhUPMd4KHR5-DtMQ_AUoA3oECAEQBQ&biw=1920&bih=969&dpr=1#imgrc=2iE49j6FZZy4zM)
 - [Family Tree in Inheritance](https://www.cssscript.com/responsive-hierarchical-organization-chart-pure-css/)
 
-[Back to the Top](#compiled-50)
+[&#9650; Go Back Top](#compiled-50)
 
 ---
 
@@ -295,4 +295,4 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 - LinkedIn - [Siegfred Lorelle Mina](https://www.linkedin.com/in/siegfred-lorelle-mina)
 
-[Back to the Top](#compiled-50)
+[&#9650; Go Back Top](#compiled-50)
