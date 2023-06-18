@@ -293,6 +293,6 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 - Facebook - [Siegfred Mina](https://www.facebook.com/profile.php?id=1718881634)
 
-- LinkedIn - [Siegfred Lorelle Mina](https://www.linkedin.com/in/siegfred-lorelle-mina-b4900b167)
+- LinkedIn - [Siegfred Lorelle Mina](https://www.linkedin.com/in/siegfred-lorelle-mina)
 
 [Back to the Top](#compiled-50)
