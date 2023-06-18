@@ -101,7 +101,7 @@ Website Link: [Compiled 50](https://compiled-50.onrender.com/)
 [Back to the Top](#compiled-50)
 
 ##### Configuration
-`
+
   Your Compiled 50 should work after [installing](#installation). However the ['contact us' feature](#contact-us) won't send the message/email to you. Mail server must be configured that the username and password is from your email. To do this:
 
   - Add 2-Step Verification on the Google Account you want to receive the message. [(Not sure how?)](https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop)
