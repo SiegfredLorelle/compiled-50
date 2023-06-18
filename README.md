@@ -98,7 +98,7 @@ Website Link: [Compiled 50](https://compiled-50.onrender.com/)
 
     - If an error occurs, try following the steps again.
 
-    [&#9650; Go Back Top](#compiled-50)
+  [Back to the Top](#compiled-50)
 
 
   - ##### Configuration
