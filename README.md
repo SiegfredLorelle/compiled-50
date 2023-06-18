@@ -8,7 +8,7 @@
 
 > A CS50 Compilation and more!
 
-![Homepage](static/images/homepage.PNG)
+![Homepage](static/images/homepage.png)
 
 ---
 
@@ -123,7 +123,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   Mario is derived from [CS50x 2022 Problem Set 1](https://cs50.harvard.edu/x/2022/psets/1/mario/more/). This follows the 'feeling more comfortable' version of Mario. It works exactly the same as the problem set. Height is limited to 1-8 inclusive. The main difference is that the blocks are reperesented as an actual image from [Super Mario Bros.](https://mario.nintendo.com/history/) in the web-app, instead of printing '#' in command line.
 
-  ![Mario](static/images/mario.PNG)
+  ![Mario](static/images/mario.png)
 
   [Back to the Top](#compiled-50)
 
@@ -135,7 +135,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   The downside of Credit is that it is limited to the given constraints of the problem set. Card types does not always align with the given conditions, there are always exceptions. For example, according to the problem set, MasterCard starts with numbers from 51-56, but according to [PayPal](https://developer.paypal.com/api/nvp-soap/payflow/integration-guide/test-transactions/#standard-test-cards) some MasterCard starts at 2.
 
-  ![Credit](static/images/credit.PNG)
+  ![Credit](static/images/credit.png)
 
   [Back to the Top](#compiled-50)
 
@@ -143,7 +143,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   Scrabble is derived from [CS50x 2022 Lab 2](https://cs50.harvard.edu/x/2022/labs/2/). It works slightly different from the lab. This only asks one word from the user, instead of asking two words in the lab. It only shows the total score of given word (with each letters' score), instead of comparing the score of the two words in lab. It is also stricter in terms of accepting words. Before showing the score of the word, it verifies the validity of the world by checking it to a dictionary. The dictionary used is the large dictionary from [CS50x 2022 Week 5 Problem Set 5: Speller](https://cs50.harvard.edu/x/2022/psets/5/speller/).
 
-  ![Scrabble](static/images/scrabble.PNG)
+  ![Scrabble](static/images/scrabble.png)
 
   [Back to the Top](#compiled-50)
 
@@ -155,7 +155,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   A downside of using readability is its lack of validity checks. Any character, including digits, special characters, characters from other languages, are accepted as letter which can affect accuracy of the results. Considering the readability test used is intended only for the English language.
 
-  ![Readability](static/images/readability.PNG)
+  ![Readability](static/images/readability.png)
 
   [Back to the Top](#compiled-50)
   
@@ -167,7 +167,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   The downside of substitution is that entering with incorrect/lacking inputs will clear the input boxes. A possible fix would be to check the inputs from the front-end using javascript, preventing incorrect/lacking inputs to reach the back-end (flask).
 
-  ![Substitution](static/images/substitution.PNG)
+  ![Substitution](static/images/substitution.png)
 
   [Back to the Top](#compiled-50)
 
@@ -179,7 +179,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   The next step is voting phase. Each voters cast their vote by selecting the name of the candidate. Similar to the previous step, a progress bar is present. The progress bar represent the progress in voting. Empty bar means no votes has been cast yet. Full bar means all voters have casted their votes. The result can be seen in a table below, updating with each cast of votes. If all voters have voted, then the winner will be presented. User can also see the final tally of votes by clicking the 'see result' button.
 
-  ![Plurality](static/images/plurality.PNG)
+  ![Plurality](static/images/plurality.png)
 
   [Back to the Top](#compiled-50)
   
@@ -191,7 +191,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   Editing images manually via bitmaps in the problem set is far more complicated than using CSS filers and transforms.
 
-  ![Filter](static/images/filter.PNG)
+  ![Filter](static/images/filter.png)
 
   [Back to the Top](#compiled-50)
 
@@ -201,7 +201,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   A downside of inheritance is its implementation. The code could use a more efficient algorithm and a better data structure instead of using conditionals to all possible outcomes.
 
-  ![Inheritance](static/images/inheritance.PNG)
+  ![Inheritance](static/images/inheritance.png)
 
   [Back to the Top](#compiled-50)
 
@@ -211,7 +211,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   The result page shows the score of user out of 5. Score below 3 are rated as failed. A score of 3 or 4 is rated as passing. And a 5 out of 5 score is rated as perfect. If user has mistakes, a 'see mistakes' button is present. Clicking see mistake button, will show all items answered incorrectly. The user's answer is highlighted as red, and the correct answer is highlighted as green. There are two small dots on top labeled as legends. Hovering the green dot, triggers a tooltip saying 'correct answer.' Hovering red dot, triggers a tooltip saying 'your answer.'
 
-  ![Trivia](static/images/trivia.PNG)
+  ![Trivia](static/images/trivia.png)
 
   [Back to the Top](#compiled-50)
 
@@ -221,7 +221,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   The downside of birthday is in the implementation of sorting by upcoming date. There seems to be bug where sometimes it does not sort it properly. Adding more person or refreshing the page fixes the bug.
 
-  ![Birthday](static/images/birthday.PNG)
+  ![Birthday](static/images/birthday.png)
 
   [Back to the Top](#compiled-50)
 
