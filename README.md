@@ -56,7 +56,7 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 - Flask 2
 - SQLite 3
 - Bootstrap 5.1
-- HTML, CSS, Javascript
+- HTML, CSS, JavaScript
 
 #### Compiled Projects
 
