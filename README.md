@@ -1,6 +1,6 @@
 # **COMPILED 50**
 
-#### Video Demo: [Youtube Link](https://youtu.be/UnkQ9v9KPbw)
+#### Website Link: [Compiled 50](https://compiled-50.onrender.com/)
 
 #### Description: A web-based application where projects from CS50x course are compiled.
 
@@ -77,7 +77,12 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
 ## How to Use
 
-#### Installation
+#### Visit in the Web
+
+Website Link: [Compiled 50](https://compiled-50.onrender.com/)
+
+#### Install & Configure your own Compiled 50
+##### Installation
 
   - Fork [this repository](https://github.com/SiegfredLorelle/compiled-50). [(Not sure how?)](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository)
 
@@ -93,10 +98,9 @@ It is a responsive web-based application where most project from [CS50x 2022 cou
 
   - If an error occurs, try following the steps again.
 
-  [&#9650; Go Back Top](#compiled-50)
+[Back to the Top](#compiled-50)
 
-
-#### Configuration
+##### Configuration
 
   Your Compiled 50 should work after [installing](#installation). However the ['contact us' feature](#contact-us) won't send the message/email to you. Mail server must be configured that the username and password is from your email. To do this:
 
